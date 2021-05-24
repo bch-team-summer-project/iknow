@@ -1,0 +1,72 @@
+.container {
+  width: 100%;
+  min-height: 55vh;
+  scroll-behavior: smooth;
+}
+
+.container * + * {
+  margin-top: 0.001rem;
+}
+
+.buttons {
+  margin-top: 0;
+}
+h1{
+  font-size: 45px;
+  color: white;
+}
+.recipeDescp{
+  color: white;
+  max-width: 65ch;
+  font-weight: 200;
+  font-size: 25px;
+  font-family: "Courgette", cursive;
+  line-height: 1.8;
+}
+p
+ {
+  color: white;
+  max-width: 65ch;
+  font-weight: 200;
+  font-size: 20px;
+}
+.form-control{
+  margin-top: -0.1rem;
+}
+.col{
+  margin: 0.1rem;
+}
+.row {
+  margin-top: -3rem;
+}
+.btn-success {
+  display: flex;
+  justify-content: center;
+  margin-top: -3rem;
+  right: 2rem;
+}
+.btn-outline-success{
+  display: flex;
+
+  margin-left: 15rem;
+  margin-bottom: -2rem;
+}
+
+
+.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 45px;
+  margin-bottom: -0.5rem;
+}
+¨ .bg-dark {
+  background-color: black;
+}
+.addMore{
+  padding:1rem;
+}
+.formButton{
+  display: flex;
+  justify-content: space-between;
+}

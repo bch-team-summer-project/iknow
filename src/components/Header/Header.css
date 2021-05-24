@@ -1,0 +1,21 @@
+header {
+  align-items: center;
+  border-bottom: 0.5px solid #f3dea6;
+ 
+}
+img {
+  display: inline-block;
+  width: 200px;
+  margin: 0 auto;
+  margin-top: -2.5rem;
+}
+
+li {
+  display: inline-block;
+  margin-left: 2.5rem;
+}
+
+ul {
+  margin-right: 2.2rem;
+
+}

@@ -1,0 +1,17 @@
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 3.2rem;
+    display: flex;
+    align-items: center;
+    color:#eb892e;
+    border-top: 0.5px solid #f3dea6;
+    padding: 10px 0;
+  }
+  .text{
+    color:#eb892e;
+    font-size: 20px;
+    margin: 0 auto;
+    font-family: "Courgette", cursive;
+  }
