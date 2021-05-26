@@ -1,4 +1,9 @@
-import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router } from "react-router-dom";
+
+import Header from "./Header/Header";
+import Main from "./Main/Main";
+import Footer from "./Footer/Footer";
+
 import "./App.css";
 import { BrowserRouter as Router } from "react-router-dom";
 import React, { Component } from "react";
@@ -8,28 +13,16 @@ import Header from "./components/Header/Header";
 import Main from "./components/main/Main";
 import Footer from "./components/Footer/Footer";
 
-class App extends Component {
-  getRecipe = (event) => {
-    event.preventDefault();
-    console.log("working");
-  };
-  render() {
-    return (
+function App() {
+  return (
+    <div className="container">
       <Router>
-        <Container>
-          <Row>
-            <Header />
-          </Row>
-          <Row>
-            <Main />
-          </Row>
-          <Row>
-            <Footer />
-          </Row>
-        </Container>
+        <Header />
+        <Main />
+        <Footer />
       </Router>
-    );
-  }
+    </div>
+  );
 }
 
 export default App;
