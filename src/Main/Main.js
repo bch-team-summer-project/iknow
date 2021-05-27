@@ -1,5 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+import Beaches from "../Component/BeachTemp/Beaches";
 import Home from "./Home";
 
 const Main = () => {
@@ -11,7 +12,9 @@ const Main = () => {
           <Home />
         </Route>
         <Route path="/events"></Route>
-        <Route path="/water"></Route>
+        <Route path="/water">
+          <Beaches/>
+        </Route>
         <Route path="/lost"></Route>
         <Route path="/laundry"></Route>
       </Switch>
