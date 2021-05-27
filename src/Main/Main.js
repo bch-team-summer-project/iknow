@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Beaches from "../Component/BeachTemp/Beaches";
+import Beaches from "./BeachTemp/Beaches";
 import Home from "./Home";
 
 const Main = () => {
