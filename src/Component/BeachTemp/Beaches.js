@@ -5,23 +5,20 @@ const Beaches = () => {
   const [beaches, setBeaches] = useState([]);
 
   useEffect(() => {
-    fetch("https://iknow-backend.herokuapp.com/beachtemp")
+    fetch("http://localhost:8080/beachTemp")
       .then((response) => response.json())
       .then((responseJson) => {
         console.log(responseJson);
         setBeaches(responseJson);
       });
   }, []);
-
-
   const renderedResult = (
-    <div >
+    <div>
       {beaches.map((beachTemp) => (
         <BeachTempratureCard beachTemprature={beachTemp} />
       ))}
     </div>
   );
-
   return renderedResult;
 };
 

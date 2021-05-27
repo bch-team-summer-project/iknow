@@ -1,15 +1,9 @@
 
-
+import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./Header/Header";
 import Main from "./Main/Main";
 import Footer from "./Footer/Footer";
-
 import "./App.css";
-<<<<<<< HEAD
-=======
-import { BrowserRouter as Router } from "react-router-dom";
->>>>>>> aaf17f4 (resolving merge conflicts)
-
 
 function App() {
   return (

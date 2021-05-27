@@ -1,15 +1,11 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import "./BeachTemprature.css"
 
 
 
 const BeachTempratureCard = ({beachTemprature}) => {
-  const truncate = (str, no_words) => {
-    return str.split(" ").splice(0, no_words).join(" ");
-  };
-
   return (
-  
     <Card key={beachTemprature.id}>
       <Card.Img variant="top" src={beachTemprature.image} alt={beachTemprature.name} />
       <Card.Body>
