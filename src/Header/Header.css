@@ -9,6 +9,7 @@ header {
 header ul li {
   display: inline;
   margin: 0 1rem;
+  font-size: 30px;
 }
 
 .logo {
@@ -24,10 +25,10 @@ header ul li {
 }
 
 nav {
-  margin-top: 1.4rem;
+  margin-top: 1.1rem;
 }
 
-nav a {
+header a {
   color: var(--text-color);
   text-decoration: none;
 }
