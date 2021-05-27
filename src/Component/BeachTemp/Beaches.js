@@ -5,7 +5,7 @@ const Beaches = () => {
   const [beaches, setBeaches] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/beachTemp")
+    fetch("https://iknow-backend.herokuapp.com/beachtemp")
       .then((response) => response.json())
       .then((responseJson) => {
         console.log(responseJson);
