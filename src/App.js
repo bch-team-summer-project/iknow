@@ -1,7 +1,9 @@
-import "./App.css";
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import LostFound from "./Components/LostAndFound/LostFound";
 
-function App() {
-  return <div>Hello from iknow</div>;
-}
+const App = () => {
+  return <LostFound />;
+};
 
 export default App;
