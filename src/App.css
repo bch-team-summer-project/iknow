@@ -24,12 +24,10 @@ input {
   font-size: 20px;
 }
 
-.container {
+#root {
   max-width: 1700px;
 }
 
 main {
   min-height: 30rem;
 }
-
-

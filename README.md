@@ -2,6 +2,18 @@
 
 ## Name: Iknow
 
+## Design
+
+![Markdown Logo](public/assets/images/preview.jpg)
+
+### Figma design: is [here](https://www.figma.com/file/N7nNNqAgPQIwLQiqGKfoUB/Summer-team-project?node-id=15%3A0)
+
+### Live page is [here](https://iknow-tau.vercel.app/)
+
+### Backend page is [here](https://iknow-backend.herokuapp.com/)
+
+#
+
 ## Idea: make life easier for uusima area citizens to know about:
 
 - offline/online events
