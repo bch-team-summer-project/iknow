@@ -1,0 +1,78 @@
+::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+}
+::-webkit-scrollbar-button {
+  width: 1px;
+  height: 1px;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+.horizontal-scroll {
+  width: 100vh;
+  height: 40vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 30px;
+  transform-origin: right top;
+  transform: rotate(-90deg) translate3d(0, -100vh, 0);
+}
+.horizontal-scroll > * {
+  transform-origin: left top;
+  transform: rotate(90deg) translate3d(0, calc(-100vh + 60px), 0);
+}
+.horizontal-scroll__block {
+  width: calc(100vh - 60px);
+  height: calc(100vh - 60px);
+  background: #fdfffc;
+  position: relative;
+}
+.horizontal-scroll__block:not(:first-child) {
+  margin-top: 30px;
+}
+.horizontal-scroll__block .background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: no-repeat center center/cover;
+  opacity: 0.8;
+  background-blend-mode: luminosity;
+}
+.horizontal-scroll__block .letter {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  font-weight: normal;
+  font-size: 12em;
+  font-family: "Playfair Display", serif;
+  color: white;
+}
+.horizontal-scroll__block--purple .background {
+  background-color: #52489c;
+}
+.horizontal-scroll__block--yellow .background {
+  background-color: #ecc30b;
+}
+.horizontal-scroll__block--orange .background {
+  background-color: #f37748;
+}
+.horizontal-scroll__block--blue .background {
+  background-color: #4d9de0;
+}
+.horizontal-scroll__block--green .background {
+  background-color: #00bd9d;
+}
+.horizontal-scroll__block--pink .background {
+  background-color: #fb9f89;
+}
