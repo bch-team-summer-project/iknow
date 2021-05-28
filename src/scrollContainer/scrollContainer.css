@@ -19,7 +19,7 @@
   height: 130vw; /* width */
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 30px;
+  padding: 10px;
   transform-origin: right top;
   transform: rotate(-90deg) translate3d(0, -100vh, 0);
 }
@@ -41,8 +41,9 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background: no-repeat center center/cover;
-  opacity: 0.8;
+  /* background: no-repeat center center/cover; */
+  background-size: 100% 51%;
+  opacity: 0.7;
   background-blend-mode: luminosity;
 }
 .horizontal-scroll__block .card-text {
@@ -54,23 +55,23 @@
   left: 70%;
   transform: translate3d(-50%, -50%, 0);
   font-weight: normal;
-  font-size: 3em;
+  font-size: 4rem;
   font-family: "Playfair Display", serif;
   /* color: white; */ /* inline-styling each-color separetely*/
 }
 .horizontal-scroll__block--purple .background {
   /* background-color: #52489c; */
-  background-color: #ff9a04;
+  /* background-color: #ff9a04; */
 }
 .horizontal-scroll__block--yellow .background {
   /* background-color: #ecc30b; */
-  background-color: #285adb;
+  /* background-color: #285adb; */
 }
 .horizontal-scroll__block--orange .background {
-  background-color: #1bc100;
+  /*  background-color: #1bc100; */
 }
 .horizontal-scroll__block--blue .background {
-  background-color: #93dded;
+  /* background-color: #93dded; */
 }
 .horizontal-scroll__block--green .background {
   /* not in use */
@@ -78,4 +79,15 @@
 }
 .horizontal-scroll__block--pink .background {
   /* background-color: #fb9f89; */
+}
+
+@media only screen and (max-width: 600px) {
+  .horizontal-scroll__block .card-text {
+    font-size: 3rem;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .horizontal-scroll__block .card-text {
+    font-size: 2.5rem;
+  }
 }
