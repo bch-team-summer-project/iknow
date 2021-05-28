@@ -3,6 +3,7 @@ import axios from "axios";
 import FoundCard from "./FoundCard";
 import LostCard from "./LostCard";
 import SearchBox from "./SearchBox";
+import AddForm from "./AddForm";
 import "./LostFound.css";
 
 const LostFound = () => {
@@ -69,6 +70,10 @@ const LostFound = () => {
       <div className="found-list">{listFound}</div>
       <h2>Lost items</h2>
       <div className="lost-list">{listLost}</div>
+      <div>
+        <h2>Add found/lost item</h2>
+        <AddForm />
+      </div>
     </div>
   );
 };

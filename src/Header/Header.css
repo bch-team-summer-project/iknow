@@ -1,0 +1,41 @@
+header {
+  background-color: #fff;
+  display: flex;
+  flex-direction: raw;
+  justify-content: space-between;
+  padding: 1rem 1rem 1rem 2rem;
+}
+
+header ul li {
+  display: inline;
+  margin: 0 1rem;
+}
+
+.logo {
+  font-weight: 900;
+  font-style: italic;
+  font-size: 40px;
+}
+
+.logoimg {
+  max-width: 3rem;
+  position: relative;
+  top: 0.2rem;
+}
+
+nav {
+  margin-top: 1.4rem;
+}
+
+nav a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--orange);
+}
+
+nav .active {
+  color: var(--orange);
+}

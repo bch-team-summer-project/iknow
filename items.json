@@ -1,42 +1,49 @@
 { "items": [
-      {
-        "id": 1,
-        "category":"lost",
-        "name": "wallet",
-        "img": "https://thevintagebar.imgix.net/krodkTIJftjKwtlwC8w0RqUBIXutaco42zwTZhiN/jpg?h=480&w=480",
-        "location": "Laajavuorenkuja 1, Vantaa, 01620",
-        "date": "25.05.2021, 15:00",
-        "description": "Lost my wallet near of the K Market shop. Color brown. Please contact me by email:name.surname@gmail.com"
-      },  
-   {
-        "id": 2,
-        "category":"found",
-        "name": "Sport bag",
-        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPZe3kIdZ62lo_f8-MrR_DuToGfXHWal001lMh4NbFzqcgH7ImgeizzQnpNxnQMcrBjDE&usqp=CAU",
-        "location": "Lehtimäentie 1C, Espoo, 02770",
-        "date": "26.05.2021, 8:00",
-        "description": "Found sport bag new of Omnia school. Brand- addidas, color-dark blue",
-        "placeOrigin": "Nihtisillankuja 4, Espoo, 02631"
-      },
-      {
-        "id": 3,
-        "category":"lost",
-        "name": "dog",
-        "img": 
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/American_Eskimo_Dog.jpg/1280px-American_Eskimo_Dog.jpg",
-        "location": "Laajavuorenkuja 1, Vantaa, 01620",
-        "date": "25.05.2021, 15:00",
-        "description": "Lost my wallet near of the K Market shop. Color brown. Please contact me by email:name.surname@gmail.com"
-      },    
-   {
-        "id": 4,
-        "category":"found",
-        "name": "cat",
-        "img": "https://developer.ridgerun.com/wiki/images/8/80/Egyptian_cat.jpg",
-        "location": "Lehtimäentie 1C, Espoo, 02770",
-        "date": "26.05.2021, 8:00",
-        "description": "Found sport bag new of Omnia school. Brand- addidas, color-dark blue",
-        "placeOrigin": "Nihtisillankuja 4, Espoo, 02631"
-      }
-    ]
-  }
+  {
+    "id": 1,
+    "category": "lost",
+    "name": "wallet",
+    "img": [
+      "/wallet"
+    ],
+    "location": "Laajavuorenkuja 1, Vantaa, 01620",
+    "date": "25.05.2021, 15:00",
+    "description": "Lost my wallet near of the K Market shop. Color brown. Please contact me by email:name.surname@gmail.com",
+    "placeOrigin": ""
+  },
+  {
+    "id": 2,
+    "category": "found",
+    "name": "Sport bag",
+    "img": [
+      "/sportBag"
+    ],
+    "location": "Lehtimäentie 1C, Espoo, 02770",
+    "date": "26.05.2021, 8:00",
+    "description": "Found sport bag new of Omnia school. Brand- addidas, color-dark blue",
+    "placeOrigin": "Nihtisillankuja 4, Espoo, 02631"
+  },
+  {
+    "id": 3,
+    "category": "lost",
+    "name": "dog",
+    "img": [
+      "/dog"
+    ],
+    "location": "Laajavuorenkuja 1, Vantaa, 01620",
+    "date": "25.05.2021, 15:00",
+    "description": "Lost my wallet near of the K Market shop. Color brown. Please contact me by email:name.surname@gmail.com",
+    "placeOrigin": ""
+  },
+  {
+    "id": 4,
+    "category": "found",
+    "name": "cat",
+    "img": [
+      "/cat"
+    ],
+    "location": "Lehtimäentie 1C, Espoo, 02770",
+    "date": "26.05.2021, 8:00",
+    "description": "Found sport bag new of Omnia school. Brand- addidas, color-dark blue",
+    "placeOrigin": "Nihtisillankuja 4, Espoo, 02631"
+  }]}
