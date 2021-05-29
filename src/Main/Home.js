@@ -9,6 +9,7 @@ const Home = () => {
       <br />
       <br />
       <ScrollContainer />
+      <div style={{height: "200px", width:"100vw", backgroundColor: "orange"}}>DIVDIV</div>
       </div>
     );
 };

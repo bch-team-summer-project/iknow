@@ -1,93 +1,123 @@
-::-webkit-scrollbar {
-  width: 1px;
-  height: 1px;
-}
-::-webkit-scrollbar-button {
-  width: 1px;
-  height: 1px;
+/* --- DESKTOP --- */
+/* one or more available input mechanism(s) can hover over elements with ease */ /* -> desktop or laptop version of scroll*/
+@media (any-hover: hover) {
+  ::-webkit-scrollbar {
+    width: 1px;
+    height: 1px;
+  }
+  ::-webkit-scrollbar-button {
+    width: 1px;
+    height: 1px;
+  }
+
+  .scroll-container-parent {
+    height: 40vh;
+  }
+  .horizontal-scroll {
+    margin-left: 30vw;
+    width: 40vh; /* height */
+    height: 100vw; /* width */
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px;
+    transform-origin: right top;
+    transform: rotate(-90deg) translate3d(0, -100vh, 0);
+  }
+  .horizontal-scroll > * {
+    transform-origin: left top;
+    transform: rotate(90deg) translate3d(0, calc(-100vh + 60px), 0);
+  }
+  .horizontal-scroll__block {
+    width: 90vh;
+    height: 90vh;
+    position: relative;
+  }
+  .horizontal-scroll__block:not(:first-child) {
+    margin-top: 30px; /* left margin*/
+  }
+  .horizontal-scroll__block .background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* background: no-repeat center center/cover; */
+    background-size: 100% 51%;
+    opacity: 0.9;
+  }
+  .horizontal-scroll__block .card-text {
+    display: inline-block;
+    position: absolute;
+    top: 80%;
+    right: auto;
+    bottom: auto;
+    left: 70%;
+    transform: translate3d(-50%, -50%, 0);
+    font-weight: normal;
+    font-size: 3.5rem;
+    font-family: "Playfair Display", serif;
+    /* color: white; */ /* inline-styling each-color separetely*/
+  }
 }
 
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
+/* --- MOBILE --- */
+/* one or more available input mechanism(s) cannot hover or there are no pointing input mechanisms */
+@media (any-hover: none) {
+  body {
+    background-color: purple;
+  }
+  .scroll-container-parent {
+    background-color: bisque;
+    height: 40vh;
+  }
+  .horizontal-scroll {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+  .horizontal-scroll__block {
+    min-width: 40vw;
+    position: relative;
+  }
+  .horizontal-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  .horizontal-scroll__block .background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* background: no-repeat center center/cover; */
+    /*background-size: 100% 51%;*/
+    background: no-repeat;
+    background-size: cover;
+    opacity: 0.9;
+  }
+  .horizontal-scroll__block .card-text {
+    font-size: 1.5em;
+  }
+}
+/* one or more available input mechanism(s) can hover, but not with ease (for example simulating the hovering when performing a long touch) */ /* =detecting mobile device */
+@media (any-hover: on-demand) {
 }
 
-.horizontal-scroll {
-  margin-left: 30vw;
-  width: 40vh; /* height */
-  height: 130vw; /* width */
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding: 10px;
-  transform-origin: right top;
-  transform: rotate(-90deg) translate3d(0, -100vh, 0);
-}
-.horizontal-scroll > * {
-  transform-origin: left top;
-  transform: rotate(90deg) translate3d(0, calc(-100vh + 60px), 0);
-}
-.horizontal-scroll__block {
-  width: calc(100vh - 60px);
-  height: calc(100vh - 60px);
-  position: relative;
-}
-.horizontal-scroll__block:not(:first-child) {
-  margin-top: 30px; /* left margin*/
-}
-.horizontal-scroll__block .background {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  /* background: no-repeat center center/cover; */
-  background-size: 100% 51%;
-  opacity: 0.7;
-  background-blend-mode: luminosity;
-}
-.horizontal-scroll__block .card-text {
-  display: inline-block;
-  position: absolute;
-  top: 80%;
-  right: auto;
-  bottom: auto;
-  left: 70%;
-  transform: translate3d(-50%, -50%, 0);
-  font-weight: normal;
-  font-size: 4rem;
-  font-family: "Playfair Display", serif;
-  /* color: white; */ /* inline-styling each-color separetely*/
-}
-.horizontal-scroll__block--purple .background {
-  /* background-color: #52489c; */
+.horizontal-scroll__block--one .background {
   /* background-color: #ff9a04; */
 }
-.horizontal-scroll__block--yellow .background {
-  /* background-color: #ecc30b; */
+.horizontal-scroll__block--two .background {
   /* background-color: #285adb; */
 }
-.horizontal-scroll__block--orange .background {
+.horizontal-scroll__block--three .background {
   /*  background-color: #1bc100; */
 }
-.horizontal-scroll__block--blue .background {
+.horizontal-scroll__block--four .background {
   /* background-color: #93dded; */
 }
-.horizontal-scroll__block--green .background {
+.horizontal-scroll__block--five .background {
   /* not in use */
   /* background-color: #00bd9d; */
 }
-.horizontal-scroll__block--pink .background {
+.horizontal-scroll__block--six .background {
   /* background-color: #fb9f89; */
-}
-
-@media only screen and (max-width: 600px) {
-  .horizontal-scroll__block .card-text {
-    font-size: 3rem;
-  }
-}
-@media only screen and (max-width: 1000px) {
-  .horizontal-scroll__block .card-text {
-    font-size: 2.5rem;
-  }
 }
