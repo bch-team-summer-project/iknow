@@ -1,0 +1,27 @@
+.lost-list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .lost-card {
+    background: #f4f4f4;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #333;
+    padding: 1rem;
+  }
+
+  .found-list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 1rem;
+    padding: 1rem;
+  }
+
+  .found-card {
+    background: #f4f4f4;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #333;
+    padding: 1rem;
+  }
