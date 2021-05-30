@@ -7,7 +7,6 @@ import LostFound from "../Components/LostAndFound/LostFound";
 const Main = () => {
   return (
     <main>
-      This is main part
       <Switch>
         <Route path="/" exact>
           <Home />
@@ -18,7 +17,7 @@ const Main = () => {
         <Route path="/lost" component={LostFound}></Route>
 =======
         <Route path="/water">
-          <Beaches/>
+          <Beaches />
         </Route>
         <Route path="/lost"></Route>
 >>>>>>> upstream/main
