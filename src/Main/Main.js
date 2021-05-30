@@ -6,14 +6,13 @@ import Home from "./Home";
 const Main = () => {
   return (
     <main>
-      This is main part
       <Switch>
         <Route path="/" exact>
           <Home />
         </Route>
         <Route path="/events"></Route>
         <Route path="/water">
-          <Beaches/>
+          <Beaches />
         </Route>
         <Route path="/lost"></Route>
         <Route path="/laundry"></Route>
