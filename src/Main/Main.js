@@ -12,15 +12,12 @@ const Main = () => {
           <Home />
         </Route>
         <Route path="/events"></Route>
-<<<<<<< HEAD
-        <Route path="/water"></Route>
-        <Route path="/lost" component={LostFound}></Route>
-=======
         <Route path="/water">
           <Beaches />
         </Route>
-        <Route path="/lost"></Route>
->>>>>>> upstream/main
+        <Route path="/lost">
+          <LostFound />
+        </Route>
         <Route path="/laundry"></Route>
       </Switch>
     </main>

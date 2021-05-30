@@ -31,13 +31,14 @@ a:hover {
 h5 {
   margin-top: 2rem;
   font-weight: 800;
-  font-size: 25px;
+  font-size: 30px;
+  padding: 20px 8px 0px 8px;
 }
-
 .card-text {
   color: #1f1818;
   max-width: 500px;
-  margin-top: 2rem;
+  margin-top: 1rem;
+  padding: 1rem;
 }
 .card-img-top {
   position: relative;
