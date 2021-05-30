@@ -16,8 +16,8 @@ const BeachTempratureCard = ({ beachTemprature }) => {
         <Card.Text
           style={
             beachTemprature.waterTemp > 10
-              ? { "background-color": "orange" }
-              : { "background-color": "#42b6f5" }
+              ? { "backgroundColor": "orange" }
+              : { "backgroundColor": "#42b6f5" }
           }
         >
           {"Water temprature is " + beachTemprature.waterTemp + "°C "}
