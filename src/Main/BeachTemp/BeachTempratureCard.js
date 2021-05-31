@@ -6,11 +6,13 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 const BeachTempratureCard = ({ beachTemprature }) => {
   return (
     <Card key={beachTemprature.id}>
+  
       <Card.Img
         variant="top"
         src={beachTemprature.image}
         alt={beachTemprature.name}
       />
+    
       <Card.Body>
         <Card.Title><span><LocationOnIcon/></span>{beachTemprature.beachName}</Card.Title>
         <Card.Text
