@@ -15,7 +15,7 @@
 
 .horizontal-scroll {
   margin-left: 30vw;
-  width: 40vh; /* height */
+  /* width: 40vh; /* height */
   height: 130vw; /* width */
   overflow-y: auto;
   overflow-x: hidden;
@@ -42,9 +42,9 @@
   bottom: 0;
   left: 0;
   /* background: no-repeat center center/cover; */
-  background-size: 100% 51%;
+  /* background-size: 100% 51%;
   opacity: 0.7;
-  background-blend-mode: luminosity;
+  background-blend-mode: luminosity; */
 }
 .horizontal-scroll__block .card-text {
   display: inline-block;
