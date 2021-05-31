@@ -14,6 +14,7 @@ const BeachTempratureCard = ({ beachTemprature }) => {
       <Card.Body>
         <Card.Title><span><LocationOnIcon/></span>{beachTemprature.beachName}</Card.Title>
         <Card.Text
+        
           style={
             beachTemprature.waterTemp > 10
               ? { "backgroundColor": "orange" }
