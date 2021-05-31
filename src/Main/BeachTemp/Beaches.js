@@ -15,7 +15,9 @@ const Beaches = () => {
       const beachesResponse = await axios(
         "https://iknow-backend.herokuapp.com/beachTemp"
       );
-      const citiesResponse = await axios("https://iknow-backend.herokuapp.com/weather/");
+      const citiesResponse = await axios(
+        "https://iknow-backend.herokuapp.com/weather/"
+      );
       console.log(citiesResponse.data);
       setBeaches(beachesResponse.data);
       setCities(citiesResponse.data);
@@ -25,11 +27,7 @@ const Beaches = () => {
   const renderedResult = (
     <Container>
       <Row>
-        <div className="bikerImage">
-          <img src={logo} width="200" height="100" />
-        </div>
-      </Row>
-      <Row>
+        <img src={logo} width="400" height="300" />
         {cities.map((cityWeather) => (
           <CityWeatherCard key={cityWeather.id} cityWeather={cityWeather} />
         ))}
