@@ -26,7 +26,7 @@ const LostFound = () => {
   });
 
   const listFound = itemFoundFilter.map((found) => {
-    console.log(found);
+    console.log(found.category);
     return (
       <FoundCard
         key={found.id}
@@ -34,12 +34,15 @@ const LostFound = () => {
         name={found.name}
         date={found.date}
         location={found.location}
+        placeOrigin={found.placeOrigin}
         description={found.description}
+        id={found.id}
       />
     );
   });
 
   const itemLostFilter = items.filter((item) => {
+    console.log(item);
     return (
       item.category === "lost" &&
       item.name.toLowerCase().includes(searchInput.toLowerCase())
@@ -56,6 +59,7 @@ const LostFound = () => {
         date={lost.date}
         location={lost.location}
         description={lost.description}
+        id={lost.id}
       />
     );
   });
