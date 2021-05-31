@@ -52,4 +52,7 @@ h5 {
   height: 250px;
   top: 2.5rem;
   right: 1rem;
+  box-shadow: 20px 0 0 20px #f5efef;
 }
+
+
