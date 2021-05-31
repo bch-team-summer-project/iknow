@@ -41,15 +41,12 @@ const AddForm = () => {
           <Form.Control
             as="select"
             name="category"
-            onChange={(changeData, showSelect)}
+            value={data.category}
+            onChange={changeData}
           >
-            <option name="category" value="found">
-              Found
-            </option>
+            <option value="found">Found</option>
 
-            <option name="category" value="lost">
-              Lost
-            </option>
+            <option value="lost">Lost</option>
           </Form.Control>
         </Form.Group>
 

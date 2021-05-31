@@ -1,45 +1,71 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 import "./scrollContainer.css";
 
 const ScrollContainer = () => {
   return (
     <div className="scroll-container-parent">
-    <div className="horizontal-scroll">
+      <div className="horizontal-scroll">
         <div className="horizontal-scroll__block horizontal-scroll__block--one">
-          <a href="/events">
-          <div className="background" style={{backgroundImage: "url(images/events_card_img.png)", color: "orange"}}></div>
-          <span className="card-text" style={{color: "#EB3204"}}>Uusimaa Events</span>
-          </a>
+          <Link to="/events">
+            <div className="background orange">
+              <div className="scroller-circle">
+                <img src="/assets/images/home/uusina.png" alt="uusima events" />
+              </div>
+            </div>
+            <span className="card-text uusima">Uusimaa Events</span>
+          </Link>
         </div>
         <div className="horizontal-scroll__block horizontal-scroll__block--two">
-          <a href="/water">
-          <div className="background" style={{backgroundImage: "url(images/beach_card_img.png"}}></div>
-          <span className="card-text" style={{color: "#0046FB"}}>Beach temperature</span>
-          </a>
+          <Link to="/water">
+            <div className="background blue">
+              <div className="scroller-circle">
+                <img
+                  src="/assets/images/home/beach.png"
+                  alt="water temperature"
+                />
+              </div>
+            </div>
+            <span className="card-text beach">Beach Water t&#8451;</span>
+          </Link>
         </div>
         <div className="horizontal-scroll__block horizontal-scroll__block--three">
-          <a href="/lost">
-          <div className="background" style={{backgroundImage: "url(images/lost_found_card_img.png"}}></div>
-          <span className="card-text" style={{color: "#126604"}}>Lost &amp; Found</span>
-          </a>
+          <Link to="lost">
+            <div className="background green">
+              <div className="scroller-circle">
+                <img src="/assets/images/home/lost.png" alt="lost and found" />
+              </div>
+            </div>
+            <span className="card-text lost">Lost &amp; Found</span>
+          </Link>
         </div>
         <div className="horizontal-scroll__block horizontal-scroll__block--four">
-          <a href="/laundry">
-          <div className="background" style={{backgroundImage: "url(images/laundry_card_img.png)"}}></div>
-          <span className="card-text" style={{color: "#126604"}}>Laundry Booking</span>
-          </a>
+          <Link to="laundry">
+            <div className="background light-blue">
+              <div className="scroller-circle">
+                <img
+                  src="/assets/images/home/laundry.png"
+                  alt="laundry booking"
+                />
+              </div>
+            </div>
+            <span className="card-text laundry">Laundry booking</span>
+          </Link>
         </div>
         {/* <div className="horizontal-scroll__block horizontal-scroll__block--five">
           <div className="background" style={{backgroundImage: "url(grid_img5.png"}}></div>
           <span className="letter">E</span>
         </div> */}
         <div className="horizontal-scroll__block horizontal-scroll__block--six">
-          <div className="background" style={{backgroundImage: "url()"}}></div>
+          <div
+            className="background"
+            style={{ backgroundImage: "url()" }}
+          ></div>
           <span className="letter"></span>
         </div>
       </div>
-      </div>
-  )
-}
+    </div>
+  );
+};
 
 export default ScrollContainer;
