@@ -1,6 +1,7 @@
 /* --- DESKTOP --- */
 /* one or more available input mechanism(s) can hover over elements with ease */ /* -> desktop or laptop version of scroll*/
 @media (any-hover: hover) {
+  /* hide scroll bar */
   ::-webkit-scrollbar {
     width: 1px;
     height: 1px;
@@ -9,7 +10,7 @@
     width: 1px;
     height: 1px;
   }
-
+  /* */
   .scroll-container-parent {
     height: 40vh;
   }
@@ -22,6 +23,10 @@
     padding: 10px;
     transform-origin: right top;
     transform: rotate(-90deg) translate3d(0, -100vh, 0);
+    /* hide scroll for FF & IE*/
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    /* */
   }
   .horizontal-scroll > * {
     transform-origin: left top;
@@ -55,7 +60,6 @@
     transform: translate3d(-50%, -50%, 0);
     font-weight: normal;
     font-size: 3.5rem;
-    font-family: "Playfair Display", serif;
     /* color: white; */ /* inline-styling each-color separetely*/
   }
 }
@@ -65,19 +69,27 @@
 @media (any-hover: none) {
   body {
     background-color: purple;
+    box-sizing: border-box;
   }
   .scroll-container-parent {
     background-color: bisque;
-    height: 40vh;
+    height: 30vh;
   }
   .horizontal-scroll {
+    margin-left: 5vw;
     display: flex;
     flex-direction: row;
     overflow-x: auto;
+    height: 30vh;
+    /* hide scroll for FF & IE*/
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    /* */
   }
   .horizontal-scroll__block {
-    min-width: 40vw;
+    min-width: 70vw;
     position: relative;
+    margin-left: 5px;
   }
   .horizontal-scroll::-webkit-scrollbar {
     display: none;
@@ -95,29 +107,65 @@
     opacity: 0.9;
   }
   .horizontal-scroll__block .card-text {
-    font-size: 1.5em;
+    position: relative; /* positioning relative to container*/
+    left: 20%; /* ^ */
+    top: 5%; /* ^ */
+    font-size: 1.3em;
+    font-weight: normal;
+  }
+  .horizontal-scroll a {
+    text-decoration: none; /* remove underline from <a>s */
   }
 }
 /* one or more available input mechanism(s) can hover, but not with ease (for example simulating the hovering when performing a long touch) */ /* =detecting mobile device */
 @media (any-hover: on-demand) {
-}
-
-.horizontal-scroll__block--one .background {
-  /* background-color: #ff9a04; */
-}
-.horizontal-scroll__block--two .background {
-  /* background-color: #285adb; */
-}
-.horizontal-scroll__block--three .background {
-  /*  background-color: #1bc100; */
-}
-.horizontal-scroll__block--four .background {
-  /* background-color: #93dded; */
-}
-.horizontal-scroll__block--five .background {
-  /* not in use */
-  /* background-color: #00bd9d; */
-}
-.horizontal-scroll__block--six .background {
-  /* background-color: #fb9f89; */
+  body {
+    background-color: purple;
+    box-sizing: border-box;
+  }
+  .scroll-container-parent {
+    background-color: bisque;
+    height: 30vh;
+  }
+  .horizontal-scroll {
+    margin-left: 5vw;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    height: 30vh;
+    /* hide scroll for FF & IE*/
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    /* */
+  }
+  .horizontal-scroll__block {
+    min-width: 70vw;
+    position: relative;
+    margin-left: 5px;
+  }
+  .horizontal-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  .horizontal-scroll__block .background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* background: no-repeat center center/cover; */
+    /*background-size: 100% 51%;*/
+    background: no-repeat;
+    background-size: cover;
+    opacity: 0.9;
+  }
+  .horizontal-scroll__block .card-text {
+    position: relative; /* positioning relative to container*/
+    left: 20%; /* ^ */
+    top: 5%; /* ^ */
+    font-size: 1.3em;
+    font-weight: normal;
+  }
+  .horizontal-scroll a {
+    text-decoration: none; /* remove underline from <a>s */
+  }
 }

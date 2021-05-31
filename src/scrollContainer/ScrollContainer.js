@@ -35,7 +35,7 @@ const ScrollContainer = () => {
         </div> */}
         <div className="horizontal-scroll__block horizontal-scroll__block--six">
           <div className="background" style={{backgroundImage: "url()"}}></div>
-          <span className="letter">!</span>
+          <span className="letter"></span>
         </div>
       </div>
       </div>
