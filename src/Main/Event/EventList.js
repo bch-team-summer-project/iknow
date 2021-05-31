@@ -9,12 +9,12 @@ function EventList({ events }) {
           return (
             <EventCard
               id={e.id}
-              key={e.id}
+              key={e.id + Math.random(2) * 1}
               name={e.name.en !== null ? e.name.en : e.name.fi}
               description={e.description.intro}
               image={
                 e.description.images.length ? e.description.images[0].url : ""
-              } // if array.length is truthy => process array
+              } // if array.length is truthy(>0) => process array
             />
           );
         }
