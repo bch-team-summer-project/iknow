@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Beaches from "./BeachTemp/Beaches";
-import Home from "./Home";
+import Home from "./Home/Home";
 import LostFound from "../Components/LostAndFound/LostFound";
 
 const Main = () => {
