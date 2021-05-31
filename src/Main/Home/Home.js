@@ -21,7 +21,10 @@ const Home = () => {
             <h3>May be someone knows where it is</h3>
             <h3>Posting info about lost and found things</h3>
             <h3>we help each other</h3>
-            <img src="/assets/images/home/laptopgirl.png"></img>
+            <img
+              src="/assets/images/home/laptopgirl.png"
+              alt="laptop girl"
+            ></img>
           </Link>
         </section>
         <section className="single-banner">
@@ -31,7 +34,7 @@ const Home = () => {
             <h3>online without going to basement?</h3>
             <h3>Add your house address</h3>
             <h3>and check/book your time ONLINE</h3>
-            <img src="/assets/images/home/phonegirl.png"></img>
+            <img src="/assets/images/home/phonegirl.png" alt="phone girl"></img>
           </Link>
         </section>
         <section className="single-banner aboutus">
@@ -40,23 +43,30 @@ const Home = () => {
           <div className="aboutus-text">
             <div className="about-wraper">
               <div className="innercircle">
-                <img src="/assets/images/home/team.png"></img>
+                <img src="/assets/images/home/team.png" alt="team"></img>
               </div>
               <ul>Team:</ul>
               <li>
-                <a href="#"> Bhatnagar Ankita</a>
+                <a href="/"> Bhatnagar Ankita</a>
               </li>
               <li>
-                <a href="#"> Korotkevica Diana</a>
+                <a
+                  href="https://www.linkedin.com/in/diana-korotkevica-70b62a207"
+                  target="_blanc"
+                >
+                  Korotkevica Diana
+                </a>
               </li>
               <li>
-                <a href="#"> Lantsmann Kirill</a>
+                <a href="/"> Lantsmann Kirill</a>
               </li>
               <li>
-                <a href="#"> Matviishyna Julia</a>
+                <a href="https://www.linkedin.com/in/jualiasha" target="_blanc">
+                  Matviishyna Julia
+                </a>
               </li>
               <li>
-                <a href="#"> To Anh</a>
+                <a href="/"> To Anh</a>
               </li>
             </div>
             <div>
