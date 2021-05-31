@@ -15,7 +15,7 @@
 
 .horizontal-scroll {
   margin-left: 30vw;
-  /* width: 40vh; /* height */
+  width: 55vh; /* height*/
   height: 130vw; /* width */
   overflow-y: auto;
   overflow-x: hidden;

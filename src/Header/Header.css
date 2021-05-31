@@ -1,6 +1,6 @@
 header {
   background-color: #fff;
-  display: flex;
+  display: flex !important;
   flex-direction: raw;
   justify-content: space-between;
   padding: 1rem 1rem 1rem 2rem;
@@ -16,12 +16,14 @@ header ul li {
   font-weight: 900;
   font-style: italic;
   font-size: 40px;
+  position: relative;
+  top: 0.5rem;
 }
 
 .logoimg {
   max-width: 3rem;
   position: relative;
-  top: 0.2rem;
+  bottom: 0.5rem;
 }
 
 nav {
@@ -31,6 +33,11 @@ nav {
 header a {
   color: var(--text-color);
   text-decoration: none;
+}
+
+header a:hover {
+  text-decoration: none;
+  color: var(--text-color);
 }
 
 nav a:hover {
