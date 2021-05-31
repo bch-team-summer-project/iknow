@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Route, Switch, useRouteMatch } from "react-router";
 
-import EventCard from "./EventCard";
+import EventList from "./EventList";
 import EventSpa from "./EventSpa";
 import Search from "./Search";
 
 function Events() {
   const [events, setEvents] = useState([]);
-
+  const [query, setQuery] = useState("");
+  const [tags, setTags] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -19,13 +20,23 @@ function Events() {
       );
       let result = await response.json();
       // setEvents(result);
-      setIsLoading(false);
       let data = result.data;
       setEvents(data);
+      setTags(result.tags);
+      setIsLoading(false);
     };
     getEvents();
   }, []);
   console.log("this is events", events);
+  console.log("this is categories", tags);
+
+  const search = events.filter((e) => {
+    if (e.name.en !== null) {
+      return e.name.en.toLowerCase().includes(query.toLowerCase());
+    } else {
+      return e.name.fi.toLowerCase().includes(query.toLowerCase());
+    }
+  });
 
   let { url } = useRouteMatch();
 
@@ -33,21 +44,11 @@ function Events() {
     <>
       <Switch>
         <Route path={url} exact>
-          <Search />
+          <Search search={(e) => setQuery(e.target.value)} />
           {isLoading && <p>Loading...</p>}
 
           <section className="events">
-            {events.map((e) => (
-              <EventCard
-                id={e.id}
-                key={e.id}
-                name={e.name.en !== null ? e.name.en : e.name.fi}
-                description={e.description.intro}
-                image={
-                  e.description.images.length ? e.description.images[0].url : ""
-                } // if array.length is truthy => process array
-              />
-            ))}
+            <EventList events={search} />
           </section>
         </Route>
 
