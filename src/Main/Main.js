@@ -1,21 +1,23 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Beaches from "./BeachTemp/Beaches";
-import Home from "./Home";
+import Home from "./Home/Home";
+import LostFound from "../Components/LostAndFound/LostFound";
 
 const Main = () => {
   return (
     <main>
-      This is main part
       <Switch>
         <Route path="/" exact>
           <Home />
         </Route>
         <Route path="/events"></Route>
         <Route path="/water">
-          <Beaches/>
+          <Beaches />
         </Route>
-        <Route path="/lost"></Route>
+        <Route path="/lost">
+          <LostFound />
+        </Route>
         <Route path="/laundry"></Route>
       </Switch>
     </main>
