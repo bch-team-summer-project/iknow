@@ -2,8 +2,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Beaches from "./BeachTemp/Beaches";
 import Home from "./Home/Home";
-import LostFound from "../Components/LostAndFound/LostFound";
-
+import LostFound from "./LostAndFound/LostFound";
 
 const Main = () => {
   return (
@@ -15,6 +14,7 @@ const Main = () => {
         <Route path="/events"></Route>
         <Route path="/water">
           <Beaches />
+        </Route>
         <Route path="/lost">
           <LostFound />
         </Route>
