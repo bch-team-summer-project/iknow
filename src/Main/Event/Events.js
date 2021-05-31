@@ -1,22 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { Route, Switch, useRouteMatch } from "react-router";
+
 import EventCard from "./EventCard";
 import EventSpa from "./EventSpa";
 import Search from "./Search";
 
 function Events() {
   const [events, setEvents] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
+    // setIsLoading(true);
     const getEvents = async () => {
-      let response = await fetch("http://localhost:3001/events");
-      //   "https://cors-anywhere.herokuapp.com/https://open-api.myhelsinki.fi/v1/events/?tags_search=adults"
-
+      // let response = await fetch("http://localhost:3001/events");
+      let response = await fetch(
+        "https://open-api.myhelsinki.fi/v1/events/?tags_search=sports"
+      );
       let result = await response.json();
-      setEvents(result);
+      // setEvents(result);
       setIsLoading(false);
+      let data = result.data;
+      setEvents(data);
     };
     getEvents();
   }, []);
@@ -24,18 +29,12 @@ function Events() {
 
   let { url } = useRouteMatch();
 
-  if (isLoading) {
-    return (
-      <>
-        <p>Loading...</p>
-      </>
-    );
-  }
   return (
     <>
       <Switch>
         <Route path={url} exact>
           <Search />
+          {isLoading && <p>Loading...</p>}
 
           <section className="events">
             {events.map((e) => (
@@ -43,8 +42,10 @@ function Events() {
                 id={e.id}
                 key={e.id}
                 name={e.name.en !== null ? e.name.en : e.name.fi}
-                description={e.description}
-                image={e.images}
+                description={e.description.intro}
+                image={
+                  e.description.images.length ? e.description.images[0].url : ""
+                } // if array.length is truthy => process array
               />
             ))}
           </section>

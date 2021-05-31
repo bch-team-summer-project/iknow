@@ -4,9 +4,9 @@ import { Link, useRouteMatch } from "react-router-dom";
 
 function EventCard({ name, image, description, id }) {
   let { url } = useRouteMatch();
-  const descLimit = (str, maxWords) => {
-    return { __html: `${str.split(" ").splice(0, maxWords).join(" ")}...` };
-  };
+  // const descLimit = (str, maxWords) => {
+  //   return { __html: `${str.split(" ").splice(0, maxWords).join(" ")}...` };
+  // };
 
   return (
     <Card className="mw-100" id={id}>
@@ -18,7 +18,8 @@ function EventCard({ name, image, description, id }) {
           <Card.Body>
             <Card.Title>{name}</Card.Title>
             <Card.Text className="mw-100">
-              <div dangerouslySetInnerHTML={descLimit(description, 15)} />
+              {/* <div dangerouslySetInnerHTML={descLimit(description, 15)} /> */}
+              {description}
             </Card.Text>
             <Link to={`${url}/${id}`}>Learn More</Link>
           </Card.Body>
