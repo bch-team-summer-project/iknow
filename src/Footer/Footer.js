@@ -1,30 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import GitHubIcon from "@material-ui/icons/GitHub";
+import FooWeatherCard from "./FooWeatherCard";
+import { HashLink as Link } from "react-router-hash-link";
 import "./Footer.css";
 
 const Footer = () => {
   const [weather, setWeather] = useState([]);
-  /* const [weather, setWeather] = useState({
-    icon: [
-      "assets/images/weather-icons/sunny.png",
-      "assets/images/weather-icons/cloudy.png",
-      "assets/images/weather-icons/fog.png",
-      "assets/images/weather-icons/partly-cloudy.png",
-      "assets/images/weather-icons/rainy.png",
-      "assets/images/weather-icons/snow.png",
-      "assets/images/weather-icons/thunder.png",
-    ],
-    temperature: {
-      Helsinki: 0,
-      Vantaa: 0,
-      Espoo: 0,
-      HelDesc: "",
-      VanDesc: "",
-      EspooDesc: "",
-    },
-  }); */
+  const icons = {
+    sun: "assets/images/weather-icons/sunny.png",
+    cloudy: "assets/images/weather-icons/cloudy.png",
+    fog: "assets/images/weather-icons/fog.png",
+    partly: "assets/images/weather-icons/partly-cloudy.png",
+    rainy: "assets/images/weather-icons/rainy.png",
+    snow: "assets/images/weather-icons/snow.png",
+    thunder: "assets/images/weather-icons/thunder.png",
+    clear: "assets/images/weather-icons/clear.png",
+  };
+
   useEffect(() => {
     const getData = async () => {
       const res = await axios(`https://iknow-backend.herokuapp.com/weather/`);
@@ -33,6 +26,33 @@ const Footer = () => {
     };
     getData();
   }, []);
+
+  const weathercard = weather.map((weather) => {
+    return (
+      <FooWeatherCard
+        key={weather.city}
+        cityname={weather.city}
+        icon={
+          weather.weather.description.includes("sun")
+            ? icons.sun
+            : weather.weather.description.includes("cloudy")
+            ? icons.cloudy
+            : weather.weather.description.includes("fog")
+            ? icons.fog
+            : weather.weather.description.includes("partly")
+            ? icons.partly
+            : weather.weather.description.includes("rain")
+            ? icons.rainy
+            : weather.weather.description.includes("snow")
+            ? icons.snow
+            : weather.weather.description.includes("thunder")
+            ? icons.thunder
+            : icons.clear
+        }
+        temperature={weather.weather.temprature}
+      />
+    );
+  });
 
   return (
     <footer>
@@ -50,28 +70,25 @@ const Footer = () => {
       </div>
       <section className="footer-nav">
         <ul>
-          <li>Events</li>
-          <li>Beach water t&#8451;</li>
-          <li>Lost and Found</li>
-          <li>Laundry</li>
-          <li>About</li>
+          <li>
+            <Link to="/events"> Events</Link>
+          </li>
+          <li>
+            <Link to="/water">Beach water t&#8451;</Link>
+          </li>
+          <li>
+            <Link to="/lost">Lost and Found</Link>
+          </li>
+          <li>
+            <Link to="/laundry">Laundry</Link>
+          </li>
+          <li>
+            <Link to="/#about">About</Link>
+          </li>
         </ul>
-        <div className="footer-weather">
-          <div className="footer-city">
-            <h3>Helsinki</h3>
-          </div>
-          <div className="footer-city">
-            <h3>Vantaa</h3>
-          </div>
-          <div className="footer-city">
-            <h3>Espoo</h3>
-          </div>
-        </div>
+        <div className="footer-weather">{weathercard}</div>
         <div className="footer-icons">
-          <a
-            href="https://github.com/bch-team-summer-project/iknow"
-            target="_blanc"
-          >
+          <a href="https://github.com/bch-team-summer-project/" target="_blanc">
             <GitHubIcon style={{ fontSize: 50, color: "#ff9a04" }} />
           </a>
         </div>

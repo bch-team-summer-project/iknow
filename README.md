@@ -44,6 +44,7 @@ npm install react-router-dom
 npm install axios
 npm install json-server --save-dev
 npm install react-bootstrap bootstrap@4.6.0
+npm install --save react-router-hash-link
 ```
 
 #
