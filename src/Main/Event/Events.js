@@ -8,7 +8,7 @@ import Search from "./Search";
 function Events() {
   const [events, setEvents] = useState([]);
   const [query, setQuery] = useState("");
-  const [start, setStart] = useState(1);
+  const [start, setStart] = useState(0);
   const [tags, setTags] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const loader = useRef();
@@ -35,6 +35,7 @@ function Events() {
   }, [query]);
 
   useEffect(() => {
+    // setIsLoading(true);
     const getEvents = async () => {
       // let response = await fetch("http://localhost:3001/events");
       let response = await fetch(
@@ -45,12 +46,11 @@ function Events() {
       setTags(result.tags);
       setIsLoading(false);
     };
-    // setIsLoading(true);
     getEvents();
   }, [query, start]);
   console.log("this is events", events);
 
-  const search = events.filter((e) => {
+  const handleSearch = events.filter((e) => {
     if (e.name.en !== null) {
       return e.name.en.toLowerCase().includes(query.toLowerCase());
     } else {
@@ -67,7 +67,7 @@ function Events() {
           <Search search={(e) => setQuery(e.target.value)} />
           {isLoading && <p>Loading...</p>}
           <section className="events">
-            <EventList events={search} />
+            <EventList events={handleSearch} />
           </section>
           <div ref={loader} />
         </Route>

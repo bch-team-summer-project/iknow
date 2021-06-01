@@ -5,16 +5,14 @@ function EventList({ events }) {
   return (
     <div className="eventList">
       {events.map((e) => {
-        if (events) {
+        if (events && e.description.images.length) {
           return (
             <EventCard
               id={e.id}
               key={e.id + Math.random(2) * 1}
               name={e.name.en !== null ? e.name.en : e.name.fi}
               description={e.description.intro}
-              image={
-                e.description.images.length ? e.description.images[0].url : ""
-              } // if array.length is truthy(>0) => process array
+              image={e.description.images[0].url} // if array.length is truthy(>0) => process array
             />
           );
         }
