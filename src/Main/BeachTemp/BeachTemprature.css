@@ -30,7 +30,7 @@ a:hover {
   padding: 2rem;
   padding-top: 0;
   padding-right: 0;
-
+  border : none !important;
 }
 .card-title,
 h5 {
@@ -46,13 +46,13 @@ h5 {
   padding: 1rem;
 }
 .card-img-top {
-  position: relative;
-  border-radius: 50%;
-  max-width: 250px;
-  height: 250px;
-  top: 2.5rem;
-  right: 1rem;
-  box-shadow: 20px 0 0 20px #f5efef;
+  position : relative !important; 
+  border-radius: 50%  !important;
+  max-width: 250px  !important;
+  height: 250px  !important;
+  top: 2.5rem  !important;
+  right: 1rem  !important;
+  box-shadow: 20px 0 0 20px #f5efef  !important;
 }
 
 
