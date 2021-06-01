@@ -1,0 +1,222 @@
+/* --- DESKTOP --- */
+/* one or more available input mechanism(s) can hover over elements with ease */ /* -> desktop or laptop version of scroll*/
+@media (any-hover: hover) {
+  /* hide scroll bar */
+  ::-webkit-scrollbar {
+    width: 1px;
+    height: 1px;
+  }
+  ::-webkit-scrollbar-button {
+    width: 1px;
+    height: 1px;
+  }
+  /* */
+  .scroll-container-parent {
+    height: 40vh;
+  }
+  .horizontal-scroll {
+    margin-left: 30vw;
+    width: 55vh; /* height */
+    height: 130vw; /* width */
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px;
+    transform-origin: right top;
+    transform: rotate(-90deg) translate3d(0, -100vh, 0);
+    /* hide scroll for FF & IE*/
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    /* */
+  }
+  .horizontal-scroll > * {
+    transform-origin: left top;
+    transform: rotate(90deg) translate3d(0, calc(-100vh + 60px), 0);
+  }
+  .horizontal-scroll__block {
+    width: 90vh;
+    height: 90vh;
+    position: relative;
+  }
+  .horizontal-scroll__block:not(:first-child) {
+    margin-top: 30px; /* left margin*/
+  }
+  .horizontal-scroll__block .background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /*  background: no-repeat center center/cover; 
+    background-size: 100% 51%;
+    opacity: 0.9; */
+  }
+  .horizontal-scroll__block .card-text {
+    display: inline-block;
+    position: absolute;
+    top: 80%;
+    right: auto;
+    bottom: -5rem;
+    left: 70%;
+    transform: translate3d(-50%, -50%, 0);
+    font-weight: bold;
+    font-size: 3.5rem;
+    width: 100%;
+    /* color: white; */ /* inline-styling each-color separetely*/
+  }
+
+  .orange {
+    background-color: rgba(255, 154, 4, 0.5);
+  }
+
+  .blue {
+    background-color: rgba(40, 90, 219, 0.5);
+  }
+
+  .green {
+    background-color: rgba(27, 193, 0, 0.5);
+  }
+  .light-blue {
+    background-color: #93dded;
+  }
+
+  .scroller-circle {
+    min-width: 21rem;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background: #ffffff;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    position: relative;
+    margin-right: 320px;
+    top: 300px;
+    padding-top: 3rem;
+  }
+
+  .scroller-circle img {
+    position: relative;
+    left: 6rem;
+  }
+
+  .uusima {
+    color: #eb3204;
+  }
+
+  .beach {
+    color: #0046fb;
+  }
+
+  .lost {
+    color: #126604;
+  }
+  .laundry {
+    color: #07819c;
+  }
+}
+
+/* --- MOBILE --- */
+/* one or more available input mechanism(s) cannot hover or there are no pointing input mechanisms */
+@media (any-hover: none) {
+  body {
+    background-color: purple;
+    box-sizing: border-box;
+  }
+  .scroll-container-parent {
+    background-color: bisque;
+    height: 30vh;
+  }
+  .horizontal-scroll {
+    margin-left: 5vw;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    height: 30vh;
+    /* hide scroll for FF & IE*/
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    /* */
+  }
+  .horizontal-scroll__block {
+    min-width: 70vw;
+    position: relative;
+    margin-left: 5px;
+  }
+  .horizontal-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  .horizontal-scroll__block .background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* background: no-repeat center center/cover; */
+    /*background-size: 100% 51%;*/
+    background: no-repeat;
+    background-size: cover;
+    opacity: 0.9;
+  }
+  .horizontal-scroll__block .card-text {
+    position: relative; /* positioning relative to container*/
+    left: 20%; /* ^ */
+    top: 5%; /* ^ */
+    font-size: 1.3em;
+    font-weight: normal;
+  }
+  .horizontal-scroll a {
+    text-decoration: none; /* remove underline from <a>s */
+  }
+}
+/* one or more available input mechanism(s) can hover, but not with ease (for example simulating the hovering when performing a long touch) */ /* =detecting mobile device */
+@media (any-hover: on-demand) {
+  body {
+    background-color: purple;
+    box-sizing: border-box;
+  }
+  .scroll-container-parent {
+    background-color: bisque;
+    height: 30vh;
+  }
+  .horizontal-scroll {
+    margin-left: 5vw;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    height: 30vh;
+    /* hide scroll for FF & IE*/
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    /* */
+  }
+  .horizontal-scroll__block {
+    min-width: 70vw;
+    position: relative;
+    margin-left: 5px;
+  }
+  .horizontal-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  .horizontal-scroll__block .background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* background: no-repeat center center/cover; */
+    /*background-size: 100% 51%;*/
+    background: no-repeat;
+    background-size: cover;
+    opacity: 0.9;
+  }
+  .horizontal-scroll__block .card-text {
+    position: relative; /* positioning relative to container*/
+    left: 20%; /* ^ */
+    top: 5%; /* ^ */
+    font-size: 1.3em;
+    font-weight: normal;
+  }
+  .horizontal-scroll a {
+    text-decoration: none; /* remove underline from <a>s */
+  }
+}

@@ -1,8 +1,8 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Beaches from "./BeachTemp/Beaches";
-import Events from "./Event/Events";
-import Home from "./Home";
+import Home from "./Home/Home";
+import LostFound from "./LostAndFound/LostFound";
 
 const Main = () => {
   return (
@@ -17,7 +17,9 @@ const Main = () => {
         <Route path="/water">
           <Beaches />
         </Route>
-        <Route path="/lost"></Route>
+        <Route path="/lost">
+          <LostFound />
+        </Route>
         <Route path="/laundry"></Route>
       </Switch>
     </main>

@@ -52,4 +52,6 @@ npm install react-bootstrap bootstrap@4.6.0
 
 ### Julia Matvi: [GitHub](https://github.com/jualiasha), [LinkedIn](www.linkedin.com/in/jualiasha)
 
+### Diana Korotkevica: [GitHub](https://github.com/dariwka), [LinkedIn](www.linkedin.com/in/diana-korotkevica-70b62a207)
+
 ### all team members please add your contact details here
