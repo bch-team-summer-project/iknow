@@ -3,7 +3,7 @@
 }
 
 body {
-  color: peachpuff;
+  background-color: papayawhip;
 }
 form {
   display: flex;
@@ -13,6 +13,12 @@ form {
 }
 
 input {
-  border: 5px solid red;
+  border: 5px solid paleturquoise;
   border-radius: 5px;
+  margin: 10px;
+}
+
+button {
+  border: paleturquoise;
+  block-size: 200%;
 }

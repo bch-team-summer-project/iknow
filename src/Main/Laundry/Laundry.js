@@ -1,11 +1,14 @@
 import React from 'react';
+import './frontpage.css';
+import BookingCalendar from './BookingCalendar';
 
 const Laundry = () => {
   return (
     <form action="find_landry.php">
-      <label for="search_landry">Search address: </label>
-      <input type="text" name="search_landry" id="search_laundry" value="search_laundry"></input>
+      <label htmlFor="search_landry"><h1>Search address:</h1></label>
+      <input type="text" name="search_landry" id="search_laundry"></input>
       <button>Continue</button>
+      <BookingCalendar />
     </form>
   )
 }
