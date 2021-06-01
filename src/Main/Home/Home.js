@@ -37,7 +37,7 @@ const Home = () => {
             <img src="/assets/images/home/phonegirl.png" alt="phone girl"></img>
           </Link>
         </section>
-        <section className="single-banner aboutus">
+        <section id="about" className="single-banner aboutus">
           <div className="banner-circle"></div>
           <h2>About us</h2>
           <div className="aboutus-text">

@@ -4,7 +4,9 @@
       "id": 1,
       "category": "lost",
       "name": "wallet",
-      "img": ["/wallet"],
+      "img": [
+        "/wallet"
+      ],
       "location": "Laajavuorenkuja 1, Vantaa, 01620",
       "date": "25.05.2021, 15:00",
       "description": "Lost my wallet near of the K Market shop. Color brown. Please contact me by email:name.surname@gmail.com",
@@ -14,7 +16,9 @@
       "id": 2,
       "category": "found",
       "name": "Sport bag",
-      "img": ["/bag"],
+      "img": [
+        "/bag"
+      ],
       "location": "Lehtimäentie 1C, Espoo, 02770",
       "date": "26.05.2021, 8:00",
       "description": "Found sport bag new of Omnia school. Brand- addidas, color-dark blue",
@@ -24,7 +28,9 @@
       "id": 3,
       "category": "lost",
       "name": "dog",
-      "img": ["/dog"],
+      "img": [
+        "/dog"
+      ],
       "location": "Laajavuorenkuja 1, Vantaa, 01620",
       "date": "25.05.2021, 15:00",
       "description": "Lost my wallet near of the K Market shop. Color brown. Please contact me by email:name.surname@gmail.com",
@@ -34,7 +40,9 @@
       "id": 4,
       "category": "found",
       "name": "cat",
-      "img": ["/cat"],
+      "img": [
+        "/cat"
+      ],
       "location": "Lehtimäentie 1C, Espoo, 02770",
       "date": "26.05.2021, 8:00",
       "description": "Found sport bag new of Omnia school. Brand- addidas, color-dark blue",
@@ -49,6 +57,26 @@
       "placeOrigin": "Nihtisillankuja 4, Espoo, 02631",
       "description": "tes tes test test ",
       "id": 5
+    },
+    {
+      "category": "lost",
+      "date": "2021-05-30T13:54",
+      "name": "Julia",
+      "location": "hel",
+      "img": "C:\\fakepath\\beach_card_img.png",
+      "placeOrigin": "Nihtisillankuja 4, Espoo, 02631",
+      "description": "something",
+      "id": 6
+    },
+    {
+      "category": "lost",
+      "date": "2021-05-16T13:55",
+      "name": "Stories",
+      "location": "hel",
+      "img": "C:\\fakepath\\laundry_card_img.png",
+      "placeOrigin": "Nihtisillankuja 4, Espoo, 02631",
+      "description": "ttt",
+      "id": 7
     }
   ]
 }
