@@ -58,7 +58,7 @@ const Home = () => {
                 </a>
               </li>
               <li>
-                <a href="/"> Lantsmann Kirill</a>
+                <a href="https://github.com/kirilllan"> kirilllan</a>
               </li>
               <li>
                 <a href="https://www.linkedin.com/in/jualiasha" target="_blanc">
