@@ -4,6 +4,7 @@ import Beaches from "./BeachTemp/Beaches";
 import Events from "./Event/Events";
 import Home from "./Home/Home";
 import LostFound from "./LostAndFound/LostFound";
+import Laundry from "./Laundry/Laundry";
 
 const Main = () => {
   return (
@@ -21,7 +22,9 @@ const Main = () => {
         <Route path="/lost">
           <LostFound />
         </Route>
-        <Route path="/laundry"></Route>
+        <Route path="/laundry">
+          <Laundry />
+        </Route>
       </Switch>
     </main>
   );
