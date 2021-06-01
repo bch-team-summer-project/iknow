@@ -1,13 +1,13 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Beaches from "./BeachTemp/Beaches";
-import Home from "./Home";
-import LostFound from "./LostAndFound/LostFound";
+import Home from "./Home/Home";
+import LostFound from "../Components/LostAndFound/LostFound";
+
 
 const Main = () => {
   return (
     <main>
-      This is main part
       <Switch>
         <Route path="/" exact>
           <Home />
@@ -15,8 +15,9 @@ const Main = () => {
         <Route path="/events"></Route>
         <Route path="/water">
           <Beaches />
+        <Route path="/lost">
+          <LostFound />
         </Route>
-        <Route path="/lost" component={LostFound}></Route>
         <Route path="/laundry"></Route>
       </Switch>
     </main>
