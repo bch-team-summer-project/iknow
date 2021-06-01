@@ -1,0 +1,152 @@
+{
+  "events": [
+    {
+      "description": {
+        "body": "<p>Englannin keskusteluryhmä Toimintakeskuksen olohuoneessa keskiviikkoisin klo 11-12.Stadin asukastalot</p>",
+        "images": [
+          {
+            "url": "https://api.hel.fi/linkedevents/media/images/13.1.21._Englannin_keskusteluryhm%C3%A4_Malmi.jpg"
+          }
+        ],
+        "intro": "Englanninkielistä keskustelua hyvässä seurassa"
+      },
+
+      "event_dates": {
+        "additional_description": null,
+        "ending_day": "2021-05-26T09:00:00.000Z",
+        "starting_day": "2021-05-26T08:00:00.000Z"
+      },
+      "id": "helsinki:af3gvwiqpa",
+      "info_url": "https://www.hel.fi/helsinki/fi/sosiaali-ja-terveyspalvelut/sosiaalinen-tuki-ja-toimeentulo/asukastalot/pohjoinen/malmi/",
+      "location": {
+        "address": {
+          "street_address": "Kirkonkyläntie 2",
+          "postal_code": "00700",
+          "locality": "Helsinki"
+        },
+        "lat": 60.25120162963867,
+        "lon": 25.007774353027344
+      },
+      "name": {
+        "en": null,
+        "fi": "Englannin keskusteluryhmä",
+        "sv": null,
+        "zh": null
+      },
+      "tags": [
+        { "id": "linkedevents:yso:p14004", "name": "conversation" },
+        { "id": "linkedevents:yso:p5590", "name": "adults" }
+      ]
+    },
+    {
+      "description": {
+        "body": "<p>Nuoret saavat oman tilan keskustakirjasto Oodiin. Tule suunnittelemaan toimintoja sekä sisustusta yhdessä muiden kanssa.<br><br>Ensimmäinen tapaaminen Oodissa torstaina 3.6. klo 16.30 - 18.30.<br><br>Ilmoittaudu mukaan:<br>billy.rivera@hel.fi,  040 621 1781<br>tiina.kuusisto@hel.fi, 040 577 4056&nbsp;</p>",
+        "images": [
+          {
+            "url": "https://api.hel.fi/linkedevents/media/images/Oodi_181120_7.jpg"
+          }
+        ],
+        "intro": "Tutustumiskäynti Galleria Heinon nykytaidetta esittelevään galleriaan - Summer Collection"
+      },
+
+      "event_dates": {
+        "additional_description": null,
+        "ending_day": "2021-06-03T15:30:00.000Z",
+        "starting_day": "2021-06-03T13:30:00.000Z"
+      },
+      "id": "helsinki:af4y5getke",
+      "info_url": "",
+      "location": {
+        "address": {
+          "street_address": "Töölönlahdenkatu 4",
+          "postal_code": "00100",
+          "locality": "Helsinki"
+        },
+        "lat": 60.17385482788086,
+        "lon": 24.938255310058594
+      },
+      "name": {
+        "en": null,
+        "fi": "Nuorille oma tila Oodiin!",
+        "sv": "Ungdomarnas eget ställe på Ode!",
+        "zh": null
+      },
+      "tags": [
+        { "id": "linkedevents:yso:p19245", "name": "participation" },
+        { "id": "linkedevents:yso:p29165", "name": "youth services" },
+        { "id": "linkedevents:yso:p2787", "name": "libraries" },
+        { "id": "linkedevents:yso:p14004", "name": "conversation" },
+        {
+          "id": "linkedevents:yso:p17790",
+          "name": "youth recreational facilities"
+        }
+      ]
+    },
+    {
+      "description": {
+        "body": "<p>Moni on joskus haaveillut mahdollisuudesta kurkistaa entisajan ihmisten elämään. Helsingin kaupunginmuseossa se onnistuu, sillä museokävijät voivat astua Aikakoneeseen, joka imaisee heidät elävään ja todentuntuiseen menneisyyden Helsinkiin.</p><p>Signe Branderin valokuvat Helsingistä heräävät eloon<br>Aikakone herättää Signe Branderin valokuvat eloon ja immersiivinen, interaktiivinen tilainstallaatio kuljettaa kävijän läpi menneisyyden Helsingin. Aikakone 2.0 vie aikamatkaajan 1900-luvun alun Helsinkiin, jossa uusi kivilinnojen kaupunki valtaa alaa puutaloilta. Uusi kaupunki on sekoitus kansallisromantiikkaa, jugendia, sekä pohjoismaista klassismia – vanhaa perinnettä ja uusia tuulia.</p><p>Branderin aikana Helsinki oli ensimmäistä kertaa nähtävissä uusista näköalapaikoista, kuten Kansallismuseon tornista. Lintuperspektiivin lisäksi Brander kuvasi panoraamoja myös katutasosta ja tavoitti näin kaupunkielämän arkiset yksityiskohdat. Aikakone 2.0:ssa nähdään projisioita, jotka perustuvat Branderin ottamiin panoraamakuviin Kallion kirkosta ja Nikolainkirkosta eli nykyisestä Tuomiokirkosta käsin.</p><p>15. huhtikuuta 1869 syntynyt Brander kuvasi Helsinkiä ja helsinkiläistä elämänmenoa viime vuosisadan alussa, jolloin Helsingin muinaismuistolautakunta palkkasi hänet tallentamaan kiivaasti muuttuvaa kaupunkia. Branderin vuosina 1907–1913 kuvaamat 907 lasinegatiivia ovat kaupunginmuseon kokoelmien perusta.</p><p>Tulevaisuuden teknologiaa museossa<br>Aikakone 2.0 on kehitetty yhteistyössä Teatime Research Oy:n kanssa ja osana Demos Helsingin ja Finnish Virtual Reality Association ry:n Virtuaalihubit-projektia. Aikakone 2.0 on saanut rahoitusta myös Museoviraston avustuksista ammatillisten museoiden innovatiivisiin hankkeisiin.</p><p>Aikakoneessa hyödynnetään muun muassa seinäprojisointeja, ääntä, animointia ja 3D-virtuaaliteknologiaa. Aikamatkaelämyksen voi kokea sekä tilassa että virtuaalitodellisuuslaitteiden avulla. Laitteet ja teknologia kuitenkin pysyttelevät taustalla ja etualalle nousevat ihmisten väliset kohtaamiset, muistot ja yhteys menneeseen.</p><p>Kaupunginmuseo on tehty yhdessä kaupunkilaisten kanssa, ja kaupunkilaiset ovat olleet mukana myös Aikakoneen suunnittelussa erilaisten kyselyjen, keskustelujen ja haastattelujen kautta.</p><p>Museo on suljettu toistaiseksi.</p>",
+        "images": [
+          {
+            "url": "https://www.helsinginkaupunginmuseo.fi/wp-content/uploads/2016/01/190408_Aikakone2_vr_2-Edit.jpg"
+          }
+        ],
+        "intro": "Tutustumme Hietaniemen hautasmaahan sekä Lapinlahden sairaalan alueeseen."
+      },
+      "event_dates": {
+        "additional_description": null,
+        "ending_day": "2022-12-31T17:00:00.000Z",
+        "starting_day": "2020-11-11T09:00:00.000Z"
+      },
+      "id": "helsinki:af23nmwzda",
+      "info_url": "https://www.helsinginkaupunginmuseo.fi/nayttelyt/aikakone/",
+      "location": {
+        "address": {
+          "street_address": "Aleksanterinkatu 16",
+          "postal_code": "00170",
+          "locality": "Helsinki"
+        },
+        "lat": 60.169063568115234,
+        "lon": 24.95423698425293
+      },
+      "name": {
+        "en": "Time Machine",
+        "fi": "Aikakonen",
+        "sv": "Tidmaskin",
+        "zh": null
+      },
+      "tags": [
+        { "id": "linkedevents:yso:p4934", "name": "museums" },
+        {
+          "id": "linkedevents:yso:p10041",
+          "name": "museums of cultural history"
+        },
+        { "id": "linkedevents:yso:p5121", "name": "exhibitions" },
+        { "id": "linkedevents:yso:p22164", "name": "virtuality" },
+        {
+          "id": "linkedevents:yso:p8107",
+          "name": "urban history"
+        },
+        {
+          "id": "linkedevents:yso:p22824",
+          "name": "regional identity of Helsinki residents"
+        },
+        {
+          "id": "linkedevents:yso:p18452",
+          "name": "cultural history"
+        },
+        {
+          "id": "linkedevents:yso:p1780",
+          "name": "history"
+        },
+        {
+          "id": "linkedevents:yso:p2699",
+          "name": "photographs"
+        },
+        {
+          "id": "linkedevents:yso:p360",
+          "name": "cultural events"
+        }
+      ]
+    }
+  ]
+}
