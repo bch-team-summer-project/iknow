@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Beaches from "./BeachTemp/Beaches";
+import Events from "./Event/Events";
 import Home from "./Home/Home";
 import LostFound from "./LostAndFound/LostFound";
 
@@ -11,7 +12,9 @@ const Main = () => {
         <Route path="/" exact>
           <Home />
         </Route>
-        <Route path="/events"></Route>
+        <Route path="/events">
+          <Events />
+        </Route>
         <Route path="/water">
           <Beaches />
         </Route>
