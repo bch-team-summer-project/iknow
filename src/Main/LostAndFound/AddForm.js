@@ -16,21 +16,24 @@ const AddForm = () => {
     placeOrigin: "Nihtisillankuja 4, Espoo, 02631",
     description: "",
   });
+
+  const [state, setState] = useState({
+    value: "",
+  });
+
+  const showSelect = (e) => {
+    console.log(e.target.value);
+    setState({ ...state, value: e.target.value });
+  };
+
   const changeData = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
   const submitData = (e) => {
+    console.log(data);
     e.preventDefault();
     axios.post("http://localhost:3002/items", data);
-  };
-
-  const [state, setState] = useState({
-    value: "found",
-  });
-
-  const showSelect = (e) => {
-    setState({ ...state, value: e.target.value });
   };
 
   return (
@@ -41,15 +44,13 @@ const AddForm = () => {
           <Form.Control
             as="select"
             name="category"
-            onChange={(changeData, showSelect)}
+            onChange={(e) => {
+              changeData(e);
+              showSelect(e);
+            }}
           >
-            <option name="category" value="found">
-              Found
-            </option>
-
-            <option name="category" value="lost">
-              Lost
-            </option>
+            <option value="found">Found</option>
+            <option value="lost">Lost</option>
           </Form.Control>
         </Form.Group>
 
