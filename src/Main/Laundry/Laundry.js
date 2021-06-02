@@ -4,12 +4,19 @@ import BookingCalendar from './BookingCalendar';
 
 const Laundry = () => {
   return (
+    <div id="laundry_frontpage_container">
     <form action="find_landry.php">
-      <label htmlFor="search_landry"><h1>Search address:</h1></label>
+      <label htmlFor="search_landry"><h1>Search laundry address:</h1></label>
       <input type="text" name="search_landry" id="search_laundry"></input>
-      <button>Continue</button>
-      <BookingCalendar />
+      <button onClick={e => {
+        e.preventDefault();
+        document.location.href = document.location.origin + '/laundry/calendar';
+      }}>
+      Continue</button>
+      <BookingCalendar /> {//test prps
+                          }
     </form>
+    </div>
   )
 }
 
