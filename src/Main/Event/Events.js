@@ -5,7 +5,7 @@ import axios from "axios";
 
 import EventList from "./EventList";
 import EventSpa from "./EventSpa";
-import Search from "./Search";
+import Search from "../Search";
 
 function Events() {
   const [events, setEvents] = useState([]);
