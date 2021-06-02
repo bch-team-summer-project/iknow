@@ -11,6 +11,16 @@ const Beaches = () => {
   const [beaches, setBeaches] = useState([]);
   const [cities, setCities] = useState([]);
 
+  function searchBeach(event) {
+    if (event.target.value != "") {
+      setBeaches(
+        beaches.filter((x) => x.beachName.startsWith(event.target.value))
+      );
+    } else {
+      setBeaches(beaches);
+    }
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       const beachesResponse = await axios(
@@ -35,7 +45,12 @@ const Beaches = () => {
       </Row>
       <Row>
         <form method="get" id="search">
-          <input type="text" id="search-bar" name="searchQuery" />
+          <input
+            onChange={searchBeach}
+            type="text"
+            id="search-bar"
+            name="searchQuery"
+          />
           <SearchIcon />
         </form>
       </Row>
