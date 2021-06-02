@@ -1,5 +1,60 @@
 footer {
   background-color: rgba(231, 228, 224, 0.5);
 
-  padding: 3rem 1rem 3rem 2rem;
+  padding: 2rem 2rem 0.5rem 2rem;
+}
+
+footer a {
+  color: #000;
+}
+
+footer a:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: raw;
+}
+
+.footer-nav ul {
+  margin-top: 1rem;
+}
+
+.footer-nav li {
+  list-style: none;
+  margin-bottom: 0.5rem;
+}
+
+footer p {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.footer-icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer-weather {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 4rem;
+}
+
+.footer-city {
+  margin-right: 5rem;
+  text-align: center;
+}
+
+.footer-city img {
+  width: 3rem;
+}
+
+.footer-city span {
+  color: var(--orange);
 }
