@@ -65,7 +65,7 @@ function Events() {
 
   return (
     <>
-      <Row className="mb-5">
+      <Row className="mb-5 eventBanner">
         <Col className="d-flex justify-content-center">
           <img src="/assets/images/event/e.png" alt="lady"></img>
         </Col>
