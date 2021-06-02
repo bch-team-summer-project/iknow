@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Col, Row, Button } from "react-bootstrap";
 import { Route, Switch, useRouteMatch } from "react-router";
+import axios from "axios";
 
 import EventList from "./EventList";
 import EventSpa from "./EventSpa";
@@ -35,19 +36,28 @@ function Events() {
     setEvents([]);
   }, [query]);
 
-  const getEvents = async () => {
-    // let response = await fetch("http://localhost:3001/events");
-    let response = await fetch(
-      `https://api.hel.fi/linkedevents/v1/event/?page=${page}`
-    );
-    let result = await response.json();
-    setEvents((prev) => [...prev, ...result.data]);
-    setIsLoading(false);
-  };
   useEffect(() => {
     // setIsLoading(true);
+    // let cancel;
+    const getEvents = async () => {
+      // let response = await fetch("http://localhost:3001/events");
+      try {
+        let response = await axios({
+          method: "GET",
+          url: `https://api.hel.fi/linkedevents/v1/event/?page=${page}`,
+          // cancelToken: new axios.CancelToken((c) => (cancel = c)),
+        });
+        let result = await response.data;
+        setEvents((prev) => [...prev, ...result.data]);
+        setIsLoading(false);
+      } catch (e) {
+        // if (axios.isCancel(e)) return;
 
+        if (e) return;
+      }
+    };
     getEvents();
+    // return () => cancel();
   }, [query, page]);
   console.log("this is events", events);
 
