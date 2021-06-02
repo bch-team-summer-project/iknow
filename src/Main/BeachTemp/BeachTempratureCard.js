@@ -11,7 +11,6 @@ const BeachTempratureCard = ({ beachTemprature }) => {
         src={beachTemprature.image}
         alt={beachTemprature.name}
       />
-
       <Card.Body>
         <Card.Title>
           <span>

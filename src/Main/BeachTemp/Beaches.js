@@ -3,6 +3,7 @@ import axios from "axios";
 import BeachTempratureCard from "./BeachTempratureCard";
 import CityWeatherCard from "./CityWeatherCard";
 import { Container, Row } from "react-bootstrap";
+import SearchIcon from "@material-ui/icons/Search";
 
 import logo from "./images/bicker.svg";
 
@@ -25,7 +26,7 @@ const Beaches = () => {
     fetchData();
   }, []);
   const renderedResult = (
-    <Container>
+    <div className="beachContainer">
       <Row>
         <img src={logo} width="400" height="300" />
         {cities.map((cityWeather) => (
@@ -33,11 +34,17 @@ const Beaches = () => {
         ))}
       </Row>
       <Row>
+        <form method="get" id="search">
+          <input type="text" id="search-bar" name="searchQuery" />
+          <SearchIcon />
+        </form>
+      </Row>
+      <Row>
         {beaches.map((beachTemp) => (
           <BeachTempratureCard key={beachTemp.id} beachTemprature={beachTemp} />
         ))}
       </Row>
-    </Container>
+    </div>
   );
   return renderedResult;
 };
