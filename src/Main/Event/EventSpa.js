@@ -15,14 +15,14 @@ function EventSpa() {
     // setIsLoading(true);
     const getEventDetail = async () => {
       // let resp = await fetch("http://localhost:3001/events/" + id);
-      let resp = await fetch("https://open-api.myhelsinki.fi/v1/event/" + id);
+      let resp = await fetch("https://api.hel.fi/linkedevents/v1/event/" + id);
       let data = await resp.json();
       setEvent(data);
-      data.name.en !== null ? setTitle(data.name.en) : setTitle(data.name.fi);
-      data.description.images.length !== 0
-        ? setImg(data.description.images[0].url)
-        : setImg("");
-      setDesc(data.description.body);
+      data.name.en ? setTitle(data.name.en) : setTitle(data.name.fi);
+      setImg(data.images[0].url);
+      data.description.en
+        ? setDesc(data.description.en)
+        : setDesc(data.description.fi);
       setIsLoading(false);
     };
     getEventDetail();
