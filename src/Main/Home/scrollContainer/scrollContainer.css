@@ -46,23 +46,74 @@
     right: 0;
     bottom: 0;
     left: 0;
-    /* background: no-repeat center center/cover; */
+    /*  background: no-repeat center center/cover; 
     background-size: 100% 51%;
-    opacity: 0.9;
+    opacity: 0.9; */
   }
   .horizontal-scroll__block .card-text {
     display: inline-block;
     position: absolute;
     top: 80%;
     right: auto;
-    bottom: auto;
+    bottom: -5rem;
     left: 70%;
     transform: translate3d(-50%, -50%, 0);
-    font-weight: normal;
+    font-weight: bold;
     font-size: 3.5rem;
+    width: 100%;
     /* color: white; */ /* inline-styling each-color separetely*/
   }
 
+  .orange {
+    background-color: rgba(255, 154, 4, 0.5);
+  }
+
+  .blue {
+    background-color: rgba(40, 90, 219, 0.5);
+  }
+
+  .green {
+    background-color: rgba(27, 193, 0, 0.5);
+  }
+  .light-blue {
+    background-color: #93dded;
+  }
+
+  .scroller-circle {
+    min-width: 21rem;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background: #ffffff;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    position: relative;
+    margin-right: 320px;
+    top: 250px;
+    padding-top: 3rem;
+  }
+
+  .scroller-circle img {
+    position: relative;
+    left: 6rem;
+  }
+
+  .uusima {
+    color: #eb3204;
+  }
+
+  .beach {
+    color: #0046fb;
+  }
+
+  .lost {
+    color: #126604;
+  }
+  .laundry {
+    color: #07819c;
+  }
+}
 
 /* --- MOBILE --- */
 /* one or more available input mechanism(s) cannot hover or there are no pointing input mechanisms */
