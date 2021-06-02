@@ -8,7 +8,7 @@ import Search from "./Search";
 function Events() {
   const [events, setEvents] = useState([]);
   const [query, setQuery] = useState("");
-  const [start, setStart] = useState(0);
+  const [page, setPage] = useState(1);
   const [tags, setTags] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const loader = useRef();
@@ -16,7 +16,7 @@ function Events() {
   const handleObserver = useCallback((entries) => {
     const target = entries[0];
     if (target.isIntersecting) {
-      setStart((prev) => prev + 5);
+      setPage((prev) => prev + 1);
     }
   }, []);
 
@@ -39,7 +39,7 @@ function Events() {
     const getEvents = async () => {
       // let response = await fetch("http://localhost:3001/events");
       let response = await fetch(
-        `https://open-api.myhelsinki.fi/v1/events/?limit=5&start=${start}`
+        `https://api.hel.fi/linkedevents/v1/event/?page=${page}`
       );
       let result = await response.json();
       setEvents((prev) => [...prev, ...result.data]);
@@ -47,15 +47,25 @@ function Events() {
       setIsLoading(false);
     };
     getEvents();
-  }, [query, start]);
+  }, [query, page]);
   console.log("this is events", events);
 
   const handleSearch = events.filter((e) => {
-    if (e.name.en !== null) {
+
+    if (e.name.en) {
+
       return e.name.en.toLowerCase().includes(query.toLowerCase());
-    } else {
+
+    } else if (e.name.fi) {
+
       return e.name.fi.toLowerCase().includes(query.toLowerCase());
+
+    } else {
+
+      return e.name.sv.toLowerCase().includes(query.toLowerCase());
+
     }
+
   });
 
   let { url } = useRouteMatch();

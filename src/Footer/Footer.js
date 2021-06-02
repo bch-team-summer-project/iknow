@@ -27,10 +27,9 @@ const Footer = () => {
   }); */
   useEffect(() => {
     const getData = async () => {
-      //stop unnessecary calls to API !!! :)
-      //const res = await axios(`https://iknow-backend.herokuapp.com/////weather/`); 
-      //setWeather(res.data);
-      //console.log(res.data[0].city);
+      const res = await axios(`https://iknow-backend.herokuapp.com/////weather/`); 
+      setWeather(res.data);
+      console.log(res.data[0].city);
     };
     getData();
   }, []);
