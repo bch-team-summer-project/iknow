@@ -9,6 +9,8 @@ import Search from "../Search";
 
 function Events() {
   const [events, setEvents] = useState([]);
+  const [online, setOnline] = useState([]);
+  const [all, setAll] = useState([]);
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
 
@@ -32,34 +34,56 @@ function Events() {
     if (loader.current) observer.observe(loader.current);
   }, [handleObserver]);
 
-  useEffect(() => {
-    setEvents([]);
-  }, [query]);
+  const getEvents = async () => {
+    // let response = await fetch("http://localhost:3001/events");
+    try {
+      let response = await axios({
+        method: "GET",
+        url: `https://api.hel.fi/linkedevents/v1/event/?page=${page}`,
+        // cancelToken: new axios.CancelToken((c) => (cancel = c)),
+      });
+      let result = await response.data;
+      setEvents((prev) => [...prev, ...result.data]);
+      setIsLoading(false);
+    } catch (e) {
+      // if (axios.isCancel(e)) return;
 
+      if (e) return;
+    }
+  };
   useEffect(() => {
     // setIsLoading(true);
     // let cancel;
-    const getEvents = async () => {
-      // let response = await fetch("http://localhost:3001/events");
-      try {
-        let response = await axios({
-          method: "GET",
-          url: `https://api.hel.fi/linkedevents/v1/event/?page=${page}`,
-          // cancelToken: new axios.CancelToken((c) => (cancel = c)),
-        });
-        let result = await response.data;
-        setEvents((prev) => [...prev, ...result.data]);
-        setIsLoading(false);
-      } catch (e) {
-        // if (axios.isCancel(e)) return;
-
-        if (e) return;
-      }
-    };
     getEvents();
     // return () => cancel();
   }, [query, page]);
   console.log("this is events", events);
+
+  useEffect(() => {
+    setEvents([]);
+  }, [query]);
+
+  const getOnlineEvents = async () => {
+    setIsLoading(true);
+    let res = await axios.get(
+      `https://api.hel.fi/linkedevents/v1/event/?keyword=yso:p26626&page=${page}`
+    );
+    let result = await res.data;
+    setOnline(result.data);
+    setIsLoading(false);
+    console.log("this is online", online);
+  };
+  const getAll = async () => {
+    setIsLoading(true);
+    setOnline([]);
+    let res = await axios.get(
+      `https://api.hel.fi/linkedevents/v1/event/?page=${page}`
+    );
+    let result = await res.data;
+    setAll(result.data);
+    setIsLoading(false);
+    console.log("this is all ", all);
+  };
 
   const handleSearch = events.filter((e) => {
     if (e.name.en) {
@@ -75,30 +99,30 @@ function Events() {
 
   return (
     <>
-      <Row className="mb-5 eventBanner">
-        <Col className="d-flex justify-content-center">
-          <img src="/assets/images/event/e.png" alt="lady"></img>
-        </Col>
-        <Col className="d-flex align-items-center">
-          <Col>
-            <Button variant="warning" size="lg">
-              something
-            </Button>
-          </Col>
-          <Col>
-            <Button variant="warning" size="lg">
-              something
-            </Button>
-          </Col>
-          <Col>
-            <Button variant="warning" size="lg">
-              something
-            </Button>
-          </Col>
-        </Col>
-      </Row>
       <Switch>
         <Route path={url} exact>
+          <Row className="mb-5 eventBanner">
+            <Col className="d-flex justify-content-center">
+              <img src="/assets/images/event/e.png" alt="lady"></img>
+            </Col>
+            <Col className="d-flex align-items-center">
+              <Col>
+                <Button variant="warning" size="lg" onClick={getOnlineEvents}>
+                  Online events
+                </Button>
+              </Col>
+              <Col>
+                <Button variant="warning" size="lg" onClick={getAll}>
+                  All events
+                </Button>
+              </Col>
+              <Col>
+                <Button variant="warning" size="lg">
+                  Create event
+                </Button>
+              </Col>
+            </Col>
+          </Row>
           <Search
             search={(e) => {
               setQuery(e.target.value);
@@ -106,7 +130,8 @@ function Events() {
           />
           {isLoading && <p>Loading...</p>}
           <section className="events">
-            <EventList events={handleSearch} />
+            {online && <EventList events={online} />}
+            {(events || all) && <EventList events={handleSearch} />}
           </section>
           <div ref={loader} />
         </Route>
