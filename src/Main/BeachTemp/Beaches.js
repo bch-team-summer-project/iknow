@@ -3,36 +3,31 @@ import axios from "axios";
 import BeachTempratureCard from "./BeachTempratureCard";
 import CityWeatherCard from "./CityWeatherCard";
 import { Container, Row } from "react-bootstrap";
-import SearchIcon from "@material-ui/icons/Search";
-
+import Search from "../Search";
 import logo from "./images/bicker.svg";
-
+let masterListOfBeaches;
 const Beaches = () => {
   const [beaches, setBeaches] = useState([]);
   const [cities, setCities] = useState([]);
-
   function searchBeach(event) {
     if (event.target.value != "") {
       setBeaches(
-        beaches.filter((x) => x.beachName.startsWith(event.target.value))
+        masterListOfBeaches.filter((x) => x.beachName.startsWith(event.target.value))
       );
     } else {
-      setBeaches(beaches);
+      setBeaches(masterListOfBeaches);
     }
   }
-
+  const fetchData = async () => {
+    const beachesResponse = await axios("https://iknow-backend.herokuapp.com/beachTemp");
+    const citiesResponse = await axios("https://iknow-backend.herokuapp.com/weather/");
+    console.log(citiesResponse.data);
+    masterListOfBeaches = beachesResponse.data;
+    setBeaches(beachesResponse.data);
+    setCities(citiesResponse.data);
+  };
   useEffect(() => {
-    const fetchData = async () => {
-      const beachesResponse = await axios(
-        "https://iknow-backend.herokuapp.com/beachTemp"
-      );
-      const citiesResponse = await axios(
-        "https://iknow-backend.herokuapp.com/weather/"
-      );
-      console.log(citiesResponse.data);
-      setBeaches(beachesResponse.data);
-      setCities(citiesResponse.data);
-    };
+   
     fetchData();
   }, []);
   const renderedResult = (
@@ -44,15 +39,7 @@ const Beaches = () => {
         ))}
       </Row>
       <Row>
-        <form method="get" id="search">
-          <input
-            onChange={searchBeach}
-            type="text"
-            id="search-bar"
-            name="searchQuery"
-          />
-          <SearchIcon />
-        </form>
+        <Search search={searchBeach} />
       </Row>
       <Row>
         {beaches.map((beachTemp) => (
