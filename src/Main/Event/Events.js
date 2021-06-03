@@ -50,7 +50,6 @@ function Events() {
 
   useEffect(() => {
     // setIsLoading(true);
-
     getEvents();
   }, [query, page]);
   console.log("this is events", events);
@@ -63,6 +62,7 @@ function Events() {
     } else {
       return e.name.sv.toLowerCase().includes(query.toLowerCase());
     }
+
   });
 
   // delaying search so user has time to type
