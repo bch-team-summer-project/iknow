@@ -1,0 +1,58 @@
+/* ¨¨ */
+/* 2nd container from top that displays image and 3 cards */
+.top-graphic-and-cards-container {
+  position: relative;
+  background-color: orange;
+  height: 40vh;
+}
+.top-graphic-and-cards-lady-img {
+  position: absolute;
+  height: 90%;
+  margin-left: 3vw;
+}
+.top-graphic-and-cards-container img {
+  height: 100%;
+  margin: 10%;
+}
+.events-category-all-cards {
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+  margin-right: 30px;
+  font-size: 1.5em;
+}
+
+.events-category-card-1 {
+  background-color: red;
+  color: white;
+  height: 100%;
+  width: 15vw;
+  margin-right: 20px;
+  text-align: center;
+}
+.events-category-card-1 p {
+  color: purple;
+}
+
+.events-category-card-2 {
+  background-color: green;
+  color: white;
+  height: 100%;
+  width: 15vw;
+  margin-right: 20px;
+  text-align: center;
+}
+
+.events-category-card-3 {
+  background-color: blue;
+  color: white;
+  height: 100%;
+  width: 15vw;
+  text-align: center;
+}
+
+/* container that displays event cards */
+.events-container {
+  background-color: palevioletred;
+}
+/* ¨¨ */

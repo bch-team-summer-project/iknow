@@ -6,11 +6,14 @@ import EventList from "./EventList";
 import EventSpa from "./EventSpa";
 import Search from "./Search";
 
+import './customEventCss.css';
+
 function Events() {
   const [events, setEvents] = useState([]);
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
-
+  
+  const [searchTerm, setSearchTerm] = useState("");//¨¨
   const [isLoading, setIsLoading] = useState(true);
   const loader = useRef();
 
@@ -36,14 +39,15 @@ function Events() {
   }, [query]);
 
   const getEvents = async () => {
-    // let response = await fetch("http://localhost:3001/events");
-    let response = await fetch(
-      `https://api.hel.fi/linkedevents/v1/event/?page=${page}`
-    );
-    let result = await response.json();
-    setEvents((prev) => [...prev, ...result.data]);
-    setIsLoading(false);
+    //let response = await fetch("http://localhost:3001/events");
+    //let response = await fetch(
+      //`https://api.hel.fi/linkedevents/v1/event/?page=${page}`
+    //);
+    //let result = await response.json();
+    //setEvents((prev) => [...prev, ...result.data]);
+    //setIsLoading(false);
   };
+
   useEffect(() => {
     // setIsLoading(true);
 
@@ -61,37 +65,51 @@ function Events() {
     }
   });
 
+  // delaying search so user has time to type
+  // before searching activates ¨¨
+  // but console logs still "this is events:[ARR]", on every letter+1 or letter-1
+  useEffect(() => {
+    const delayDebounce = setTimeout(() => {
+      console.log('search term: ', searchTerm);
+      setQuery(searchTerm);
+    }, 3000);
+    return () => clearTimeout(delayDebounce);
+  }, [searchTerm]);
+  // ¨¨
+
   let { url } = useRouteMatch();
 
   return (
     <>
-      <Row className="mb-5 eventBanner">
-        <Col className="d-flex justify-content-center">
+      <div className="top-graphic-and-cards-container">
+        <div className="top-graphic-and-cards-lady-img">
           <img src="/assets/images/event/e.png" alt="lady"></img>
-        </Col>
-        <Col className="d-flex align-items-center">
-          <Col>
-            <Button variant="warning" size="lg">
-              something
-            </Button>
-          </Col>
-          <Col>
-            <Button variant="warning" size="lg">
-              something
-            </Button>
-          </Col>
-          <Col>
-            <Button variant="warning" size="lg">
-              something
-            </Button>
-          </Col>
-        </Col>
-      </Row>
+        </div>
+        <div className="events-category-all-cards">
+        <a href="#" alt="click to find online events">
+        <div className="events-category-card-1">
+          <p>Online events</p>
+        </div>
+        </a>
+        <a href="#" alt="click to find offline events">
+        <div className="events-category-card-2">
+          <p>Offline events</p>
+        </div>
+        </a>
+        <a href="#" alt="click to find all events">
+        <div className="events-category-card-3">
+          <p>All events</p>
+        </div>
+        </a>
+        </div>
+      </div>
+      <div className="events-container">
       <Switch>
-        <Route path={url} exact>
+        <Route path={url} exact>   
           <Search
             search={(e) => {
-              setQuery(e.target.value);
+              //setQuery(e.target.value);
+              setSearchTerm(e.target.value);//¨¨
             }}
           />
           {isLoading && <p>Loading...</p>}
@@ -105,6 +123,7 @@ function Events() {
           <EventSpa />
         </Route>
       </Switch>
+      </div>
     </>
   );
 }
