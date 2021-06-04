@@ -27,7 +27,7 @@ const Footer = () => {
     getData();
   }, []);
 
-  const weathercard = weather.map((weather) => {
+  /* const weathercard = weather.map((weather) => {
     return (
       <FooWeatherCard
         key={weather.city}
@@ -52,11 +52,11 @@ const Footer = () => {
         temperature={weather.weather.temprature}
       />
     );
-  });
+  }); */
 
   return (
     <footer>
-      <div className="logo">
+      {/* <div className="logo">
         <Link to="/">
           <img
             className="logoimg"
@@ -93,7 +93,7 @@ const Footer = () => {
           </a>
         </div>
       </section>
-      <p>Copywrite 2021</p>
+      <p>Copywrite 2021</p> */}
     </footer>
   );
 };

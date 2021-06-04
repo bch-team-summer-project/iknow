@@ -2,7 +2,7 @@
 /* 2nd container from top that displays image and 3 cards */
 .top-graphic-and-cards-container {
   position: relative;
-  background-color: orange;
+  /* background-color: turquoise; */
   height: 40vh;
 }
 .top-graphic-and-cards-lady-img {
@@ -19,40 +19,47 @@
   justify-content: flex-end;
   height: 100%;
   margin-right: 30px;
-  font-size: 1.5em;
+  font-size: 2.2vw;
+  overflow-y: auto;
 }
 
 .events-category-card-1 {
-  background-color: red;
+  background-color: orange;
   color: white;
-  height: 100%;
+  height: 80%;
   width: 15vw;
   margin-right: 20px;
   text-align: center;
+  overflow-wrap: unset;
 }
 .events-category-card-1 p {
-  color: purple;
+  transform: translateY(160%);
 }
 
 .events-category-card-2 {
-  background-color: green;
+  background-color: orange;
   color: white;
-  height: 100%;
+  height: 80%;
   width: 15vw;
   margin-right: 20px;
   text-align: center;
 }
-
+.events-category-card-2 p {
+  transform: translateY(160%);
+}
 .events-category-card-3 {
-  background-color: blue;
+  background-color: orange;
   color: white;
-  height: 100%;
+  height: 80%;
   width: 15vw;
   text-align: center;
+}
+.events-category-card-3 p {
+  transform: translateY(160%);
 }
 
 /* container that displays event cards */
 .events-container {
-  background-color: palevioletred;
+  /* background-color: palevioletred; */
 }
 /* ¨¨ */

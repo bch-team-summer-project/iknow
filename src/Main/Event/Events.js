@@ -40,12 +40,12 @@ function Events() {
 
   const getEvents = async () => {
     //let response = await fetch("http://localhost:3001/events");
-    //let response = await fetch(
-      //`https://api.hel.fi/linkedevents/v1/event/?page=${page}`
-    //);
-    //let result = await response.json();
-    //setEvents((prev) => [...prev, ...result.data]);
-    //setIsLoading(false);
+    let response = await fetch(
+      `https://api.hel.fi/linkedevents/v1/event/?page=${page}`
+    );
+    let result = await response.json();
+    setEvents((prev) => [...prev, ...result.data]);
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -67,7 +67,6 @@ function Events() {
 
   // delaying search so user has time to type
   // before searching activates ¨¨
-  // but console logs still "this is events:[ARR]", on every letter+1 or letter-1
   useEffect(() => {
     const delayDebounce = setTimeout(() => {
       console.log('search term: ', searchTerm);
@@ -87,17 +86,17 @@ function Events() {
         </div>
         <div className="events-category-all-cards">
         <a href="#" alt="click to find online events">
-        <div className="events-category-card-1">
+        <div className="events-category-card-1" onClick={() => console.log('card-1 clic')}>
           <p>Online events</p>
         </div>
         </a>
         <a href="#" alt="click to find offline events">
-        <div className="events-category-card-2">
+        <div className="events-category-card-2"  onClick={() => console.log('card-2 clic')}>
           <p>Offline events</p>
         </div>
         </a>
         <a href="#" alt="click to find all events">
-        <div className="events-category-card-3">
+        <div className="events-category-card-3"  onClick={() => console.log('card-3 clic')}>
           <p>All events</p>
         </div>
         </a>
