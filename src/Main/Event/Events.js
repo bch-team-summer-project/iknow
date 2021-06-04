@@ -1,11 +1,12 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { Col, Row, Button } from "react-bootstrap";
+import { Col, Row, Button, Dropdown } from "react-bootstrap";
 import { Route, Switch, useRouteMatch } from "react-router";
 import axios from "axios";
 
 import EventList from "./EventList";
 import EventSpa from "./EventSpa";
 import Search from "../Search";
+import NewEvent from "./NewEvent";
 
 function Events() {
   const [events, setEvents] = useState([]);
@@ -34,30 +35,29 @@ function Events() {
     if (loader.current) observer.observe(loader.current);
   }, [handleObserver]);
 
-  const getEvents = async () => {
-    // let response = await fetch("http://localhost:3001/events");
-    try {
-      let response = await axios({
-        method: "GET",
-        url: `https://api.hel.fi/linkedevents/v1/event/?page=${page}`,
-        // cancelToken: new axios.CancelToken((c) => (cancel = c)),
-      });
-      let result = await response.data;
-      setEvents((prev) => [...prev, ...result.data]);
-      setIsLoading(false);
-    } catch (e) {
-      // if (axios.isCancel(e)) return;
-
-      if (e) return;
-    }
-  };
   useEffect(() => {
     // setIsLoading(true);
-    // let cancel;
+    let cancel;
+    const getEvents = async () => {
+      // let response = await fetch("http://localhost:3001/events");
+      try {
+        let response = await axios({
+          method: "GET",
+          url: `https://api.hel.fi/linkedevents/v1/event/?page=${page}`,
+          cancelToken: new axios.CancelToken((c) => (cancel = c)),
+        });
+        let result = await response.data;
+        setEvents((prev) => [...prev, ...result.data]);
+        setIsLoading(false);
+      } catch (e) {
+        if (axios.isCancel(e)) return;
+
+        // if (e) return;
+      }
+    };
     getEvents();
-    // return () => cancel();
+    return () => cancel();
   }, [query, page]);
-  console.log("this is events", events);
 
   useEffect(() => {
     setEvents([]);
@@ -66,26 +66,35 @@ function Events() {
   const getOnlineEvents = async () => {
     setIsLoading(true);
     let res = await axios.get(
-      `https://api.hel.fi/linkedevents/v1/event/?keyword=yso:p26626&page=${page}`
+      `https://api.hel.fi/linkedevents/v1/event/?internet_ongoing&page=${page}`
     );
     let result = await res.data;
     setOnline(result.data);
     setIsLoading(false);
-    console.log("this is online", online);
   };
+  console.log("this is online", online);
   const getAll = async () => {
     setIsLoading(true);
     setOnline([]);
     let res = await axios.get(
-      `https://api.hel.fi/linkedevents/v1/event/?page=${page}`
+      `https://api.hel.fi/linkedevents/v1/event/?all_ongoing&page=${page}`
     );
     let result = await res.data;
     setAll(result.data);
     setIsLoading(false);
-    console.log("this is all ", all);
   };
+  console.log("this is all ", all);
 
   const handleSearch = events.filter((e) => {
+    if (e.name.en) {
+      return e.name.en.toLowerCase().includes(query.toLowerCase());
+    } else if (e.name.fi) {
+      return e.name.fi.toLowerCase().includes(query.toLowerCase());
+    } else {
+      return e.name.sv.toLowerCase().includes(query.toLowerCase());
+    }
+  });
+  const onlineSearch = online.filter((e) => {
     if (e.name.en) {
       return e.name.en.toLowerCase().includes(query.toLowerCase());
     } else if (e.name.fi) {
@@ -117,12 +126,18 @@ function Events() {
                 </Button>
               </Col>
               <Col>
-                <Button variant="warning" size="lg">
-                  Create event
-                </Button>
+                <Dropdown>
+                  <Dropdown.Toggle variant="warning" size="lg">
+                    Create Event
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu style={{ width: "35rem" }}>
+                    <NewEvent />
+                  </Dropdown.Menu>
+                </Dropdown>
               </Col>
             </Col>
           </Row>
+
           <Search
             search={(e) => {
               setQuery(e.target.value);
@@ -130,7 +145,7 @@ function Events() {
           />
           {isLoading && <p>Loading...</p>}
           <section className="events">
-            {online && <EventList events={online} />}
+            {online && <EventList events={onlineSearch} />}
             {(events || all) && <EventList events={handleSearch} />}
           </section>
           <div ref={loader} />
