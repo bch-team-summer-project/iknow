@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import Form from "react-bootstrap/Form";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
+import { Form, Col, Button } from "react-bootstrap";
 import "./AddForm.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
@@ -12,28 +10,41 @@ const AddForm = () => {
     date: "",
     name: "",
     location: "",
-    img: "",
     placeOrigin: "Nihtisillankuja 4, Espoo, 02631",
     description: "",
   });
+
+  const [imageSelected, setImageSelected] = useState("");
+
+  const uploadImage = () => {
+    const formData = new FormData();
+    formData.append("file", imageSelected);
+    formData.append("upload_preset", "tutorial");
+
+    axios
+      .post("https://api.cloudinary.com/v1_1/lostfound/image/upload", formData)
+      .then((res) => console.log(res));
+  };
 
   const [state, setState] = useState({
     value: "",
   });
 
   const showSelect = (e) => {
-    console.log(e.target.value);
+    e.preventDefault();
     setState({ ...state, value: e.target.value });
   };
 
   const changeData = (e) => {
+    e.preventDefault();
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
   const submitData = (e) => {
-    console.log(data);
     e.preventDefault();
     axios.post("http://localhost:3002/items", data);
+
+    alert("Form is posted");
   };
 
   return (
@@ -42,6 +53,7 @@ const AddForm = () => {
         <Form.Group as={Col} htmlFor="category">
           <Form.Label>Category: </Form.Label>
           <Form.Control
+            style={{ width: "200px" }}
             as="select"
             name="category"
             onChange={(e) => {
@@ -57,6 +69,7 @@ const AddForm = () => {
         <Form.Group as={Col} htmlFor="date">
           <Form.Label>Date and time: </Form.Label>
           <Form.Control
+            style={{ width: "250px" }}
             type="datetime-local"
             name="date"
             onChange={changeData}
@@ -67,25 +80,53 @@ const AddForm = () => {
       <Form.Row>
         <Form.Group as={Col} htmlFor="location">
           <Form.Label>Location: </Form.Label>
-          <Form.Control type="text" name="location" onChange={changeData} />
+          <Form.Control
+            style={{ width: "500px" }}
+            type="text"
+            name="location"
+            onChange={changeData}
+          />
         </Form.Group>
 
         <Form.Group as={Col} htmlFor="name">
           <Form.Label>Item Name: </Form.Label>
-          <Form.Control type="text" name="name" onChange={changeData} />
+          <Form.Control
+            style={{ width: "400px" }}
+            type="text"
+            name="name"
+            onChange={changeData}
+          />
         </Form.Group>
       </Form.Row>
 
       <Form.Row>
-        <Form.Group as={Col} htmlFor="img">
+        <Form.Group as={Col} htmlFor="url">
           <Form.Label>Upload Photo: </Form.Label>
-          <Form.File type="file" id="img" name="img" onChange={changeData} />
-          <Button>Upload</Button>
+          <Form.File
+            type="file"
+            id="url"
+            name="url"
+            onChange={(e) => {
+              setImageSelected(e.target.files[0]);
+            }}
+          />
+          <Button
+            className="uploadButton"
+            variant="outline-success"
+            onClick={uploadImage}
+          >
+            Upload
+          </Button>
         </Form.Group>
 
         <Form.Group as={Col} htmlFor="placeOrigin" className={state.value}>
           <Form.Label>Place of Origin:</Form.Label>
-          <Form.Control as="select" name="placeOrigin" onChange={changeData}>
+          <Form.Control
+            style={{ width: "400px" }}
+            as="select"
+            name="placeOrigin"
+            onChange={changeData}
+          >
             <option value="Nihtisillankuja 4, Espoo, 02631">
               Nihtisillankuja 4, Espoo, 02631
             </option>
@@ -102,19 +143,27 @@ const AddForm = () => {
         </Form.Group>
       </Form.Row>
 
-      <Form.Group as={Col} htmlFor="description">
-        <Form.Label>Description: </Form.Label>
-        <Form.Control
-          as="textarea"
-          name="description"
-          rows={4}
-          onChange={changeData}
-        />
-      </Form.Group>
+      <Form.Row className="descriptionLF">
+        <Form.Group as={Col} htmlFor="description">
+          <Form.Label>Description: </Form.Label>
+          <Form.Control
+            as="textarea"
+            name="description"
+            rows={6}
+            onChange={changeData}
+          />
+        </Form.Group>
 
-      <Button variant="success" type="submit" value="Send data">
-        Add Post
-      </Button>
+        <Button
+          className="submitButton"
+          size="lg"
+          variant="success"
+          type="submit"
+          value="Send data"
+        >
+          Add Post
+        </Button>
+      </Form.Row>
     </Form>
   );
 };

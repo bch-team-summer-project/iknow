@@ -4,7 +4,9 @@
       "id": 1,
       "category": "lost",
       "name": "wallet",
-      "img": ["/wallet"],
+      "url": [
+        "/wallet"
+      ],
       "location": "Laajavuorenkuja 1, Vantaa, 01620",
       "date": "25.05.2021, 15:00",
       "description": "Lost my wallet near of the K Market shop. Color brown. Please contact me by email:name.surname@gmail.com",
@@ -14,7 +16,9 @@
       "id": 2,
       "category": "found",
       "name": "Sport bag",
-      "img": ["/bag"],
+      "url": [
+        "/bag"
+      ],
       "location": "Lehtimäentie 1C, Espoo, 02770",
       "date": "26.05.2021, 8:00",
       "description": "Found sport bag new of Omnia school. Brand- addidas, color-dark blue",
@@ -24,7 +28,9 @@
       "id": 3,
       "category": "lost",
       "name": "dog",
-      "img": ["/dog"],
+      "url": [
+        "/dog"
+      ],
       "location": "Laajavuorenkuja 1, Vantaa, 01620",
       "date": "25.05.2021, 15:00",
       "description": "Lost my wallet near of the K Market shop. Color brown. Please contact me by email:name.surname@gmail.com",
@@ -34,7 +40,9 @@
       "id": 4,
       "category": "found",
       "name": "cat",
-      "img": ["/cat"],
+      "url": [
+        "/cat"
+      ],
       "location": "Lehtimäentie 1C, Espoo, 02770",
       "date": "26.05.2021, 8:00",
       "description": "Found sport bag new of Omnia school. Brand- addidas, color-dark blue",
@@ -45,7 +53,7 @@
       "date": "2021-05-10T12:35",
       "name": "kid´s toy",
       "location": "IKEA Vantaa",
-      "img": "",
+      "url": "",
       "placeOrigin": "Nihtisillankuja 4, Espoo, 02631",
       "description": "Lost favorite toy - white rabbit on the first floor of IKEA shop in Vantaa.  If you found it, please let me know. ",
       "id": 5
@@ -55,7 +63,7 @@
       "date": "2021-04-08T10:56",
       "name": "keys",
       "location": "Prisma, Kaari",
-      "img": "",
+      "url": "",
       "placeOrigin": "Narinkka 3, Kampin keskus, 00100 Helsinki",
       "description": "Found keys in Prisma shop, Kaari. Please contact information desc for more details. I gave the keys to them",
       "id": 6
@@ -65,7 +73,7 @@
       "date": "2021-05-20T11:00",
       "name": "test",
       "location": "test",
-      "img": "",
+      "url": "",
       "placeOrigin": "Nihtisillankuja 4, Espoo, 02631",
       "description": "tes test from found",
       "id": 7
@@ -75,7 +83,7 @@
       "date": "2021-05-02T16:05",
       "name": "test2",
       "location": "test2",
-      "img": "",
+      "url": "",
       "placeOrigin": "Nihtisillankuja 4, Espoo, 02631",
       "description": "tes test from lost",
       "id": 8
@@ -84,7 +92,7 @@
       "id": 9,
       "category": "lost",
       "name": "wallet",
-      "img": [
+      "url": [
         "/wallet"
       ],
       "location": "Laajavuorenkuja 1, Vantaa, 01620",
@@ -96,7 +104,7 @@
       "id": 10,
       "category": "found",
       "name": "Sport bag",
-      "img": [
+      "url": [
         "/bag"
       ],
       "location": "Lehtimäentie 1C, Espoo, 02770",
@@ -108,7 +116,7 @@
       "id": 11,
       "category": "lost",
       "name": "dog",
-      "img": [
+      "url": [
         "/dog"
       ],
       "location": "Laajavuorenkuja 1, Vantaa, 01620",
@@ -120,7 +128,7 @@
       "id": 12,
       "category": "found",
       "name": "cat",
-      "img": [
+      "url": [
         "/cat"
       ],
       "location": "Lehtimäentie 1C, Espoo, 02770",
@@ -133,7 +141,7 @@
       "date": "2021-06-09T18:43",
       "name": "cat",
       "location": "Espoo",
-      "img": "",
+      "url": "",
       "placeOrigin": "Nihtisillankuja 4, Espoo, 02631",
       "description": "cat cat cat",
       "id": 13
@@ -143,7 +151,7 @@
       "date": "2021-06-09T18:43",
       "name": "cat",
       "location": "Espoo",
-      "img": "",
+      "url": "",
       "placeOrigin": "Nihtisillankuja 4, Espoo, 02631",
       "description": "cat cat cat",
       "id": 14
@@ -153,7 +161,7 @@
       "date": "2021-06-09T18:43",
       "name": "cat",
       "location": "Espoo",
-      "img": "",
+      "url": "",
       "placeOrigin": "Nihtisillankuja 4, Espoo, 02631",
       "description": "cat cat cat",
       "id": 15
@@ -163,7 +171,7 @@
       "date": "2021-06-09T18:43",
       "name": "cat",
       "location": "Espoo",
-      "img": "",
+      "url": "",
       "placeOrigin": "Nihtisillankuja 4, Espoo, 02631",
       "description": "cat cat cat",
       "id": 16
@@ -173,7 +181,7 @@
       "date": "2021-06-09T18:43",
       "name": "cat",
       "location": "Espoo",
-      "img": "",
+      "url": "",
       "placeOrigin": "Nihtisillankuja 4, Espoo, 02631",
       "description": "cat cat cat",
       "id": 17
@@ -183,7 +191,7 @@
       "date": "2021-06-27T10:55",
       "name": "women's bag",
       "location": " Meritullinkatu 10, Helsinki",
-      "img": "",
+      "url": "",
       "placeOrigin": "Mäkelänkatu 56, Helsinki, “Löytötavarapalvelu",
       "description": "On the bus station in Helsinki, was found women bag",
       "id": 18
@@ -193,7 +201,7 @@
       "date": "2021-06-27T10:55",
       "name": "women's bag",
       "location": " Meritullinkatu 10, Helsinki",
-      "img": "",
+      "url": "",
       "placeOrigin": "Mäkelänkatu 56, Helsinki, “Löytötavarapalvelu",
       "description": "On the bus station in Helsinki, was found women bag",
       "id": 19
@@ -203,7 +211,7 @@
       "date": "2021-06-27T10:55",
       "name": "women's bag",
       "location": " Meritullinkatu 10, Helsinki",
-      "img": "",
+      "url": "",
       "placeOrigin": "Mäkelänkatu 56, Helsinki, “Löytötavarapalvelu",
       "description": "On the bus station in Helsinki, was found women bag",
       "id": 20
@@ -213,10 +221,20 @@
       "date": "2021-06-27T10:55",
       "name": "women's bag",
       "location": " Meritullinkatu 10, Helsinki",
-      "img": "",
+      "url": "",
       "placeOrigin": "Mäkelänkatu 56, Helsinki, “Löytötavarapalvelu",
       "description": "On the bus station in Helsinki, was found women bag",
       "id": 21
+    },
+    {
+      "category": "lost",
+      "date": "",
+      "name": "Kela card",
+      "location": "Terveystalo Myyrmaki",
+      "url": "",
+      "placeOrigin": "Nihtisillankuja 4, Espoo, 02631",
+      "description": "Lost Kela card by name Name and Surname, please contact me by email -",
+      "id": 22
     }
   ]
 }
