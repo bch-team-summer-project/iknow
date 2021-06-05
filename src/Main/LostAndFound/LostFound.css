@@ -1,7 +1,7 @@
 /* Override Bootstrap  */
 
 .containerMain {
-  width: 1800px;
+  width: 1700px;
   padding: 1rem 1rem 1rem 2rem;
 }
 
@@ -78,4 +78,8 @@
 
 .card-text {
   height: 200px;
+}
+
+.col {
+  padding: 10px;
 }

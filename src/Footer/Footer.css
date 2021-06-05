@@ -43,8 +43,18 @@ footer p {
 .footer-weather {
   display: flex;
   justify-content: space-between;
+  padding-top: 4rem;
 }
 
 .footer-city {
   margin-right: 5rem;
+  text-align: center;
+}
+
+.footer-city img {
+  width: 3rem;
+}
+
+.footer-city span {
+  color: var(--orange);
 }

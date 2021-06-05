@@ -12,6 +12,7 @@ const AddForm = () => {
     location: "",
     placeOrigin: "Nihtisillankuja 4, Espoo, 02631",
     description: "",
+    img: `https://res.cloudinary.com/lostfound/image/upload/v${data.version}/${data.public_id}.jpg `,
   });
 
   const [imageSelected, setImageSelected] = useState("");
@@ -104,8 +105,8 @@ const AddForm = () => {
           <Form.Label>Upload Photo: </Form.Label>
           <Form.File
             type="file"
-            id="url"
-            name="url"
+            id="img"
+            name="img"
             onChange={(e) => {
               setImageSelected(e.target.files[0]);
             }}
@@ -161,7 +162,7 @@ const AddForm = () => {
           type="submit"
           value="Send data"
         >
-          Add Post
+          Submit
         </Button>
       </Form.Row>
     </Form>

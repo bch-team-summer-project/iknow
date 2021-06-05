@@ -1,11 +1,11 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 
-const LostCard = ({ name, url, location, date, description, placeOrigin }) => {
+const LostCard = ({ name, img, location, date, description, placeOrigin }) => {
   return (
     <div className="lost-card">
       <Card style={{ width: "20rem" }} className="lost-container">
-        <Card.Img className="lostImg" variant="top" img src={url} alt={name} />
+        <Card.Img className="lostImg" variant="top" img src={img} alt={name} />
         <Card.Body>
           <Card.Title>
             <strong>{date}</strong>

@@ -11,7 +11,7 @@ const FoundList = ({ items, loading }) => {
       {items.map((item) => (
         <FoundCard
           key={item.id}
-          img={item.url}
+          img={item.img}
           name={item.name}
           date={item.date}
           location={item.location}
