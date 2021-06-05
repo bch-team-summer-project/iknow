@@ -5,7 +5,7 @@ function EventList({ events }) {
   return (
     <div className="eventList">
       {events.map((e) => {
-        if (events && e.images.length) {
+        if (e.images.length) {
           // if array.length is truthy(>0) => process array
           return (
             <EventCard
