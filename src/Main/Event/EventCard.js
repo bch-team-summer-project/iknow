@@ -2,7 +2,7 @@ import React from "react";
 import { Card, CardImg, Col, Row } from "react-bootstrap";
 import { Link, useRouteMatch } from "react-router-dom";
 
-function EventCard({ name, image, description, id }) {
+function EventCard({ name, image, description, id}) {
   let { url } = useRouteMatch();
 
   return (

@@ -23,38 +23,16 @@
   overflow-y: auto;
 }
 
-.events-category-card-1 {
+.orange-card {
   background-color: orange;
   color: white;
   height: 80%;
   width: 15vw;
   margin-right: 20px;
   text-align: center;
-  overflow-wrap: unset;
-}
-.events-category-card-1 p {
-  transform: translateY(160%);
 }
 
-.events-category-card-2 {
-  background-color: orange;
-  color: white;
-  height: 80%;
-  width: 15vw;
-  margin-right: 20px;
-  text-align: center;
-}
-.events-category-card-2 p {
-  transform: translateY(160%);
-}
-.events-category-card-3 {
-  background-color: orange;
-  color: white;
-  height: 80%;
-  width: 15vw;
-  text-align: center;
-}
-.events-category-card-3 p {
+.orange-card p {
   transform: translateY(160%);
 }
 
