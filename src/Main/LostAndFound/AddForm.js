@@ -12,19 +12,27 @@ const AddForm = () => {
     location: "",
     placeOrigin: "Nihtisillankuja 4, Espoo, 02631",
     description: "",
-    img: `https://res.cloudinary.com/lostfound/image/upload/v${data.version}/${data.public_id}.jpg `,
+    img: "",
   });
 
-  const [imageSelected, setImageSelected] = useState("");
+  const [image, setImage] = useState("");
+  const [img, setUrl] = useState("");
 
   const uploadImage = () => {
-    const formData = new FormData();
-    formData.append("file", imageSelected);
-    formData.append("upload_preset", "tutorial");
-
-    axios
-      .post("https://api.cloudinary.com/v1_1/lostfound/image/upload", formData)
-      .then((res) => console.log(res));
+    const data = new FormData();
+    data.append("file", image);
+    data.append("upload_preset", "tutorial");
+    data.append("cloud_name", "lostfound");
+    fetch("https://api.cloudinary.com/v1_1/lostfound/image/upload", {
+      method: "post",
+      body: data,
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        setUrl(data.url);
+        console.log(data.url);
+      })
+      .catch((err) => console.log(err));
   };
 
   const [state, setState] = useState({
@@ -44,12 +52,17 @@ const AddForm = () => {
   const submitData = (e) => {
     e.preventDefault();
     axios.post("http://localhost:3002/items", data);
-
     alert("Form is posted");
   };
 
   return (
-    <Form onSubmit={submitData} className="addItemPost">
+    <Form
+      onSubmit={(e) => {
+        submitData(e);
+        uploadImage(e);
+      }}
+      className="addItemPost"
+    >
       <Form.Row>
         <Form.Group as={Col} htmlFor="category">
           <Form.Label>Category: </Form.Label>
@@ -107,17 +120,9 @@ const AddForm = () => {
             type="file"
             id="img"
             name="img"
-            onChange={(e) => {
-              setImageSelected(e.target.files[0]);
-            }}
+            onChange={(e) => setImage(e.target.files[0])}
           />
-          <Button
-            className="uploadButton"
-            variant="outline-success"
-            onClick={uploadImage}
-          >
-            Upload
-          </Button>
+          <Button>Upload</Button>
         </Form.Group>
 
         <Form.Group as={Col} htmlFor="placeOrigin" className={state.value}>

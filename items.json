@@ -77,6 +77,86 @@
       "placeOrigin": "Nihtisillankuja 4, Espoo, 02631",
       "description": "tes tes test test ",
       "id": 5
+    },
+    {
+      "category": "",
+      "date": "",
+      "name": "",
+      "location": "",
+      "placeOrigin": "Nihtisillankuja 4, Espoo, 02631",
+      "description": "",
+      "img": "",
+      "id": 7
+    },
+    {
+      "category": "",
+      "date": "2021-06-22T03:49",
+      "name": "f",
+      "location": "f",
+      "placeOrigin": "Nihtisillankuja 4, Espoo, 02631",
+      "description": "",
+      "img": "",
+      "id": 8
+    },
+    {
+      "category": "lost",
+      "date": "2021-06-06T15:55",
+      "name": "l",
+      "location": "l",
+      "placeOrigin": "Nihtisillankuja 4, Espoo, 02631",
+      "description": "",
+      "img": "",
+      "id": 9
+    },
+    {
+      "category": "",
+      "date": "2021-06-08T15:22",
+      "name": "found",
+      "location": "found",
+      "placeOrigin": "Mäkelänkatu 56, Helsinki, “Löytötavarapalvelu",
+      "description": "",
+      "img": "",
+      "id": 10
+    },
+    {
+      "category": "",
+      "date": "",
+      "name": "",
+      "location": "",
+      "placeOrigin": "Nihtisillankuja 4, Espoo, 02631",
+      "description": "",
+      "img": "",
+      "id": 11
+    },
+    {
+      "category": "",
+      "date": "",
+      "name": "",
+      "location": "",
+      "placeOrigin": "Nihtisillankuja 4, Espoo, 02631",
+      "description": "",
+      "img": "",
+      "id": 12
+    },
+    {
+      "category": "",
+      "date": "",
+      "name": "",
+      "location": "",
+      "placeOrigin": "Nihtisillankuja 4, Espoo, 02631",
+      "description": "",
+      "img": "",
+      "id": 13
+    },
+    {
+      "category": "",
+      "date": "",
+      "name": "",
+      "location": "",
+      "placeOrigin": "Nihtisillankuja 4, Espoo, 02631",
+      "description": "",
+      "img": "",
+      "id": 14
     }
   ]
 }
