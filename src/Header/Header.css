@@ -4,6 +4,9 @@ header {
   flex-direction: raw;
   justify-content: space-between;
   padding: 1rem 1rem 1rem 2rem;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
 }
 
 header ul li {
@@ -46,4 +49,48 @@ nav a:hover {
 
 nav .active {
   color: var(--orange);
+}
+
+#mobileicon {
+  display: none;
+}
+
+#mobilemenu {
+  background-color: #faf6f1;
+  position: absolute;
+  right: 0;
+  top: 90px;
+  padding: 2rem;
+  width: 30%;
+
+  box-shadow: 9px 0px 1px #888888;
+  z-index: 999;
+}
+
+#mobilemenu li {
+  display: block;
+  margin: 1.5rem 0;
+  font-size: 25px;
+}
+
+#mobilemenu li a {
+  color: #eb3204;
+}
+
+#mobilemenu ul li a:hover {
+  background-image: none;
+  color: #000;
+  font-size: 26px;
+}
+
+@media (max-width: 901px) {
+  /* .logo {
+    font-size: 40px;
+  } */
+  #mobileicon {
+    display: block;
+  }
+  nav {
+    display: none !important;
+  }
 }
