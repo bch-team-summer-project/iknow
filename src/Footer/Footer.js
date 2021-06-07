@@ -22,7 +22,6 @@ const Footer = () => {
     const getData = async () => {
       const res = await axios(`https://iknow-backend.herokuapp.com/weather/`);
       setWeather(res.data);
-      console.log(res.data[0].city);
     };
     getData();
   }, []);
