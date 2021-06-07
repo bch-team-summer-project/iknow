@@ -50,8 +50,9 @@ const AddForm = () => {
   const submitData = (e) => {
     e.preventDefault();
     axios.post("http://localhost:3002/items", form);
-
-    alert("Form is posted");
+    if (!alert("Form is posted!")) {
+      window.location.reload();
+    }
   };
 
   return (
@@ -68,6 +69,7 @@ const AddForm = () => {
               showSelect(e);
             }}
           >
+            <option value="">Choose category</option>
             <option value="found">Found</option>
             <option value="lost">Lost</option>
           </Form.Control>

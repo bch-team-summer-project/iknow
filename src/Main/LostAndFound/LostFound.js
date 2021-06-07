@@ -1,22 +1,40 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import FoundCard from "./FoundCard";
-import LostCard from "./LostCard";
+import FoundList from "./FoundList";
+import LostList from "./LostList";
 import SearchBox from "./SearchBox";
 import AddForm from "./AddForm";
+import PaginationFound from "./PaginationFound";
+import PaginationLost from "./PaginationLost";
+import LostPag from "./LostPag";
+import FoundPag from "./FoundPag";
+
+import logo from "./images/found.svg";
 import "./LostFound.css";
 
 const LostFound = () => {
   const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [searchInput, setSearchInput] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(4);
 
   const searchValueHandler = (e) => {
     setSearchInput(e.target.value);
   };
 
   useEffect(() => {
-    axios.get("http://localhost:3002/items").then((res) => setItems(res.data));
+    const fetchItems = async () => {
+      setLoading(true);
+      const res = await axios.get("http://localhost:3002/items");
+      setItems(res.data);
+      setLoading(false);
+    };
+
+    fetchItems();
   }, []);
+
+  // Found Filter
 
   const itemFoundFilter = items.filter((item) => {
     return (
@@ -24,60 +42,83 @@ const LostFound = () => {
       item.name.toLowerCase().includes(searchInput.toLowerCase())
     );
   });
+  console.log(itemFoundFilter);
 
-  const listFound = itemFoundFilter.map((found) => {
-    console.log(found.category);
-    return (
-      <FoundCard
-        key={found.id}
-        img={found.img}
-        name={found.name}
-        date={found.date}
-        location={found.location}
-        placeOrigin={found.placeOrigin}
-        description={found.description}
-        id={found.id}
-      />
-    );
-  });
+  // Lost Filter
 
   const itemLostFilter = items.filter((item) => {
-    console.log(item);
     return (
       item.category === "lost" &&
       item.name.toLowerCase().includes(searchInput.toLowerCase())
     );
   });
 
-  const listLost = itemLostFilter.map((lost) => {
-    console.log(lost.category);
-    return (
-      <LostCard
-        key={lost.id}
-        img={lost.img}
-        name={lost.name}
-        date={lost.date}
-        location={lost.location}
-        description={lost.description}
-        id={lost.id}
-      />
-    );
-  });
+  const indexOfLastPost = currentPage * postsPerPage;
+
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+
+  // Pagination
+
+  const currentPostsFound = itemFoundFilter.slice(
+    indexOfFirstPost,
+    indexOfLastPost
+  );
+  console.log(currentPostsFound);
+  console.log(itemFoundFilter.length);
+
+  const currentPostsLost = itemLostFilter.slice(
+    indexOfFirstPost,
+    indexOfLastPost
+  );
+
+  //Change page
+  const paginateFound = (pageNumber) => setCurrentPage(pageNumber);
+
+  const paginateLost = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div>
-      <div>
-        <h1>Search items</h1>
+    <div className="containerMain">
+      <div className="searchContainer">
+        <img
+          className="logoFound"
+          src={logo}
+          alt="found"
+          width="400"
+          height="300"
+        />
+
         <SearchBox search={searchValueHandler} />
       </div>
-      <h2>Found items</h2>
-      <div className="found-list">{listFound}</div>
-      <h2>Lost items</h2>
-      <div className="lost-list">{listLost}</div>
-      <div>
-        <h2>Add found/lost item</h2>
+      <div className="foundContainer">
+        <h2 className="lostfoundTitle">
+          <strong>Found Items</strong>
+        </h2>
+        <FoundList items={currentPostsFound} loading={loading} />
+        <PaginationFound
+          postsPerPage={postsPerPage}
+          totalPosts={itemFoundFilter.length}
+          paginate={paginateFound}
+        />
+      </div>
+      <div className="lostContainer">
+        <h2 className="lostfoundTitle">
+          <strong>Lost items</strong>
+        </h2>
+        <LostList items={currentPostsLost} loading={loading} />
+        <PaginationLost
+          postsPerPage={postsPerPage}
+          totalPosts={itemLostFilter.length}
+          paginate={paginateLost}
+        />
+      </div>
+      <div className="formContainer">
+        <h2 className="lostfoundTitle">
+          <strong>Add found/lost item</strong>
+        </h2>
         <AddForm />
       </div>
+      <LostPag />
+      <FoundPag />
     </div>
   );
 };
