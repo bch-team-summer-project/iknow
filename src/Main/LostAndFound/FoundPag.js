@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from "react";
 import axios from "axios";
-import LostCard from "./LostCard";
+import FoundCard from "./FoundCard";
 import ReactPaginate from "react-paginate";
 import "./LostPag.css";
 
@@ -9,18 +9,24 @@ const LostPag = () => {
   const [data, setData] = useState([]);
   const [perPage] = useState(3);
   const [pageCount, setPageCount] = useState(0);
+  const [searchInput, setSearchInput] = useState("");
 
-  const getData = async () => {
+  const fetchItems = async () => {
     const res = await axios.get(`http://localhost:3002/items`);
     const data = res.data;
+
     const founddata = data.filter((found) => {
-      return found.category.includes("found");
+      return (
+        found.category === "found" &&
+        found.name.toLowerCase().includes(searchInput.toLowerCase())
+      );
     });
+
     console.log(founddata);
     const slice = founddata.slice(offset, offset + perPage);
     const postData = slice.map((pd) => (
       <div key={pd.id}>
-        <LostCard
+        <FoundCard
           name={pd.name}
           img={pd.img}
           location={pd.location}
@@ -39,7 +45,7 @@ const LostPag = () => {
   };
 
   useEffect(() => {
-    getData();
+    fetchItems();
   }, [offset]);
 
   return (

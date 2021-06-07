@@ -4,18 +4,19 @@ import FoundList from "./FoundList";
 import LostList from "./LostList";
 import SearchBox from "./SearchBox";
 import AddForm from "./AddForm";
-import PaginationFound from "./PaginationFound";
-import PaginationLost from "./PaginationLost";
+import ReactPaginate from "react-paginate";
 
 import logo from "./images/found.svg";
 import "./LostFound.css";
+import "./LostPag.css";
 
 const LostFound = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchInput, setSearchInput] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(3);
+
+  const [offset, setOffset] = useState(0);
+  const [perPage] = useState(3);
 
   const searchValueHandler = (e) => {
     setSearchInput(e.target.value);
@@ -42,6 +43,14 @@ const LostFound = () => {
   });
   console.log(itemFoundFilter);
 
+  const sliceFound = itemFoundFilter.slice(offset, offset + perPage);
+  console.log(sliceFound);
+
+  const handlePageClickFound = (e) => {
+    const selectedPage = e.selected;
+    setOffset(selectedPage + 1);
+  };
+
   // Lost Filter
 
   const itemLostFilter = items.filter((item) => {
@@ -51,28 +60,13 @@ const LostFound = () => {
     );
   });
 
-  const indexOfLastPost = currentPage * postsPerPage;
+  const sliceLost = itemLostFilter.slice(offset, offset + perPage);
+  console.log(sliceLost);
 
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-
-  // Pagination
-
-  const currentPostsFound = itemFoundFilter.slice(
-    indexOfFirstPost,
-    indexOfLastPost
-  );
-  console.log(currentPostsFound);
-  console.log(itemFoundFilter.length);
-
-  const currentPostsLost = itemLostFilter.slice(
-    indexOfFirstPost,
-    indexOfLastPost
-  );
-
-  //Change page
-  const paginateFound = (pageNumber) => setCurrentPage(pageNumber);
-
-  const paginateLost = (pageNumber) => setCurrentPage(pageNumber);
+  const handlePageClickLost = (i) => {
+    const selectedPage = i.selected;
+    setOffset(selectedPage + 1);
+  };
 
   return (
     <div className="containerMain">
@@ -91,23 +85,43 @@ const LostFound = () => {
         <h2 className="lostfoundTitle">
           <strong>Found Items</strong>
         </h2>
-        <FoundList items={currentPostsFound} loading={loading} />
-        <PaginationFound
-          postsPerPage={postsPerPage}
-          totalPosts={itemFoundFilter.length}
-          paginate={paginateFound}
-        />
+        <FoundList items={sliceFound} loading={loading} />
+        <div>
+          <ReactPaginate
+            previousLabel={"<<<prev"}
+            nextLabel={"next>>>"}
+            breakLabel={"..."}
+            breakClassName={"break-me"}
+            pageCount={Math.ceil(itemFoundFilter.length / perPage)}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={handlePageClickFound}
+            containerClassName={"pagination"}
+            subContainerClassName={"pages pagination"}
+            activeClassName={"active"}
+          />
+        </div>
       </div>
       <div className="lostContainer">
         <h2 className="lostfoundTitle">
           <strong>Lost items</strong>
         </h2>
-        <LostList items={currentPostsLost} loading={loading} />
-        <PaginationLost
-          postsPerPage={postsPerPage}
-          totalPosts={itemLostFilter.length}
-          paginate={paginateLost}
-        />
+        <LostList items={sliceLost} loading={loading} />
+        <div>
+          <ReactPaginate
+            previousLabel={"<<<prev"}
+            nextLabel={"next>>>"}
+            breakLabel={"..."}
+            breakClassName={"break-me"}
+            pageCount={Math.ceil(itemLostFilter.length / perPage)}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={handlePageClickLost}
+            containerClassName={"pagination"}
+            subContainerClassName={"pages pagination"}
+            activeClassName={"active"}
+          />
+        </div>
       </div>
       <div className="formContainer">
         <h2 className="lostfoundTitle">

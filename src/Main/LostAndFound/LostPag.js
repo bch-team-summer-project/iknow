@@ -13,6 +13,7 @@ const LostPag = () => {
   const getData = async () => {
     const res = await axios.get(`http://localhost:3002/items`);
     const data = res.data;
+
     const lostdata = data.filter((lost) => {
       return lost.category.includes("lost");
     });
