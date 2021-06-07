@@ -29,7 +29,6 @@ const AddForm = () => {
       .then((resp) => resp.json())
       .then((data) => {
         setForm({ ...form, img: data.url });
-        /* setUrl(data.url); */
       })
       .catch((err) => console.log(err));
   };

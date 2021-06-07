@@ -5,11 +5,7 @@ function EventList({ events }) {
   return (
     <div className="eventList">
       {events.map((e) => {
-<<<<<<< HEAD
-        if (events && e.images.length) {
-=======
         if (e.images.length) {
->>>>>>> upstream/main
           // if array.length is truthy(>0) => process array
           return (
             <EventCard
