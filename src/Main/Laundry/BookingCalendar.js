@@ -41,10 +41,12 @@ let days = {
   weekdayNumber14: {day: weekdays[weekdayNumber14 % 7]}
 };
 
-let daysToDivs = []; // push div with
+ // console.log((year, hourNow, days) shut up, React notifier
+
+/* let daysToDivs = []; // push div with
 for (let [key, value] of Object.entries(days)) {
   daysToDivs.push(`<div className=${key}> ${value.day} </div>`)
-}
+} */
 
 //console.log(Object.values(days))
 //console.log(daysToDivs)
@@ -56,12 +58,11 @@ export default function BookingCalendar() {
     <>
       <h2>Today is: {`  ${weekday},  ${month}      ${dayNumber}`}</h2>
       <div className="laundry-calendar-container">
-      {daysToDivs.map(div =>{
+      {/*daysToDivs.map(div =>{
         let divi = document.createElement('div');
-        //let divi = document.querySelector('.laundry-calendar-container');
         divi.innerHTML = div;
         document.body.appendChild(divi);
-      })}
+      })*/}
       </div>
     </>
   )

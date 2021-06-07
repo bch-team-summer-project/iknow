@@ -43,6 +43,7 @@ function Events() {
     let cancel;
     const getEvents = async () => {
       // let response = await fetch("http://localhost:3001/events");
+      console.log(this); return
       try {
         let response = await axios({
           method: "GET",
@@ -110,7 +111,7 @@ function Events() {
 
   // delaying search so user has time to type
   // before searching activates ¨¨
-  useEffect(() => {
+/*   useEffect(() => {
     const delayDebounce = setTimeout(() => {
       console.log('search term: ', searchTerm);
       setQuery(searchTerm);
@@ -120,9 +121,9 @@ function Events() {
   // load more events when reached end of currently displayed events, after going back from EventSpa
   window.onscroll = () => {
     if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 2) {
-      getEvents();
+      getEvents()
     }
-  };
+  }; */
   // ¨¨
 
   let { url } = useRouteMatch();
@@ -161,8 +162,8 @@ function Events() {
 
           <Search
             search={(e) => {
-              //setQuery(e.target.value);
-              setSearchTerm(e.target.value);//¨¨
+              setQuery(e.target.value);
+              //setSearchTerm(e.target.value);//¨¨
             }}
           />
           {isLoading && <p>Loading...</p>}

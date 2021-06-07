@@ -13,7 +13,7 @@ function EventList({ events }) {
               key={e.id + Math.random(2) * 1}
               name={e.name.en ? e.name.en : e.name.fi}
               start_time={
-                (e.start_time || "").replace(/[^\d-:]/g, ' ').replace(/:00 *$/, '') // ¨¨ display date & time
+                (e.start_time || "").replace(/[^\d-:]/g, ' ').trim().replace(/:00 *$/, '') // ¨¨ display date & time
               } 
               description={
                 e.short_description.en
