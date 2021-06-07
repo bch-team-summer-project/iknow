@@ -43,18 +43,6 @@
   margin-top: -3vw;
 }
 
-@media (max-width: 500px) {
-  .orange-card {
-    height: 40%;
-    margin-top: 10vh;
-  }
-}
-@media (max-width: 260px) {
-  .orange-card {
-    display: none;
-  }
-}
-
 /* bottom half */
 .BS-search {
   display: flex;
@@ -63,14 +51,41 @@
 
 .events {
   /*whole container of events frontpage cards*/
-  background-color: turquoise;
 }
 
 .eventListCard {
   background-color: #f5ede3 !important;
   overflow: hidden !important;
 }
+
 .eventListCard img {
-  border-radius: 50% !important;
+  display: block;
+  margin: auto;
+  /* to get circle element it has to have same height and width */
+  height: 250px;
+  width: 250px;
+  border-radius: 50% !important; /**/
+  margin-top: 10% !important;
 }
+
+@media (max-width: 500px) {
+  .orange-card {
+    height: 40%;
+    margin-top: 10vh;
+  }
+  .eventListCard {
+    font-size: 4vw;
+  }
+  .eventListCard img {
+    height: 150px;
+    width: 150px;
+    margin-top: 25%;
+  }
+}
+@media (max-width: 260px) {
+  .orange-card {
+    display: none;
+  }
+}
+
 /* ¨¨ */
