@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-import MenuOpenIcon from "@material-ui/icons/MenuOpen";
+import MenuIcon from "@material-ui/icons/Menu";
 import MobileMenu from "./MobileMenu";
 import "./Header.css";
 
@@ -43,16 +43,21 @@ const Header = () => {
           <li>
             <NavLink to="/lost">Lost&Found</NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink to="/laundry">Laundry</NavLink>
-          </li>
+          </li> */}
         </ul>
       </nav>
-      <MenuOpenIcon
+      <MenuIcon
         id="mobileicon"
-        style={{ fontSize: 50 }}
+        style={{
+          fontSize: 50,
+          color: "#eb3204",
+          position: "relative",
+          top: "0.5rem",
+        }}
         onClick={mobilemenuHandlerShow}
-      ></MenuOpenIcon>
+      ></MenuIcon>
       {mobMenu ? <MobileMenu click={mobilemenuHandlerShow} /> : null}
     </header>
   );

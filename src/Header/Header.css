@@ -87,10 +87,24 @@ nav .active {
   /* .logo {
     font-size: 40px;
   } */
+
+  #mobilemenu {
+    width: 50%;
+  }
   #mobileicon {
     display: block;
   }
   nav {
     display: none !important;
+  }
+
+  .swiping {
+    padding-top: 6rem;
+  }
+}
+
+@media (max-width: 400px) {
+  #mobilemenu {
+    width: 100%;
   }
 }
