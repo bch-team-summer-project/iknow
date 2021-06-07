@@ -5,7 +5,7 @@ const LostCard = ({ name, img, location, date, description, placeOrigin }) => {
   return (
     <div className="lost-card">
       <Card style={{ width: "20rem" }} className="lost-container">
-        <Card.Img className="lostImg" variant="top" img src={img} alt={name} />
+        <Card.Img className="lostImg" variant="top" src={img} alt={name} />
         <Card.Body>
           <Card.Title>
             <strong>{date}</strong>

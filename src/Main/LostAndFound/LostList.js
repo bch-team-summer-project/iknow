@@ -11,7 +11,7 @@ const LostList = ({ items, loading }) => {
       {items.map((item) => (
         <LostCard
           key={item.id}
-          url={item.img}
+          img={item.img}
           name={item.name}
           date={item.date}
           location={item.location}

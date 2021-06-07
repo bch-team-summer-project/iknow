@@ -5,32 +5,31 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 
 const AddForm = () => {
-  const [data, setData] = useState({
+  const [form, setForm] = useState({
     category: "",
     date: "",
     name: "",
     location: "",
-    placeOrigin: "Nihtisillankuja 4, Espoo, 02631",
+    placeOrigin: "",
     description: "",
     img: "",
   });
 
-  const [image, setImage] = useState("");
-  const [img, setUrl] = useState("");
+  const [imageSelected, setImageSelected] = useState("");
 
   const uploadImage = () => {
-    const data = new FormData();
-    data.append("file", image);
-    data.append("upload_preset", "tutorial");
-    data.append("cloud_name", "lostfound");
+    const img = new FormData();
+    img.append("file", imageSelected);
+    img.append("upload_preset", "tutorial");
+    img.append("cloud_name", "lostfound");
     fetch("https://api.cloudinary.com/v1_1/lostfound/image/upload", {
       method: "post",
-      body: data,
+      body: img,
     })
       .then((resp) => resp.json())
       .then((data) => {
-        setUrl(data.url);
-        console.log(data.url);
+        setForm({ ...form, img: data.url });
+        /* setUrl(data.url); */
       })
       .catch((err) => console.log(err));
   };
@@ -46,23 +45,19 @@ const AddForm = () => {
 
   const changeData = (e) => {
     e.preventDefault();
-    setData({ ...data, [e.target.name]: e.target.value });
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const submitData = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:3002/items", data);
-    alert("Form is posted");
+    axios.post("http://localhost:3002/items", form);
+    if (!alert("Form is posted!")) {
+      window.location.reload();
+    }
   };
 
   return (
-    <Form
-      onSubmit={(e) => {
-        submitData(e);
-        uploadImage(e);
-      }}
-      className="addItemPost"
-    >
+    <Form onSubmit={submitData} className="addItemPost">
       <Form.Row>
         <Form.Group as={Col} htmlFor="category">
           <Form.Label>Category: </Form.Label>
@@ -75,6 +70,7 @@ const AddForm = () => {
               showSelect(e);
             }}
           >
+            <option value="">Choose category</option>
             <option value="found">Found</option>
             <option value="lost">Lost</option>
           </Form.Control>
@@ -120,9 +116,17 @@ const AddForm = () => {
             type="file"
             id="img"
             name="img"
-            onChange={(e) => setImage(e.target.files[0])}
+            onChange={(e) => {
+              setImageSelected(e.target.files[0]);
+            }}
           />
-          <Button>Upload</Button>
+          <Button
+            className="uploadButton"
+            variant="outline-success"
+            onClick={uploadImage}
+          >
+            Upload
+          </Button>
         </Form.Group>
 
         <Form.Group as={Col} htmlFor="placeOrigin" className={state.value}>

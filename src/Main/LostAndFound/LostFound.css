@@ -34,9 +34,7 @@
   border-width: 0.5px;
   padding: 0;
   border-radius: 2%;
-}
-.card-group {
-  justify-content: center;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .foundImg,
