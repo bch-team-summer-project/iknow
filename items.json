@@ -99,16 +99,6 @@
       "description": "test tes test",
       "img": "http://res.cloudinary.com/lostfound/image/upload/v1623006743/mlazwar6iixlhcjtld4c.png",
       "id": 10
-    },
-    {
-      "category": "found",
-      "date": "2021-06-28T00:35",
-      "name": "test",
-      "location": "test",
-      "placeOrigin": "Opastinsilta 6 A, Itä-Pasila, Helsinki",
-      "description": "tesdt",
-      "img": "",
-      "id": 11
     }
   ]
 }

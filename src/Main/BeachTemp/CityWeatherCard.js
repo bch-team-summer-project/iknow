@@ -33,7 +33,9 @@ const CityWeatherCard = ({ cityWeather }) => {
         <div className ="subitiles">
         <Card.Subtitle>{date}</Card.Subtitle>
         </div>
+        <div className ="city">
         <Card.Title>{cityWeather.city}</Card.Title>
+        </div>
         <img className ="weatherIcons" src={weatherIcon} width="200" height="100" />
         <Card.Text>{cityWeather.weather.temprature + "°C "}</Card.Text>
       </Card.Body>
