@@ -130,6 +130,28 @@ function Events() {
 
   return (
     <>
+      <Row className="mb-5 eventBanner">
+        <Col className="d-flex justify-content-center">
+          <img src="/assets/images/event/e.png" alt="lady"></img>
+        </Col>
+        <Col className="d-flex align-items-center">
+          <Col>
+            <Button variant="warning" size="lg">
+              something
+            </Button>
+          </Col>
+          <Col>
+            <Button variant="warning" size="lg">
+              something
+            </Button>
+          </Col>
+          <Col>
+            <Button variant="warning" size="lg">
+              something
+            </Button>
+          </Col>
+        </Col>
+      </Row>
       <Switch>
         <Route path={url} exact>
           <Row className="mb-5 eventBanner">
