@@ -77,6 +77,26 @@
       "placeOrigin": "Nihtisillankuja 4, Espoo, 02631",
       "description": "ttt",
       "id": 7
+    },
+    {
+      "category": "",
+      "date": "",
+      "name": "",
+      "location": "",
+      "placeOrigin": "Nihtisillankuja 4, Espoo, 02631",
+      "description": "",
+      "img": "",
+      "id": 8
+    },
+    {
+      "category": "lost",
+      "date": "2021-06-02T11:57",
+      "name": "Julia",
+      "location": "hel",
+      "placeOrigin": "",
+      "description": "test with upload",
+      "img": "http://res.cloudinary.com/lostfound/image/upload/v1622969704/mnofcrdxdwjoata5vord.jpg",
+      "id": 9
     }
   ]
 }
