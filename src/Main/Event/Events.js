@@ -38,27 +38,28 @@ function Events() {
     if (loader.current) observer.observe(loader.current);
   }, [handleObserver]);
 
+  let cancel = () => {};
+  const getEvents = async () => {
+    // let response = await fetch("http://localhost:3001/events");
+    try {
+      let response = await axios({
+        method: "GET",
+        url: `https://api.hel.fi/linkedevents/v1/event/?page=${page}`,
+        cancelToken: new axios.CancelToken((c) => (cancel = c)),
+      });
+      let result = await response.data;
+      setEvents((prev) => [...prev, ...result.data]);
+      setIsLoading(false);
+    } catch (e) {
+      if (axios.isCancel(e)) return;
+
+      // if (e) return;
+    }
+  };
+
   useEffect(() => {
     // setIsLoading(true);
-    let cancel;
-    const getEvents = async () => {
-      // let response = await fetch("http://localhost:3001/events");
-      console.log(this); return
-      try {
-        let response = await axios({
-          method: "GET",
-          url: `https://api.hel.fi/linkedevents/v1/event/?page=${page}`,
-          cancelToken: new axios.CancelToken((c) => (cancel = c)),
-        });
-        let result = await response.data;
-        setEvents((prev) => [...prev, ...result.data]);
-        setIsLoading(false);
-      } catch (e) {
-        if (axios.isCancel(e)) return;
-
-        // if (e) return;
-      }
-    };
+    // ¨¨ moved getEvents() and cancel() outside. Made cancel into a function that returns undefined when called
     getEvents();
     return () => cancel();
   }, [query, page]);
@@ -111,7 +112,7 @@ function Events() {
 
   // delaying search so user has time to type
   // before searching activates ¨¨
-/*   useEffect(() => {
+  useEffect(() => {
     const delayDebounce = setTimeout(() => {
       console.log('search term: ', searchTerm);
       setQuery(searchTerm);
@@ -121,74 +122,59 @@ function Events() {
   // load more events when reached end of currently displayed events, after going back from EventSpa
   window.onscroll = () => {
     if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 2) {
-      getEvents()
+      getEvents();
     }
-  }; */
+  };
   // ¨¨
 
   let { url } = useRouteMatch();
 
   return (
     <>
-      <Row className="mb-5 eventBanner">
-        <Col className="d-flex justify-content-center">
+      <div className="top-graphic-and-cards-container">
+        <div className="top-graphic-and-cards-lady-img">
           <img src="/assets/images/event/e.png" alt="lady"></img>
-        </Col>
-        <Col className="d-flex align-items-center">
-          <Col>
-            <Button variant="warning" size="lg">
-              something
-            </Button>
-          </Col>
-          <Col>
-            <Button variant="warning" size="lg">
-              something
-            </Button>
-          </Col>
-          <Col>
-            <Button variant="warning" size="lg">
-              something
-            </Button>
-          </Col>
-        </Col>
-      </Row>
+        </div>
+        <div className="events-category-all-cards">
+        <a href="#events-container" alt="click to find online events">
+        <div className="orange-card" onClick={getOnlineEvents}>
+          <p>Online events</p>
+        </div>
+        </a>
+        <a href="#events-container" alt="click to find all events">
+        <div className="orange-card" onClick={getAll}>
+          <p>All events</p>
+        </div>
+        </a>
+        </div>
+      </div>
+
+      <Col>
+        <Dropdown className="BS-dropdown">
+          <Dropdown.Toggle variant="warning" size="lg">
+            Create Event
+          </Dropdown.Toggle>
+          <Dropdown.Menu style={{ width: "35rem" }}>
+            <NewEvent />
+          </Dropdown.Menu>
+        </Dropdown>
+      </Col>
+
+      <div className="BS-search">
+      <Search
+            search={(e) => {
+              //setQuery(e.target.value);
+              setSearchTerm(e.target.value);//¨¨
+            }}
+        />
+      </div>
+      
+      <div className="events-container" id="events-container">
       <Switch>
         <Route path={url} exact>
-          <Row className="mb-5 eventBanner">
-            <Col className="d-flex justify-content-center">
-              <img src="/assets/images/event/e.png" alt="lady"></img>
-            </Col>
-            <Col className="d-flex align-items-center">
-              <Col>
-                <Button variant="warning" size="lg" onClick={getOnlineEvents}>
-                  Online events
-                </Button>
-              </Col>
-              <Col>
-                <Button variant="warning" size="lg" onClick={getAll}>
-                  All events
-                </Button>
-              </Col>
-              <Col>
-                <Dropdown>
-                  <Dropdown.Toggle variant="warning" size="lg">
-                    Create Event
-                  </Dropdown.Toggle>
-                  <Dropdown.Menu style={{ width: "35rem" }}>
-                    <NewEvent />
-                  </Dropdown.Menu>
-                </Dropdown>
-              </Col>
-            </Col>
-          </Row>
-
-          <Search
-            search={(e) => {
-              setQuery(e.target.value);
-              //setSearchTerm(e.target.value);//¨¨
-            }}
-          />
-          {isLoading && <p>Loading...</p>}
+          
+          {//isLoading && <p>Loading...</p>
+          }
           <section className="events">
             {online && <EventList events={onlineSearch} />}
             {(events || all) && <EventList events={handleSearch} />}
@@ -200,6 +186,7 @@ function Events() {
           <EventSpa />
         </Route>
       </Switch>
+      </div>
     </>
   );
 }

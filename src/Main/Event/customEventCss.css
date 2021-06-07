@@ -36,8 +36,41 @@
   transform: translateY(160%);
 }
 
-/* container that displays event cards */
-.events-container {
-  /* background-color: palevioletred; */
+.BS-dropdown {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 13vw;
+  margin-top: -3vw;
+}
+
+@media (max-width: 500px) {
+  .orange-card {
+    height: 40%;
+    margin-top: 10vh;
+  }
+}
+@media (max-width: 260px) {
+  .orange-card {
+    display: none;
+  }
+}
+
+/* bottom half */
+.BS-search {
+  display: flex;
+  justify-content: center;
+}
+
+.events {
+  /*whole container of events frontpage cards*/
+  background-color: turquoise;
+}
+
+.eventListCard {
+  background-color: #f5ede3 !important;
+  overflow: hidden !important;
+}
+.eventListCard img {
+  border-radius: 50% !important;
 }
 /* ¨¨ */

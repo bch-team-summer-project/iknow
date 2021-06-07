@@ -6,7 +6,7 @@ function EventCard({ name, image, description, id, start_time}) {
   let { url } = useRouteMatch();
 
   return (
-    <Card className="mw-100" id={id}>
+    <Card className="mw-100 eventListCard" id={id}>
       <Row className="g-0 w-100">
         <Col md={4}>
           <CardImg src={image} alt={name}></CardImg>
