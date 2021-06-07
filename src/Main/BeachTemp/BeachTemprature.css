@@ -11,10 +11,7 @@
   flex: 1;
   background-Color: "#93ACED";
 }
-.container {
-  /* max-width: 1200px; */
-  margin: 0 auto;
-}
+
 a {
   color: #eb892e;
 }
@@ -30,14 +27,22 @@ a:hover {
   padding: 2rem;
   padding-top: 0;
   padding-right: 0;
-
+  border : none !important;
 }
+.weatherCard{
+  max-width: 300px;
+  font-size: 30px;
+}
+.card-subtitle{
+  font-size: 60px;
+} 
 .card-title,
 h5 {
   margin-top: 2rem;
   font-weight: 800;
   font-size: 30px;
   padding: 20px 8px 0px 8px;
+
 }
 .card-text {
   color: #1f1818;
@@ -46,13 +51,30 @@ h5 {
   padding: 1rem;
 }
 .card-img-top {
-  position: relative;
-  border-radius: 50%;
-  max-width: 250px;
-  height: 250px;
-  top: 2.5rem;
-  right: 1rem;
-  box-shadow: 20px 0 0 20px #f5efef;
+  position : relative !important; 
+  border-radius: 50%  !important;
+  max-width: 250px  !important;
+  height: 250px  !important;
+  top: 2.5rem  !important;
+  right: 1rem  !important;
+  box-shadow: 20px 0 0 20px #f5efef  !important;
+}
+.weatherIcons{
+  height: 60px;
+  width: 60px;
+}
+.input-group{
+  text-align: center;
+}
+#search-bar {
+  margin-top: 2rem;
+  width: 1000px;
+  height: 3rem;
+  padding: 0 1rem;
+  font-size: initial;
+  padding-right: 2rem;
+   margin-left: 5rem;
+ 
 }
 
 

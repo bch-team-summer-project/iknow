@@ -6,8 +6,13 @@ import Grid from "@material-ui/core/Grid";
 import SearchIcon from "@material-ui/icons/Search";
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    padding: "0 0 50px",
+  },
   margin: {
-    margin: theme.spacing(1),
+    margin: "auto",
+    maxWidth: 700,
   },
 }));
 
@@ -15,17 +20,23 @@ export default function InputWithIcon({ search }) {
   const classes = useStyles();
 
   return (
-    <div className={classes.margin}>
-      <Grid container spacing={1} alignItems="flex-end">
-        <Grid item>
-          <SearchIcon />
-        </Grid>
-        <Grid item>
+    <div className={classes.root}>
+      <Grid
+        container
+        spacing={1}
+        alignItems="flex-end"
+        className={classes.margin}
+      >
+        <Grid item xs={11}>
           <TextField
             id="input-with-icon-grid"
             label="Search"
             onChange={search}
+            fullWidth
           />
+        </Grid>
+        <Grid item>
+          <SearchIcon />
         </Grid>
       </Grid>
     </div>
