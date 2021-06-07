@@ -16,7 +16,7 @@ footer a:hover {
 .footer-nav {
   display: flex;
   justify-content: space-between;
-  flex-direction: raw;
+  flex-flow: row wrap;
 }
 
 .footer-nav ul {
@@ -57,4 +57,30 @@ footer p {
 
 .footer-city span {
   color: var(--orange);
+}
+
+.footer-desc {
+  display: flex;
+}
+.footer-icons-mob {
+  display: none;
+}
+.footer-weather-mob {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .footer-icons-mob {
+    display: block;
+  }
+  .footer-weather-mob {
+    display: block;
+  }
+  .footer-desc {
+    display: none;
+  }
+
+  .footer-icons {
+    margin-right: 4rem;
+  }
 }
