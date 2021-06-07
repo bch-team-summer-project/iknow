@@ -59,12 +59,15 @@ function Events() {
     return () => cancel();
   }, [query, page]);
 
+  console.log("events", events);
+
   useEffect(() => {
     setEvents([]);
   }, [query]);
 
   const getOnlineEvents = async () => {
     setIsLoading(true);
+    setAll([]);
     let res = await axios.get(
       `https://api.hel.fi/linkedevents/v1/event/?internet_ongoing&page=${page}`
     );
@@ -72,18 +75,17 @@ function Events() {
     setOnline(result.data);
     setIsLoading(false);
   };
-  console.log("this is online", online);
+
   const getAll = async () => {
     setIsLoading(true);
     setOnline([]);
     let res = await axios.get(
-      `https://api.hel.fi/linkedevents/v1/event/?all_ongoing&page=${page}`
+      `https://api.hel.fi/linkedevents/v1/event/?all_ongoing&sort=-end_time&page=${page}`
     );
     let result = await res.data;
     setAll(result.data);
     setIsLoading(false);
   };
-  console.log("this is all ", all);
 
   const handleSearch = events.filter((e) => {
     if (e.name.en) {
