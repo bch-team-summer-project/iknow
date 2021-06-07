@@ -22,7 +22,6 @@ const Footer = () => {
     const getData = async () => {
       const res = await axios(`https://iknow-backend.herokuapp.com/weather/`);
       setWeather(res.data);
-      console.log(res.data[0].city);
     };
     getData();
   }, []);
@@ -39,7 +38,7 @@ const Footer = () => {
             ? icons.cloudy
             : weather.weather.description.includes("fog")
             ? icons.fog
-            : weather.weather.description.includes("partly")
+            : weather.weather.description.includes("cloud")
             ? icons.partly
             : weather.weather.description.includes("rain")
             ? icons.rainy
@@ -79,19 +78,31 @@ const Footer = () => {
           <li>
             <Link to="/lost">Lost and Found</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/laundry">Laundry</Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/#about">About</Link>
           </li>
         </ul>
-        <div className="footer-weather">{weathercard}</div>
-        <div className="footer-icons">
+        <div className="footer-desc">
+          <div className="footer-weather">{weathercard}</div>
+          <div className="footer-icons">
+            <a
+              href="https://github.com/bch-team-summer-project/"
+              target="_blanc"
+            >
+              <GitHubIcon style={{ fontSize: 50, color: "#ff9a04" }} />
+            </a>
+          </div>
+        </div>
+
+        <div className="footer-icons-mob">
           <a href="https://github.com/bch-team-summer-project/" target="_blanc">
             <GitHubIcon style={{ fontSize: 50, color: "#ff9a04" }} />
           </a>
         </div>
+        <div className="footer-weather-mob">{weathercard}</div>
       </section>
       <p>Copywrite 2021</p>
     </footer>
