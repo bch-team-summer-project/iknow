@@ -34,6 +34,7 @@
     "build": "CI=false && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "local": "json-server -p3001 --watch dbEvent.json",
     "server": "json-server -p3002 --watch items.json"
   },
   "eslintConfig": {
