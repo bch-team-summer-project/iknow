@@ -1,8 +1,18 @@
-import React from "react";
+import { React, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
+import MenuOpenIcon from "@material-ui/icons/MenuOpen";
+import MobileMenu from "./MobileMenu";
 import "./Header.css";
 
 const Header = () => {
+  /*class for mobile menu show/hide*/
+  const [mobMenu, setmobMenu] = useState(false);
+
+  /*show/hide mobile menu on click*/
+  const mobilemenuHandlerShow = () => {
+    setmobMenu(!mobMenu);
+  };
+
   return (
     <header>
       <div className="logo">
@@ -13,7 +23,7 @@ const Header = () => {
             alt="logo"
             loading="lazy"
             title="iknow"
-          ></img>{" "}
+          ></img>
           iKnow
         </Link>
       </div>
@@ -38,6 +48,12 @@ const Header = () => {
           </li>
         </ul>
       </nav>
+      <MenuOpenIcon
+        id="mobileicon"
+        style={{ fontSize: 50 }}
+        onClick={mobilemenuHandlerShow}
+      ></MenuOpenIcon>
+      {mobMenu ? <MobileMenu click={mobilemenuHandlerShow} /> : null}
     </header>
   );
 };

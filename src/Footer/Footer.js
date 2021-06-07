@@ -39,7 +39,7 @@ const Footer = () => {
             ? icons.cloudy
             : weather.weather.description.includes("fog")
             ? icons.fog
-            : weather.weather.description.includes("partly")
+            : weather.weather.description.includes("cloud")
             ? icons.partly
             : weather.weather.description.includes("rain")
             ? icons.rainy

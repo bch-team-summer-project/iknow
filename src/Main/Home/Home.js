@@ -28,12 +28,12 @@ const Home = () => {
           </Link>
         </section>
         <section className="single-banner">
-          <Link to="/laundry">
+          <Link to="/water">
             <div className="banner-circle"></div>
-            <h3>Do you want to book laundry time</h3>
-            <h3>online without going to basement?</h3>
-            <h3>Add your house address</h3>
-            <h3>and check/book your time ONLINE</h3>
+            <h3>Do you want to know for sure </h3>
+            <h3>what beach to visit today?</h3>
+            <h3>We have list of all beach& water temperature</h3>
+            <h3>check it</h3>
             <img src="/assets/images/home/phonegirl.png" alt="phone girl"></img>
           </Link>
         </section>
