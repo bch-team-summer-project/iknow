@@ -1,5 +1,9 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
+<<<<<<< HEAD
+import { Col, Row, Button } from "react-bootstrap";
+=======
 import { Col, Row, Button, Dropdown } from "react-bootstrap";
+>>>>>>> upstream/main
 import { Route, Switch, useRouteMatch } from "react-router";
 import axios from "axios";
 
@@ -36,6 +40,26 @@ function Events() {
   }, [handleObserver]);
 
   useEffect(() => {
+<<<<<<< HEAD
+    setEvents([]);
+  }, [query]);
+
+  const getEvents = async () => {
+    // let response = await fetch("http://localhost:3001/events");
+    let response = await fetch(
+      `https://api.hel.fi/linkedevents/v1/event/?page=${page}`
+    );
+    let result = await response.json();
+    setEvents((prev) => [...prev, ...result.data]);
+    setIsLoading(false);
+  };
+  useEffect(() => {
+    // setIsLoading(true);
+
+    getEvents();
+  }, [query, page]);
+  console.log("this is events", events);
+=======
     // setIsLoading(true);
     let cancel;
     const getEvents = async () => {
@@ -84,11 +108,14 @@ function Events() {
     setIsLoading(false);
   };
   console.log("this is all ", all);
+>>>>>>> upstream/main
 
   const handleSearch = events.filter((e) => {
     if (e.name.en) {
       return e.name.en.toLowerCase().includes(query.toLowerCase());
     } else if (e.name.fi) {
+<<<<<<< HEAD
+=======
       return e.name.fi.toLowerCase().includes(query.toLowerCase());
     } else {
       return e.name.sv.toLowerCase().includes(query.toLowerCase());
@@ -98,6 +125,7 @@ function Events() {
     if (e.name.en) {
       return e.name.en.toLowerCase().includes(query.toLowerCase());
     } else if (e.name.fi) {
+>>>>>>> upstream/main
       return e.name.fi.toLowerCase().includes(query.toLowerCase());
     } else {
       return e.name.sv.toLowerCase().includes(query.toLowerCase());
@@ -108,8 +136,32 @@ function Events() {
 
   return (
     <>
+      <Row className="mb-5 eventBanner">
+        <Col className="d-flex justify-content-center">
+          <img src="/assets/images/event/e.png" alt="lady"></img>
+        </Col>
+        <Col className="d-flex align-items-center">
+          <Col>
+            <Button variant="warning" size="lg">
+              something
+            </Button>
+          </Col>
+          <Col>
+            <Button variant="warning" size="lg">
+              something
+            </Button>
+          </Col>
+          <Col>
+            <Button variant="warning" size="lg">
+              something
+            </Button>
+          </Col>
+        </Col>
+      </Row>
       <Switch>
         <Route path={url} exact>
+<<<<<<< HEAD
+=======
           <Row className="mb-5 eventBanner">
             <Col className="d-flex justify-content-center">
               <img src="/assets/images/event/e.png" alt="lady"></img>
@@ -138,6 +190,7 @@ function Events() {
             </Col>
           </Row>
 
+>>>>>>> upstream/main
           <Search
             search={(e) => {
               setQuery(e.target.value);
