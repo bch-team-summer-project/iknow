@@ -1,12 +1,8 @@
 /* Override Bootstrap  */
 
-.containerMain {
-  width: 1700px;
-  padding: 1rem 1rem 1rem 2rem;
-}
-
 .searchContainer {
   display: inline-flex;
+  padding-left: 100px;
 }
 
 .search {
@@ -18,7 +14,7 @@
 }
 
 .foundContainer {
-  padding: 5rem 0 6rem 0;
+  padding: 3rem 0 6rem 0;
 }
 
 .lostfoundTitle {
@@ -26,48 +22,32 @@
   padding: 20px;
 }
 
-.found-container,
-.lost-container {
-  height: 800px;
-  background-color: #faf6f1;
-  border-color: #faf6f1;
-  border-width: 0.5px;
-  padding: 0;
-  border-radius: 2%;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+.lost-card,
+.found-card {
+  height: 900px;
+  background-color: #faf6f1 !important;
+  padding: 0 !important;
+  border-radius: 2% !important;
+  width: 500px !important;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)) !important;
+  grid-gap: 20px !important;
+}
+
+.card-group {
+  justify-content: center !important;
 }
 
 .foundImg,
 .lostImg {
-  border-radius: 0;
-  object-fit: fill;
-  box-shadow: none;
-  border-radius: 0;
-  top: 0;
-  right: 0;
-  max-width: unset;
-  height: 300px;
-}
-
-.formContainer {
-  padding: 100px 0 150px 0;
-}
-.addItemPost {
-  padding: 50px 200px;
-  border: 1px solid #80d372;
-}
-
-.uploadButton {
-  padding: 0 30px;
-  margin: 30px 0;
-}
-
-.submitButton {
-  margin: auto;
-}
-
-.descriptionLF {
-  display: grid;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  top: 0 !important;
+  right: 0 !important;
+  max-width: unset !important;
+  height: 400px !important;
+  object-fit: cover;
+  width: 100%;
 }
 
 .card-title {
@@ -80,4 +60,8 @@
 
 .col {
   padding: 10px;
+}
+
+.MuiInputBase-root {
+  width: 1100px;
 }

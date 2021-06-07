@@ -76,7 +76,7 @@ const AddForm = () => {
           </Form.Control>
         </Form.Group>
 
-        <Form.Group as={Col} htmlFor="date">
+        <Form.Group className="colDate" as={Col} htmlFor="date">
           <Form.Label>Date and time: </Form.Label>
           <Form.Control
             style={{ width: "250px" }}
@@ -98,7 +98,7 @@ const AddForm = () => {
           />
         </Form.Group>
 
-        <Form.Group as={Col} htmlFor="name">
+        <Form.Group className="colName" as={Col} htmlFor="name">
           <Form.Label>Item Name: </Form.Label>
           <Form.Control
             style={{ width: "400px" }}
@@ -128,7 +128,6 @@ const AddForm = () => {
             Upload
           </Button>
         </Form.Group>
-
         <Form.Group as={Col} htmlFor="placeOrigin" className={state.value}>
           <Form.Label>Place of Origin:</Form.Label>
           <Form.Control
@@ -153,7 +152,7 @@ const AddForm = () => {
         </Form.Group>
       </Form.Row>
 
-      <Form.Row className="descriptionLF">
+      <div className="descriptionLF">
         <Form.Group as={Col} htmlFor="description">
           <Form.Label>Description: </Form.Label>
           <Form.Control
@@ -173,7 +172,7 @@ const AddForm = () => {
         >
           Submit
         </Button>
-      </Form.Row>
+      </div>
     </Form>
   );
 };

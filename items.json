@@ -2,7 +2,7 @@
   "items": [
     {
       "category": "found",
-      "date": "2021-06-20T22:30",
+      "date": "2021-06-20 22:30",
       "name": "white cat",
       "location": "Pohjoisesplanadi 11-13 00170 Helsinki",
       "placeOrigin": "Narinkka 3, Kampin keskus, 00100 Helsinki",
@@ -12,7 +12,7 @@
     },
     {
       "category": "found",
-      "date": "2021-05-02T10:00",
+      "date": "2021-05-02 10:00",
       "name": "Sport Bag",
       "location": "Lehtimäentie 1C, Espoo, 02770",
       "placeOrigin": "Opastinsilta 6 A, Itä-Pasila, Helsinki",
@@ -22,7 +22,7 @@
     },
     {
       "category": "found",
-      "date": "2021-05-30T22:00",
+      "date": "2021-05-30 22:00",
       "name": "keys",
       "location": "Prisma Kaari shopping center",
       "placeOrigin": "Opastinsilta 6 A, Itä-Pasila, Helsinki",
@@ -32,7 +32,7 @@
     },
     {
       "category": "found",
-      "date": "2021-05-20T04:00",
+      "date": "2021-05-20 04:00",
       "name": "Kela card",
       "location": "Helsinki center bus station",
       "placeOrigin": "Nihtisillankuja 4, Espoo, 02631",
@@ -42,7 +42,7 @@
     },
     {
       "category": "found",
-      "date": "2021-06-06T21:38",
+      "date": "2021-06-06 21:38",
       "name": "Earring",
       "location": "Leppävaara swimming hall",
       "placeOrigin": "Mäkelänkatu 56, Helsinki, “Löytötavarapalvelu",
@@ -52,7 +52,7 @@
     },
     {
       "category": "lost",
-      "date": "2021-06-01T12:50",
+      "date": "2021-06-01 12:50",
       "name": "wallet",
       "location": "421 bus",
       "placeOrigin": "",
@@ -72,8 +72,8 @@
     },
     {
       "category": "lost",
-      "date": "2021-05-10T09:00",
-      "name": "",
+      "date": "2021-05-10 09:00",
+      "name": "dog",
       "location": "Ristipellontie, Helsinki,",
       "placeOrigin": "",
       "description": "DUSHKA was LOST on April 18, 2021, near Ristipellontie, Helsinki, Finland, 00390\n\nIf you have ANY information about DUSHKA please contact me by phone 0400991199",
@@ -82,7 +82,7 @@
     },
     {
       "category": "lost",
-      "date": "2021-04-20T00:55",
+      "date": "2021-04-20 00:55",
       "name": "case with document",
       "location": "Metro",
       "placeOrigin": "",
@@ -92,13 +92,23 @@
     },
     {
       "category": "found",
-      "date": "2021-06-03T11:12",
+      "date": "2021-06-03 11:12",
       "name": "test",
       "location": "test",
       "placeOrigin": "Narinkka 3, Kampin keskus, 00100 Helsinki",
       "description": "test tes test",
       "img": "http://res.cloudinary.com/lostfound/image/upload/v1623006743/mlazwar6iixlhcjtld4c.png",
       "id": 10
+    },
+    {
+      "category": "found",
+      "date": "2021-06-28T00:35",
+      "name": "test",
+      "location": "test",
+      "placeOrigin": "Opastinsilta 6 A, Itä-Pasila, Helsinki",
+      "description": "tesdt",
+      "img": "",
+      "id": 11
     }
   ]
 }

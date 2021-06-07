@@ -15,7 +15,7 @@ const LostFound = () => {
   const [loading, setLoading] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(4);
+  const [postsPerPage] = useState(3);
 
   const searchValueHandler = (e) => {
     setSearchInput(e.target.value);
@@ -75,8 +75,8 @@ const LostFound = () => {
   const paginateLost = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="containerMain">
-      <div className="searchContainer">
+    <>
+      <div className="containerMain">
         <img
           className="logoFound"
           src={logo}
@@ -85,29 +85,31 @@ const LostFound = () => {
           height="300"
         />
 
-        <SearchBox search={searchValueHandler} />
-      </div>
-      <div className="foundContainer">
-        <h2 className="lostfoundTitle">
-          <strong>Found Items</strong>
-        </h2>
-        <FoundList items={currentPostsFound} loading={loading} />
-        <PaginationFound
-          postsPerPage={postsPerPage}
-          totalPosts={itemFoundFilter.length}
-          paginate={paginateFound}
-        />
-      </div>
-      <div className="lostContainer">
-        <h2 className="lostfoundTitle">
-          <strong>Lost items</strong>
-        </h2>
-        <LostList items={currentPostsLost} loading={loading} />
-        <PaginationLost
-          postsPerPage={postsPerPage}
-          totalPosts={itemLostFilter.length}
-          paginate={paginateLost}
-        />
+        <div className="searchContainer">
+          <SearchBox search={searchValueHandler} />
+        </div>
+        <div className="foundContainer">
+          <h2 className="lostfoundTitle">
+            <strong>Found Items</strong>
+          </h2>
+          <FoundList items={currentPostsFound} loading={loading} />
+          <PaginationFound
+            postsPerPage={postsPerPage}
+            totalPosts={itemFoundFilter.length}
+            paginate={paginateFound}
+          />
+        </div>
+        <div className="lostContainer">
+          <h2 className="lostfoundTitle">
+            <strong>Lost items</strong>
+          </h2>
+          <LostList items={currentPostsLost} loading={loading} />
+          <PaginationLost
+            postsPerPage={postsPerPage}
+            totalPosts={itemLostFilter.length}
+            paginate={paginateLost}
+          />
+        </div>
       </div>
       <div className="formContainer">
         <h2 className="lostfoundTitle">
@@ -115,7 +117,7 @@ const LostFound = () => {
         </h2>
         <AddForm />
       </div>
-    </div>
+    </>
   );
 };
 
