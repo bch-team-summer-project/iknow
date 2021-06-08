@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
-import { Container, Row, Col, Image, Button } from "react-bootstrap";
-
+import { Container, Row, Col, Button, Figure } from "react-bootstrap";
+import { GoCalendar } from "react-icons/go";
 function EventSpa() {
   const [event, setEvent] = useState([]);
   const [title, setTitle] = useState();
   const [img, setImg] = useState();
   const [desc, setDesc] = useState("");
+  const [time, setTime] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   let { id } = useParams();
   let history = useHistory();
@@ -23,6 +24,11 @@ function EventSpa() {
       data.description.en
         ? setDesc(data.description.en)
         : setDesc(data.description.fi);
+      let start = data.start_time
+        .replace(/[^\d-:]/g, " ")
+        .trim()
+        .replace(/:00 *$/, "");
+      setTime(start);
       setIsLoading(false);
     };
     getEventDetail();
@@ -36,28 +42,43 @@ function EventSpa() {
   } else {
     eventDetails = (
       <Container className="mt-5 mb-5">
-        <Row className="mb-3">
-          <h2>{title}</h2>
-        </Row>
-        <Row className="mt-1 mb-3">
-          <Col>
-            <Image src={img} alt={event.id} className="mb-1" thumbnail />
+        <Button
+          className="eventBtn"
+          variant="outline-info"
+          onClick={() => history.goBack()}
+        >
+          Back
+        </Button>
+        <Row className="mb-3 d-flex align-items-center  ">
+          <Col sm="7">
+            <h2 className="mb-5">{title}</h2>
+            <h4>
+              <GoCalendar /> Date and time
+            </h4>
+            {time}
           </Col>
-
-          <Col className="ms-3">
-            <Row>
-              <strong className="mb-2">
-                <u className="lead">Description</u>
-              </strong>
-              <div
-                className="mb-2"
-                dangerouslySetInnerHTML={{ __html: desc }}
-              />
-            </Row>
+          <Col className="event-single">
+            <Figure.Image
+              src={img}
+              alt={event.id}
+              className="mb-1"
+              width={500}
+              height={400}
+            />
           </Col>
         </Row>
+        {/* <Row className="mt-1 mb-3"> */}
 
-        <Button variant="info" onClick={() => history.goBack()}>
+        <u className="lead">
+          <h4>Description</h4>
+        </u>
+        <div className="mb-2" dangerouslySetInnerHTML={{ __html: desc }} />
+
+        <Button
+          className="eventBtn"
+          variant="outline-info"
+          onClick={() => history.goBack()}
+        >
           Back
         </Button>
       </Container>

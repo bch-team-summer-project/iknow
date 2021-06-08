@@ -1,5 +1,5 @@
 import React from "react";
-import EventCard from "./EventCard";
+import CustomCard from "./CustomCard";
 
 function CustomEvent({ custom }) {
   return (
@@ -7,9 +7,10 @@ function CustomEvent({ custom }) {
       {custom.map((c) => {
         if (c.image) {
           return (
-            <EventCard
+            <CustomCard
               id={c.id}
               key={c.id}
+              start_time={c.date}
               name={c.name}
               description={c.description}
               image={c.image}

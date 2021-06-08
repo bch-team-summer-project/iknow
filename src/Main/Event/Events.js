@@ -1,15 +1,18 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { Col, Row, Button, Dropdown } from "react-bootstrap";
+import { Col, Row, Dropdown } from "react-bootstrap";
 import { Route, Switch, useRouteMatch } from "react-router";
 import axios from "axios";
 
-import EventList from "./EventList";
-import EventSpa from "./EventSpa";
+import EventList from "./Linked Event/EventList";
+import EventSpa from "./Linked Event/EventSpa";
 import Search from "../Search";
 import NewEvent from "./NewEvent";
-import CustomEvent from "./CustomEvent";
+import CustomEvent from "./Custom/CustomEvent";
+import CustomSpa from "./Custom/CustomSpa";
 
-import "./customEventCss.css";
+import "./Event.css";
+import { useControlled } from "@material-ui/core";
+// import { Link } from "react-router-dom";
 
 function Events() {
   const [events, setEvents] = useState([]);
@@ -19,9 +22,9 @@ function Events() {
   const [custom, setCustom] = useState([]);
   const [query, setQuery] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
+  const [heading, setHeading] = useState("");
+  const [offHeading, setOffHeading] = useState("");
   const [page, setPage] = useState(1);
-
-  const [searchTerm, setSearchTerm] = useState(""); //¨¨
   const [isLoading, setIsLoading] = useState(true);
   let { url } = useRouteMatch();
   const loader = useRef();
@@ -91,11 +94,13 @@ function Events() {
     setEvents([]);
     setAll([]);
     setOffline([]);
+    setOffHeading("");
     let res = await axios.get(
       `https://api.hel.fi/linkedevents/v1/event/?internet_ongoing&page=${page}`
     );
     let result = await res.data;
     setOnline(result.data);
+    setHeading("Online Events");
     setIsLoading(false);
   };
   const getOffline = async () => {
@@ -103,11 +108,13 @@ function Events() {
     setEvents([]);
     setAll([]);
     setOnline([]);
+    setHeading("");
     let res = await axios.get(
       `https://api.hel.fi/linkedevents/v1/event/?local_ongoing&sort=-start_time&page=${page}`
     );
     let result = await res.data;
     setOffline(result.data);
+    setOffHeading("Offline Events");
     setIsLoading(false);
   };
   console.log("offline ", offline);
@@ -116,6 +123,8 @@ function Events() {
     setOnline([]);
     setOffline([]);
     setIsLoading(true);
+    setOffHeading("");
+    setHeading("");
     let res = await axios.get(
       `https://api.hel.fi/linkedevents/v1/event/?all_ongoing&sort=-end_time&page=${page}`
     );
@@ -166,82 +175,34 @@ function Events() {
   });
 
   return (
-    <>
-      <div className="top-graphic-and-cards-container">
-        <div className="top-graphic-and-cards-lady-img">
-          <img src="/assets/images/event/e.png" alt="lady"></img>
-        </div>
-        <div className="events-category-all-cards">
-          <a href="#events-container" alt="click to find online events">
-            <div className="orange-card" onClick={getOnlineEvents}>
-              <p>Online events</p>
-            </div>
-          </a>
-          <a href="#events-container" alt="click to find all events">
-            <div className="orange-card" onClick={getAll}>
-              <p>All events</p>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <Col>
-        <Dropdown className="BS-dropdown">
-          <Dropdown.Toggle variant="warning" size="lg">
-            Create Event
-          </Dropdown.Toggle>
-          <Dropdown.Menu style={{ width: "35rem" }}>
-            <NewEvent />
-          </Dropdown.Menu>
-        </Dropdown>
-      </Col>
-
-      <div className="BS-search">
-        {/* <Search
-        </Col>
-        <Col className="d-flex align-items-center">
-          <Col>
-            <Button variant="warning" size="lg">
-              something
-            </Button>
-          </Col>
-          <Col>
-            <Button variant="warning" size="lg">
-              something
-            </Button>
-          </Col>
-          <Col>
-            <Button variant="warning" size="lg">
-              something
-            </Button>
-          </Col>
-        </Col>
-      </Row>
+    <div className="events-container" id="events-container">
       <Switch>
         <Route path={url} exact>
           <Row className="mb-5 eventBanner">
-            <Col className="d-flex justify-content-center">
+            <Col className="d-flex justify-content-center top-graphic-and-cards-container">
               <img src="/assets/images/event/e.png" alt="lady"></img>
             </Col>
             <Col>
-              <div className="d-flex flex-row align-items-center mt-5 mb-5">
+              <div className="d-flex flex-row align-items-center mt-5 mb-5 event-category">
                 <Col
-                  className="me-2 bg-warning text-light d-flex align-items-center justify-content-center "
-                  style={{ height: "15rem" }}
+                  className="orange-card text-light d-flex align-items-center justify-content-center "
+                  // style={{ height: "15rem" }}
                   onClick={getOnlineEvents}
                 >
                   Online events
                 </Col>
+
                 <Col
-                  className="bg-warning text-light d-flex align-items-center justify-content-center me-2"
-                  style={{ height: "15rem" }}
+                  className="orange-card text-light d-flex align-items-center justify-content-center"
+                  // style={{ height: "15rem" }}
                   onClick={getOffline}
                 >
                   Offline events
                 </Col>
+
                 <Col
-                  className="bg-warning text-light d-flex align-items-center justify-content-center me-2"
-                  style={{ height: "15rem" }}
+                  className="orange-card text-light d-flex align-items-center justify-content-center me-2"
+                  // style={{ height: "15rem" }}
                   onClick={() => {
                     getAll();
                     getCustom();
@@ -251,53 +212,52 @@ function Events() {
                 </Col>
               </div>
 
-              <div className="d-flex flex-row align-items-center">
+              <div className="d-flex flex-row align-items-center event-category">
                 <Col>
                   <Dropdown>
                     <Dropdown.Toggle
-                      variant="warning"
+                      variant="success"
                       size="lg"
-                      className="text-light"
+                      className="text-light eventBtn"
                     >
                       Create Event
                     </Dropdown.Toggle>
-                    <Dropdown.Menu style={{ width: "35rem" }}>
+                    <Dropdown.Menu aria-labelledby="dropdownMenuForm">
                       <NewEvent />
                     </Dropdown.Menu>
                   </Dropdown>
                 </Col>
               </div>
             </Col>
-          </Row> */}
+          </Row>
+          <div className="BS-search">
+            <Search
+              search={(e) => {
+                setSearchTerm(e.target.value);
+              }}
+            />
+          </div>
+          {isLoading && <p>Loading...</p>}
+          <section className="events">
+            {online && <EventList events={onlineSearch} heading={heading} />}
+            {offline && (
+              <EventList events={offlineSearch} heading={offHeading} />
+            )}
+            {custom && <CustomEvent custom={customSearch} />}
+            {(events || all) && <EventList events={handleSearch} />}
+          </section>
+          <div ref={loader} />
+        </Route>
 
-        <Search
-          search={(e) => {
-            setSearchTerm(e.target.value);
-          }}
-        />
-      </div>
+        <Route path={`${url}/newevent/:id`}>
+          <CustomSpa />
+        </Route>
 
-      <div className="events-container" id="events-container">
-        <Switch>
-          <Route path={url} exact>
-            {
-              //isLoading && <p>Loading...</p>
-            }
-            <section className="events">
-              {online && <EventList events={onlineSearch} />}
-              {offline && <EventList events={offlineSearch} />}
-              {custom && <CustomEvent custom={customSearch} />}
-              {(events || all) && <EventList events={handleSearch} />}
-            </section>
-            <div ref={loader} />
-          </Route>
-
-          <Route path={`${url}/:id`}>
-            <EventSpa />
-          </Route>
-        </Switch>
-      </div>
-    </>
+        <Route path={`${url}/:id`}>
+          <EventSpa />
+        </Route>
+      </Switch>
+    </div>
   );
 }
 

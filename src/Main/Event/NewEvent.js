@@ -3,6 +3,7 @@ import { Button, Col, Form, Row } from "react-bootstrap";
 
 import TextField from "@material-ui/core/TextField";
 import Input from "@material-ui/core/Input";
+
 import axios from "axios";
 
 function NewEvent() {
@@ -16,7 +17,6 @@ function NewEvent() {
   });
 
   const [image, setImage] = useState("");
-  // const [nameEn, setNameEn] = useState({ en: "test" });
   const updateInput = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
@@ -39,13 +39,6 @@ function NewEvent() {
       .catch((err) => console.log(err));
   };
 
-  // const handleChange = (e) => {
-  //   const { value } = e.target;
-  //   const list = { ...nameEn };
-  //   setNameEn(list);
-  //   list.en = value;
-  //   setInput({ ...input, name: nameEn });
-  // };
   const sendData = (e) => {
     e.preventDefault();
     // axios
@@ -57,7 +50,7 @@ function NewEvent() {
   };
 
   return (
-    <Form className="px-4 py-3" onSubmit={sendData}>
+    <Form className="px-4 py-3 eventForm" onSubmit={sendData}>
       <Form.Group controlId="eventName">
         <TextField
           name="name"
@@ -66,30 +59,6 @@ function NewEvent() {
           fullWidth
         />
       </Form.Group>
-
-      {/* <Form.Group controlId="eventType">
-        <Form.Label column>Event Type</Form.Label>
-        <Col>
-          <Form.Check
-            inline
-            label="Online"
-            value="online"
-            name="type"
-            type="radio"
-            id="1"
-            onChange={updateInput}
-          />
-          <Form.Check
-            inline
-            label="Offline"
-            value="offline"
-            name="type"
-            type="radio"
-            id="2"
-            onChange={updateInput}
-          />
-        </Col>
-      </Form.Group> */}
 
       <Form.Group controlId="intro">
         <TextField
@@ -100,12 +69,12 @@ function NewEvent() {
         />
       </Form.Group>
 
-      <Form.Group as={Row} controlId="images">
-        <Col sm="2">
-          <Form.Label>Image</Form.Label>
-        </Col>
+      <Form.Group controlId="images">
+        <Form.Label>Image</Form.Label>
+
         <Col sm="6">
           <Input
+            className="input-img"
             accept="image/*"
             name="images"
             multiple
@@ -113,13 +82,11 @@ function NewEvent() {
             onChange={(e) => setImage(e.target.files[0])}
           />{" "}
         </Col>
-        {/* <Form.Control
-          name="images"
-          type="file"
-          onChange={(e) => setImage(e.target.files[0])}
-        /> */}
+
         <Col>
-          <Button onClick={uploadImg}>Upload</Button>
+          <Button className="eventBtn" onClick={uploadImg}>
+            Upload
+          </Button>
         </Col>
       </Form.Group>
 
@@ -154,7 +121,7 @@ function NewEvent() {
         />
       </Form.Group>
 
-      <Button type="submit" variant="success">
+      <Button className="eventBtn" type="submit" variant="success">
         Submit
       </Button>
     </Form>
