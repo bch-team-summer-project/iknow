@@ -2,8 +2,7 @@
 @media (min-width: 1200px),
   (min-width: 992px),
   (min-width: 768px),
-  (min-width: 576px)
-   {
+  (min-width: 576px) {
   .container {
     max-width: none;
   }
@@ -37,7 +36,7 @@ a:hover {
   font-size: 20px;
   color: white;
 }
-.city{
+.city {
   text-decoration: underline;
 }
 
@@ -47,7 +46,6 @@ h5 {
   font-weight: 800;
   font-size: 30px;
   padding: 20px 8px 0px 8px;
-
 }
 .card-text {
   color: #f8f0f0;
