@@ -96,9 +96,6 @@
     right: 0;
     bottom: 0;
     left: 0;
-    /*  background: no-repeat center center/cover; 
-    background-size: 100% 51%;
-    opacity: 0.9; */
   }
   .horizontal-scroll__block .card-text {
     display: inline-block;
@@ -111,7 +108,6 @@
     font-weight: bold;
     font-size: 3.5rem;
     width: 100%;
-    /* color: white; */ /* inline-styling each-color separetely*/
   }
 }
 

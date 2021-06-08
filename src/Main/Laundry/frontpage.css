@@ -2,10 +2,11 @@
   box-sizing: border-box;
 }
 
-body {
-  color: peachpuff;
+#laundry-frontpage-container {
+  background-color: powderblue;
 }
 form {
+  margin-top: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,6 +14,17 @@ form {
 }
 
 input {
-  border: 5px solid red;
+  border: 5px solid paleturquoise;
   border-radius: 5px;
+  margin: 30px;
+  width: 50vw;
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  font-size: 150%;
+  padding: 10px;
+  margin-bottom: 50px;
+  font-style: oblique;
 }

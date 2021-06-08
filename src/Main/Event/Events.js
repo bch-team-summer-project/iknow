@@ -8,13 +8,16 @@ import EventSpa from "./EventSpa";
 import Search from "../Search";
 import NewEvent from "./NewEvent";
 
+import './customEventCss.css';
+
 function Events() {
   const [events, setEvents] = useState([]);
   const [online, setOnline] = useState([]);
   const [all, setAll] = useState([]);
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
-
+  
+  const [searchTerm, setSearchTerm] = useState("");//¨¨
   const [isLoading, setIsLoading] = useState(true);
   const loader = useRef();
 
@@ -35,26 +38,28 @@ function Events() {
     if (loader.current) observer.observe(loader.current);
   }, [handleObserver]);
 
+  let cancel = () => {};
+  const getEvents = async () => {
+    // let response = await fetch("http://localhost:3001/events");
+    try {
+      let response = await axios({
+        method: "GET",
+        url: `https://api.hel.fi/linkedevents/v1/event/?page=${page}`,
+        cancelToken: new axios.CancelToken((c) => (cancel = c)),
+      });
+      let result = await response.data;
+      setEvents((prev) => [...prev, ...result.data]);
+      setIsLoading(false);
+    } catch (e) {
+      if (axios.isCancel(e)) return;
+
+      // if (e) return;
+    }
+  };
+
   useEffect(() => {
     // setIsLoading(true);
-    let cancel;
-    const getEvents = async () => {
-      // let response = await fetch("http://localhost:3001/events");
-      try {
-        let response = await axios({
-          method: "GET",
-          url: `https://api.hel.fi/linkedevents/v1/event/?page=${page}`,
-          cancelToken: new axios.CancelToken((c) => (cancel = c)),
-        });
-        let result = await response.data;
-        setEvents((prev) => [...prev, ...result.data]);
-        setIsLoading(false);
-      } catch (e) {
-        if (axios.isCancel(e)) return;
-
-        // if (e) return;
-      }
-    };
+    // ¨¨ moved getEvents() and cancel() outside. Made cancel into a function that returns undefined when called
     getEvents();
     return () => cancel();
   }, [query, page]);
@@ -93,6 +98,7 @@ function Events() {
     } else {
       return e.name.sv.toLowerCase().includes(query.toLowerCase());
     }
+
   });
   const onlineSearch = online.filter((e) => {
     if (e.name.en) {
@@ -104,13 +110,58 @@ function Events() {
     }
   });
 
+  // delaying search so user has time to type
+  // before searching activates ¨¨
+  useEffect(() => {
+    const delayDebounce = setTimeout(() => {
+      console.log('search term: ', searchTerm);
+      setQuery(searchTerm);
+    }, 3000);
+    return () => clearTimeout(delayDebounce);
+  }, [searchTerm]);
+  // load more events when reached end of currently displayed events, after going back from EventSpa
+  window.onscroll = () => {
+    if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 2) {
+      getEvents();
+    }
+  };
+  // ¨¨
+
   let { url } = useRouteMatch();
 
   return (
     <>
-      <Row className="mb-5 eventBanner">
-        <Col className="d-flex justify-content-center">
+      <div className="top-graphic-and-cards-container">
+        <div className="top-graphic-and-cards-lady-img">
           <img src="/assets/images/event/e.png" alt="lady"></img>
+        </div>
+        <div className="events-category-all-cards">
+        <a href="#events-container" alt="click to find online events">
+        <div className="orange-card" onClick={getOnlineEvents}>
+          <p>Online events</p>
+        </div>
+        </a>
+        <a href="#events-container" alt="click to find all events">
+        <div className="orange-card" onClick={getAll}>
+          <p>All events</p>
+        </div>
+        </a>
+        </div>
+      </div>
+
+      <Col>
+        <Dropdown className="BS-dropdown">
+          <Dropdown.Toggle variant="warning" size="lg">
+            Create Event
+          </Dropdown.Toggle>
+          <Dropdown.Menu style={{ width: "35rem" }}>
+            <NewEvent />
+          </Dropdown.Menu>
+        </Dropdown>
+      </Col>
+
+      <div className="BS-search">
+      {/* <Search
         </Col>
         <Col className="d-flex align-items-center">
           <Col>
@@ -158,14 +209,22 @@ function Events() {
                 </Dropdown>
               </Col>
             </Col>
-          </Row>
+          </Row> */}
 
           <Search
             search={(e) => {
-              setQuery(e.target.value);
+              //setQuery(e.target.value);
+              setSearchTerm(e.target.value);//¨¨
             }}
-          />
-          {isLoading && <p>Loading...</p>}
+        />
+      </div>
+      
+      <div className="events-container" id="events-container">
+      <Switch>
+        <Route path={url} exact>
+          
+          {//isLoading && <p>Loading...</p>
+          }
           <section className="events">
             {online && <EventList events={onlineSearch} />}
             {(events || all) && <EventList events={handleSearch} />}
@@ -177,6 +236,7 @@ function Events() {
           <EventSpa />
         </Route>
       </Switch>
+      </div>
     </>
   );
 }
