@@ -7,15 +7,19 @@ import EventList from "./EventList";
 import EventSpa from "./EventSpa";
 import Search from "../Search";
 import NewEvent from "./NewEvent";
+import CustomEvent from "./CustomEvent";
 
 function Events() {
   const [events, setEvents] = useState([]);
   const [online, setOnline] = useState([]);
+  const [offline, setOffline] = useState([]);
   const [all, setAll] = useState([]);
+  const [custom, setCustom] = useState([]);
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
 
   const [isLoading, setIsLoading] = useState(true);
+  let { url } = useRouteMatch();
   const loader = useRef();
 
   const handleObserver = useCallback((entries) => {
@@ -36,10 +40,8 @@ function Events() {
   }, [handleObserver]);
 
   useEffect(() => {
-    // setIsLoading(true);
     let cancel;
     const getEvents = async () => {
-      // let response = await fetch("http://localhost:3001/events");
       try {
         let response = await axios({
           method: "GET",
@@ -51,15 +53,11 @@ function Events() {
         setIsLoading(false);
       } catch (e) {
         if (axios.isCancel(e)) return;
-
-        // if (e) return;
       }
     };
     getEvents();
     return () => cancel();
   }, [query, page]);
-
-  console.log("events", events);
 
   useEffect(() => {
     setEvents([]);
@@ -67,7 +65,9 @@ function Events() {
 
   const getOnlineEvents = async () => {
     setIsLoading(true);
+    setEvents([]);
     setAll([]);
+    setOffline([]);
     let res = await axios.get(
       `https://api.hel.fi/linkedevents/v1/event/?internet_ongoing&page=${page}`
     );
@@ -75,17 +75,38 @@ function Events() {
     setOnline(result.data);
     setIsLoading(false);
   };
+  const getOffline = async () => {
+    setIsLoading(true);
+    setEvents([]);
+    setAll([]);
+    setOnline([]);
+    let res = await axios.get(
+      `https://api.hel.fi/linkedevents/v1/event/?local_ongoing&sort=-start_time&page=${page}`
+    );
+    let result = await res.data;
+    setOffline(result.data);
+    setIsLoading(false);
+  };
+  console.log("offline ", offline);
 
   const getAll = async () => {
-    setIsLoading(true);
     setOnline([]);
+    setOffline([]);
+    setIsLoading(true);
     let res = await axios.get(
       `https://api.hel.fi/linkedevents/v1/event/?all_ongoing&sort=-end_time&page=${page}`
     );
-    let result = await res.data;
-    setAll(result.data);
+    let result = res.data;
+    setAll(result);
     setIsLoading(false);
   };
+
+  const getCustom = async () => {
+    let res = await axios.get("https://iknow-backend.herokuapp.com/newevent");
+    let result = res.data;
+    setCustom(result);
+  };
+  console.log("custom", custom);
 
   const handleSearch = events.filter((e) => {
     if (e.name.en) {
@@ -96,6 +117,7 @@ function Events() {
       return e.name.sv.toLowerCase().includes(query.toLowerCase());
     }
   });
+
   const onlineSearch = online.filter((e) => {
     if (e.name.en) {
       return e.name.en.toLowerCase().includes(query.toLowerCase());
@@ -106,7 +128,19 @@ function Events() {
     }
   });
 
-  let { url } = useRouteMatch();
+  const offlineSearch = offline.filter((e) => {
+    if (e.name.en) {
+      return e.name.en.toLowerCase().includes(query.toLowerCase());
+    } else if (e.name.fi) {
+      return e.name.fi.toLowerCase().includes(query.toLowerCase());
+    } else {
+      return e.name.sv.toLowerCase().includes(query.toLowerCase());
+    }
+  });
+
+  const customSearch = custom.filter((e) => {
+    return e.name.toLowerCase().includes(query.toLowerCase());
+  });
 
   return (
     <>
@@ -116,27 +150,44 @@ function Events() {
             <Col className="d-flex justify-content-center">
               <img src="/assets/images/event/e.png" alt="lady"></img>
             </Col>
-            <Col className="d-flex align-items-center">
-              <Col>
-                <Button variant="warning" size="lg" onClick={getOnlineEvents}>
-                  Online events
-                </Button>
-              </Col>
-              <Col>
-                <Button variant="warning" size="lg" onClick={getAll}>
-                  All events
-                </Button>
-              </Col>
-              <Col>
-                <Dropdown>
-                  <Dropdown.Toggle variant="warning" size="lg">
-                    Create Event
-                  </Dropdown.Toggle>
-                  <Dropdown.Menu style={{ width: "35rem" }}>
-                    <NewEvent />
-                  </Dropdown.Menu>
-                </Dropdown>
-              </Col>
+            <Col>
+              <div className="d-flex flex-row align-items-center mt-5 mb-5">
+                <Col>
+                  <Button variant="warning" size="lg" onClick={getOnlineEvents}>
+                    Online events
+                  </Button>
+                </Col>
+                <Col>
+                  <Button variant="warning" size="lg" onClick={getOffline}>
+                    Offline events
+                  </Button>
+                </Col>
+                <Col>
+                  <Button
+                    variant="warning"
+                    size="lg"
+                    onClick={() => {
+                      getAll();
+                      getCustom();
+                    }}
+                  >
+                    All events
+                  </Button>
+                </Col>
+              </div>
+
+              <div className="d-flex flex-row align-items-center">
+                <Col>
+                  <Dropdown>
+                    <Dropdown.Toggle variant="warning" size="lg">
+                      Create Event
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu style={{ width: "35rem" }}>
+                      <NewEvent />
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </Col>
+              </div>
             </Col>
           </Row>
 
@@ -148,6 +199,8 @@ function Events() {
           {isLoading && <p>Loading...</p>}
           <section className="events">
             {online && <EventList events={onlineSearch} />}
+            {offline && <EventList events={offlineSearch} />}
+            {custom && <CustomEvent custom={customSearch} />}
             {(events || all) && <EventList events={handleSearch} />}
           </section>
           <div ref={loader} />

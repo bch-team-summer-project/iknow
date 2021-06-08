@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Col, Form, Row } from "react-bootstrap";
 
 import TextField from "@material-ui/core/TextField";
 import Input from "@material-ui/core/Input";
@@ -12,18 +12,47 @@ function NewEvent() {
     date: "",
     image: "",
     description: "",
-    type: "",
+    short_description: "",
   });
 
-  const [images, setImages] = useState("");
+  const [image, setImage] = useState("");
+  // const [nameEn, setNameEn] = useState({ en: "test" });
   const updateInput = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
   console.log("inputs ", input);
+  const uploadImg = () => {
+    const img = new FormData();
+    img.append("file", image);
+    img.append("upload_preset", "rzt88msw");
+    img.append("cloud_name", "event-project");
+    fetch("https://api.cloudinary.com/v1_1/event-project/image/upload", {
+      method: "post",
+      body: img,
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        setInput({ ...input, image: data.secure_url });
+        console.log(data);
+        alert("image uploaded!");
+      })
+      .catch((err) => console.log(err));
+  };
+
+  // const handleChange = (e) => {
+  //   const { value } = e.target;
+  //   const list = { ...nameEn };
+  //   setNameEn(list);
+  //   list.en = value;
+  //   setInput({ ...input, name: nameEn });
+  // };
   const sendData = (e) => {
     e.preventDefault();
+    // axios
+    //   .post("http://localhost:3001/events", input)
+    //   .then(() => alert("posted!"));
     axios
-      .post("http://localhost:3001/events", input)
+      .post("https://iknow-backend.herokuapp.com/newevent", input)
       .then(() => alert("posted!"));
   };
 
@@ -38,23 +67,72 @@ function NewEvent() {
         />
       </Form.Group>
 
+      {/* <Form.Group controlId="eventType">
+        <Form.Label column>Event Type</Form.Label>
+        <Col>
+          <Form.Check
+            inline
+            label="Online"
+            value="online"
+            name="type"
+            type="radio"
+            id="1"
+            onChange={updateInput}
+          />
+          <Form.Check
+            inline
+            label="Offline"
+            value="offline"
+            name="type"
+            type="radio"
+            id="2"
+            onChange={updateInput}
+          />
+        </Col>
+      </Form.Group> */}
+
       <Form.Group controlId="intro">
         <TextField
-          name="intro"
+          name="short_description"
           label="Intro"
           onChange={updateInput}
           fullWidth
         />
       </Form.Group>
 
-      <Form.Group controlId="images">
-        <Form.Label>Image </Form.Label>
-        {/* <Input accept="image/*" name="images" multiple type="file" /> */}
-        <Input
+      <Form.Group as={Row} controlId="images">
+        <Col sm="2">
+          <Form.Label>Image</Form.Label>
+        </Col>
+        <Col sm="6">
+          <Input
+            accept="image/*"
+            name="images"
+            multiple
+            type="file"
+            onChange={(e) => setImage(e.target.files[0])}
+          />{" "}
+        </Col>
+        {/* <Form.Control
           name="images"
-          multiple
           type="file"
-          onChange={(e) => setImages(e.target.files[0])}
+          onChange={(e) => setImage(e.target.files[0])}
+        /> */}
+        <Col>
+          <Button onClick={uploadImg}>Upload</Button>
+        </Col>
+      </Form.Group>
+
+      <Form.Group controlId="date">
+        <TextField
+          name="date"
+          label="Start date & time"
+          type="datetime-local"
+          onChange={updateInput}
+          fullWidth
+          InputLabelProps={{
+            shrink: true,
+          }}
         />
       </Form.Group>
 
