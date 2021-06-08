@@ -18,14 +18,14 @@ export default function InputWithIcon({ search }) {
     <div className={classes.margin}>
       <Grid container spacing={1} alignItems="flex-end">
         <Grid item>
-          <SearchIcon />
-        </Grid>
-        <Grid item>
           <TextField
             id="input-with-icon-grid"
             label="Search"
             onChange={search}
           />
+        </Grid>
+        <Grid item>
+          <SearchIcon />
         </Grid>
       </Grid>
     </div>
