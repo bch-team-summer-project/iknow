@@ -1,13 +1,5 @@
-/* Override Bootstrap  */
-@media (min-width: 1200px),
-  (min-width: 992px),
-  (min-width: 768px),
-  (min-width: 576px)
-   {
-  .container {
-    max-width: none;
-  }
-}
+
+    
 .weatherCard card {
   flex: 1;
   background-color: "#93ACED";
@@ -24,7 +16,7 @@ a:hover {
   position: relative;
   display: inline-block;
   max-width: 400px;
-  font-size: 20px;
+  font-size: 25px;
   margin: 1rem 2rem;
   padding: 2rem;
   padding-top: 0;
@@ -36,9 +28,14 @@ a:hover {
   height: 250px;
   font-size: 20px;
   color: white;
+
 }
 .city{
   text-decoration: underline;
+}
+.cityWeatherCards{
+  width:400;
+  height:300;
 }
 
 .card-title,
@@ -79,4 +76,75 @@ h5 {
   font-size: initial;
   padding-right: 2rem;
   margin-left: 5rem;
+}
+/* Mobile version */
+
+@media (max-width: 576px) {
+     
+      .beachContainer{
+        max-width: 100%!important;
+      }
+      .cityWeatherCards{
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+        margin:0;
+      }
+      .card-body{
+        max-width: 300vh!important;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center!important;
+      }     
+      .weatherCard {
+        max-width: 250vh;
+        display: flex;
+        flex-direction: column;
+        font-size: 15px;
+        color: white;
+        padding: 0;
+      }
+
+      .city{
+        text-decoration: underline;
+      }
+      .card-img-top {
+        position: relative !important;
+        border-radius: 50% !important;
+        max-width: 250px !important;
+        height: 250px !important;
+        top: 2.5rem !important;
+        left:1rem !important;
+        box-shadow: 20px 0 0 20px #f5efef !important;
+      }
+      .card-title,
+      h5 {
+        margin-top: 2rem;
+        font-size: 10px;
+      
+      }
+      .cityWeatherCards{
+        padding:1rem;
+      }
+      .card-text {
+        color: #f8f0f0;
+       margin-top: 1rem;
+        padding: 1rem;
+        text-align: center;
+      }
+      
+      .input-group {
+        text-align: center;
+      }
+      #search-bar {
+        margin-top: 2rem;
+        width: 1000px;
+        height: 3rem;
+        padding: 0 1rem;
+        font-size: initial;
+        padding-right: 2rem;
+        margin-left: 5rem;
+      }
+ 
 }

@@ -25,7 +25,7 @@ const BeachTempratureCard = ({ beachTemprature }) => {
               : { backgroundColor: "#42b6f5" }
           }
         >
-          {"Water temprature is " + beachTemprature.waterTemp + "°C "}
+          {"Water temprature is " + beachTemprature.waterTemp + "°C "}<br></br>
           {"Air temprature is " + beachTemprature.airTemp + "°C  "}
         </Card.Text>
       </Card.Body>
