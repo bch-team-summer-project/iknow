@@ -16,6 +16,7 @@ function Events() {
   const [all, setAll] = useState([]);
   const [custom, setCustom] = useState([]);
   const [query, setQuery] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const [page, setPage] = useState(1);
 
   const [isLoading, setIsLoading] = useState(true);
@@ -39,22 +40,22 @@ function Events() {
     if (loader.current) observer.observe(loader.current);
   }, [handleObserver]);
 
+  let cancel;
+  const getEvents = async () => {
+    try {
+      let response = await axios({
+        method: "GET",
+        url: `https://api.hel.fi/linkedevents/v1/event/?page=${page}`,
+        cancelToken: new axios.CancelToken((c) => (cancel = c)),
+      });
+      let result = await response.data;
+      setEvents((prev) => [...prev, ...result.data]);
+      setIsLoading(false);
+    } catch (e) {
+      if (axios.isCancel(e)) return;
+    }
+  };
   useEffect(() => {
-    let cancel;
-    const getEvents = async () => {
-      try {
-        let response = await axios({
-          method: "GET",
-          url: `https://api.hel.fi/linkedevents/v1/event/?page=${page}`,
-          cancelToken: new axios.CancelToken((c) => (cancel = c)),
-        });
-        let result = await response.data;
-        setEvents((prev) => [...prev, ...result.data]);
-        setIsLoading(false);
-      } catch (e) {
-        if (axios.isCancel(e)) return;
-      }
-    };
     getEvents();
     return () => cancel();
   }, [query, page]);
@@ -62,6 +63,25 @@ function Events() {
   useEffect(() => {
     setEvents([]);
   }, [query]);
+
+  // delaying search so user has time to type
+  // before searching activates ¨¨
+  useEffect(() => {
+    const delayDebounce = setTimeout(() => {
+      console.log("search term: ", searchTerm);
+      setQuery(searchTerm);
+    }, 3000);
+    return () => clearTimeout(delayDebounce);
+  }, [searchTerm]);
+  // load more events when reached end of currently displayed events, after going back from EventSpa
+  window.onscroll = () => {
+    if (
+      window.innerHeight + window.pageYOffset >=
+      document.body.offsetHeight - 2
+    ) {
+      getEvents();
+    }
+  };
 
   const getOnlineEvents = async () => {
     setIsLoading(true);
@@ -153,12 +173,22 @@ function Events() {
             <Col>
               <div className="d-flex flex-row align-items-center mt-5 mb-5">
                 <Col>
-                  <Button variant="warning" size="lg" onClick={getOnlineEvents}>
+                  <Button
+                    variant="warning"
+                    size="lg"
+                    className="text-light"
+                    onClick={getOnlineEvents}
+                  >
                     Online events
                   </Button>
                 </Col>
                 <Col>
-                  <Button variant="warning" size="lg" onClick={getOffline}>
+                  <Button
+                    variant="warning"
+                    size="lg"
+                    className="text-light"
+                    onClick={getOffline}
+                  >
                     Offline events
                   </Button>
                 </Col>
@@ -166,6 +196,7 @@ function Events() {
                   <Button
                     variant="warning"
                     size="lg"
+                    className="text-light"
                     onClick={() => {
                       getAll();
                       getCustom();
@@ -179,7 +210,11 @@ function Events() {
               <div className="d-flex flex-row align-items-center">
                 <Col>
                   <Dropdown>
-                    <Dropdown.Toggle variant="warning" size="lg">
+                    <Dropdown.Toggle
+                      variant="warning"
+                      size="lg"
+                      className="text-light"
+                    >
                       Create Event
                     </Dropdown.Toggle>
                     <Dropdown.Menu style={{ width: "35rem" }}>
@@ -193,7 +228,7 @@ function Events() {
 
           <Search
             search={(e) => {
-              setQuery(e.target.value);
+              setSearchTerm(e.target.value);
             }}
           />
           {isLoading && <p>Loading...</p>}
