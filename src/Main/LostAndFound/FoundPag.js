@@ -24,6 +24,7 @@ const LostPag = () => {
 
     console.log(founddata);
     const slice = founddata.slice(offset, offset + perPage);
+
     const postData = slice.map((pd) => (
       <div key={pd.id}>
         <FoundCard

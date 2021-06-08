@@ -99,6 +99,106 @@
       "description": "test tes test",
       "img": "http://res.cloudinary.com/lostfound/image/upload/v1623006743/mlazwar6iixlhcjtld4c.png",
       "id": 10
+    },
+    {
+      "category": "found",
+      "date": "2021-06-20 22:30",
+      "name": "Cat",
+      "location": "Pohjoisesplanadi 11-13 00170 Helsinki",
+      "placeOrigin": "Narinkka 3, Kampin keskus, 00100 Helsinki",
+      "description": "Found white cat near of Helsinki City Hall",
+      "img": "http://res.cloudinary.com/lostfound/image/upload/v1622971895/f9xgfpdamfbpphkf848b.jpg",
+      "id": 11
+    },
+    {
+      "category": "found",
+      "date": "2021-05-02 10:00",
+      "name": "Addidas bag",
+      "location": "Lehtimäentie 1C, Espoo, 02770",
+      "placeOrigin": "Opastinsilta 6 A, Itä-Pasila, Helsinki",
+      "description": "Found sport bag new of Omnia school. Brand- addidas, color-dark blue",
+      "img": "http://res.cloudinary.com/lostfound/image/upload/v1622973645/wkgxxyvdoxqsrkmqtehz.jpg",
+      "id": 12
+    },
+    {
+      "category": "found",
+      "date": "2021-05-30 22:00",
+      "name": "3 keys",
+      "location": "Prisma Kaari shopping center",
+      "placeOrigin": "Opastinsilta 6 A, Itä-Pasila, Helsinki",
+      "description": "Found keys in Prisma Kaari shopping center. Please contact information desc for more detail.",
+      "img": "http://res.cloudinary.com/lostfound/image/upload/v1623000117/om2tddhij9zqsh9bnukf.jpg",
+      "id": 13
+    },
+    {
+      "category": "found",
+      "date": "2021-05-20 04:00",
+      "name": "EU insurance card",
+      "location": "Helsinki center bus station",
+      "placeOrigin": "Nihtisillankuja 4, Espoo, 02631",
+      "description": "Found Kela card by name Senja Sanelma. Please contact Lost and Found office in Espoo.",
+      "img": "http://res.cloudinary.com/lostfound/image/upload/v1623000428/l0uuvut1xa4pvagqn7w8.jpg",
+      "id": 14
+    },
+    {
+      "category": "found",
+      "date": "2021-06-06 21:38",
+      "name": "Earring",
+      "location": "Leppävaara swimming hall",
+      "placeOrigin": "Mäkelänkatu 56, Helsinki, “Löytötavarapalvelu",
+      "description": "Found 1 pcs earring near of Leppävaara swimming hall, please contact Helsinki Lost and Found office.",
+      "img": "http://res.cloudinary.com/lostfound/image/upload/v1623001215/buwrwh3hhqverijala1q.jpg",
+      "id": 15
+    },
+    {
+      "category": "lost",
+      "date": "2021-06-01 12:50",
+      "name": "Black wallet",
+      "location": "421 bus",
+      "placeOrigin": "",
+      "description": "Lost my wallet near of the K Market shop. Color brown. Please contact me by email:name.surname@gmail.com",
+      "img": "http://res.cloudinary.com/lostfound/image/upload/v1623001558/xkyuqc4so9nhahub8dfw.jpg",
+      "id": 16
+    },
+    {
+      "category": "lost",
+      "date": "2021-05-21T12:20",
+      "name": "rabbit",
+      "location": "Ikea Vantaa",
+      "placeOrigin": "",
+      "description": "Lost favorite toy - white rabbit on the first floor of IKEA shop in Vantaa. If you found it, please let me know.",
+      "img": "http://res.cloudinary.com/lostfound/image/upload/v1623003404/vtmkh7bliphu7alrn1mi.png",
+      "id": 17
+    },
+    {
+      "category": "lost",
+      "date": "2021-05-10 09:00",
+      "name": "dog",
+      "location": "Ristipellontie, Helsinki,",
+      "placeOrigin": "",
+      "description": "DUSHKA was LOST on April 18, 2021, near Ristipellontie, Helsinki, Finland, 00390\n\nIf you have ANY information about DUSHKA please contact me by phone 0400991199",
+      "img": "http://res.cloudinary.com/lostfound/image/upload/v1623003614/nnax1kkmgyrdmkric1kh.jpg",
+      "id": 18
+    },
+    {
+      "category": "lost",
+      "date": "2021-04-20 00:55",
+      "name": "case with document",
+      "location": "Metro",
+      "placeOrigin": "",
+      "description": "Lost case with document, please contact me by email",
+      "img": "http://res.cloudinary.com/lostfound/image/upload/v1623005640/cd9dwaobbmxygajgup79.jpg",
+      "id": 19
+    },
+    {
+      "category": "found",
+      "date": "2021-06-03 11:12",
+      "name": "test",
+      "location": "test",
+      "placeOrigin": "Narinkka 3, Kampin keskus, 00100 Helsinki",
+      "description": "test tes test",
+      "img": "http://res.cloudinary.com/lostfound/image/upload/v1623006743/mlazwar6iixlhcjtld4c.png",
+      "id": 20
     }
   ]
 }

@@ -1,7 +1,7 @@
 /* Override Bootstrap  */
 
 .searchContainer {
-  display: inline-flex;
+  display: flex;
 }
 
 .search {
@@ -9,7 +9,9 @@
 }
 
 .logoFound {
-  width: 200px;
+  margin-top: 150px;
+  width: 300px;
+  height: 300px;
 }
 
 .foundContainer {
@@ -51,6 +53,7 @@
 
 .card-title {
   margin: 0;
+  text-align: center;
 }
 
 .card-text {
@@ -61,10 +64,69 @@
   padding: 10px;
 }
 
-.MuiInputBase-root {
-  width: 1100px;
+.descFound,
+.descLost {
+  color: black;
+  padding: 20px 8px 0px 8px;
 }
 
-/**************** Mobile support ****************/
-@media (max-width: 576px) {
+.makeStyles-margin-1 {
+  padding-top: 200px;
+}
+
+.MuiInputBase-root {
+  width: 1000px;
+}
+
+/********************************/
+@media (max-width: 800px) {
+  .logoFound {
+  }
+}
+
+@media (max-width: 500px) {
+}
+
+@media (max-width: 400px) {
+  header {
+    position: relative;
+    padding: 5px;
+  }
+  .logoFound {
+    margin-top: 5px;
+    width: 100px;
+    height: 150px;
+  }
+
+  .searchRow {
+    margin-left: 0px;
+    flex-wrap: nowrap;
+  }
+
+  .searchContainer {
+    display: contents;
+  }
+
+  .MuiInputBase-root {
+    width: 150px;
+  }
+  .MuiGrid-root {
+    justify-content: center;
+  }
+
+  .makeStyles-margin-1 {
+    padding-top: 2rem;
+  }
+  .foundContainer,
+  .lostCountainer {
+    padding: 0;
+  }
+  .lost-card,
+  .found-card {
+    max-width: 300px;
+  }
+  .foundImg,
+  .lostImg {
+    height: unset !important;
+  }
 }

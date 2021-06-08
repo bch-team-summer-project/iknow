@@ -13,7 +13,7 @@ const LostCard = ({ name, img, location, date, description, placeOrigin }) => {
         <Card.Title>
           <strong>{name}</strong>
         </Card.Title>
-        <Card.Text>{description}</Card.Text>
+        <Card.Text className="descLost">{description}</Card.Text>
         <Card.Title>{placeOrigin}</Card.Title>
       </Card.Body>
     </Card>

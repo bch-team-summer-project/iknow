@@ -5,6 +5,7 @@ import LostList from "./LostList";
 import SearchBox from "./SearchBox";
 import AddForm from "./AddForm";
 import ReactPaginate from "react-paginate";
+import Row from "react-bootstrap/Row";
 
 import logo from "./images/found.svg";
 import "./LostFound.css";
@@ -35,10 +36,10 @@ const LostFound = () => {
 
   // Found Filter
 
-  const itemFoundFilter = items.filter((item) => {
+  const itemFoundFilter = items.filter((found) => {
     return (
-      item.category === "found" &&
-      item.name.toLowerCase().includes(searchInput.toLowerCase())
+      found.category === "found" &&
+      found.name.toLowerCase().includes(searchInput.toLowerCase())
     );
   });
   console.log(itemFoundFilter);
@@ -53,10 +54,10 @@ const LostFound = () => {
 
   // Lost Filter
 
-  const itemLostFilter = items.filter((item) => {
+  const itemLostFilter = items.filter((lost) => {
     return (
-      item.category === "lost" &&
-      item.name.toLowerCase().includes(searchInput.toLowerCase())
+      lost.category === "lost" &&
+      lost.name.toLowerCase().includes(searchInput.toLowerCase())
     );
   });
 
@@ -71,15 +72,16 @@ const LostFound = () => {
   return (
     <div className="containerMain">
       <div className="searchContainer">
-        <img
-          className="logoFound"
-          src={logo}
-          alt="found"
-          width="400"
-          height="300"
-        />
-
-        <SearchBox search={searchValueHandler} />
+        <Row className="searchRow">
+          <img
+            className="logoFound"
+            src={logo}
+            alt="found"
+            width="400"
+            height="300"
+          />
+          <SearchBox search={searchValueHandler} />
+        </Row>
       </div>
       <div className="foundContainer">
         <h2 className="lostfoundTitle">
