@@ -6,6 +6,8 @@ import SearchBox from "./SearchBox";
 import AddForm from "./AddForm";
 import PaginationFound from "./PaginationFound";
 import PaginationLost from "./PaginationLost";
+import LostPag from "./LostPag";
+import FoundPag from "./FoundPag";
 
 import logo from "./images/found.svg";
 import "./LostFound.css";
@@ -115,6 +117,8 @@ const LostFound = () => {
         </h2>
         <AddForm />
       </div>
+      <LostPag />
+      <FoundPag />
     </div>
   );
 };

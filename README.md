@@ -45,6 +45,7 @@ npm install axios
 npm install json-server --save-dev
 npm install react-bootstrap bootstrap@4.6.0
 npm install react-bootstrap-4-pagination
+npm install react-paginate --save
 ```
 
 #
