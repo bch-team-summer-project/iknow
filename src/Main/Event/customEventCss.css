@@ -1,0 +1,91 @@
+/* ¨¨ */
+/* 2nd container from top that displays image and 3 cards */
+.top-graphic-and-cards-container {
+  position: relative;
+  /* background-color: turquoise; */
+  height: 40vh;
+}
+.top-graphic-and-cards-lady-img {
+  position: absolute;
+  height: 90%;
+  margin-left: 3vw;
+}
+.top-graphic-and-cards-container img {
+  height: 100%;
+  margin: 10%;
+}
+.events-category-all-cards {
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+  margin-right: 30px;
+  font-size: 2.2vw; /*responsive font-size*/
+  overflow-y: auto;
+}
+
+.orange-card {
+  background-color: orange;
+  color: white;
+  height: 80%;
+  width: 15vw;
+  margin-right: 20px;
+  text-align: center;
+}
+
+.orange-card p {
+  transform: translateY(160%);
+}
+
+.BS-dropdown {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 13vw;
+  margin-top: -3vw;
+}
+
+/* bottom half */
+.BS-search {
+  display: flex;
+  justify-content: center;
+}
+
+.events {
+  /*whole container of events frontpage cards*/
+}
+
+.eventListCard {
+  background-color: #f5ede3 !important;
+  overflow: hidden !important;
+}
+
+.eventListCard img {
+  display: block;
+  margin: auto;
+  /* to get circle element it has to have same height and width */
+  height: 250px;
+  width: 250px;
+  border-radius: 50% !important; /**/
+  margin-top: 10% !important;
+}
+
+@media (max-width: 500px) {
+  .orange-card {
+    height: 40%;
+    margin-top: 10vh;
+  }
+  .eventListCard {
+    font-size: 4vw;
+  }
+  .eventListCard img {
+    height: 150px;
+    width: 150px;
+    margin-top: 25%;
+  }
+}
+@media (max-width: 260px) {
+  .orange-card {
+    display: none;
+  }
+}
+
+/* ¨¨ */
