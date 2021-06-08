@@ -12,7 +12,7 @@ const Beaches = () => {
   function searchBeach(event) {
     if (event.target.value != "") {
       setBeaches(
-        masterListOfBeaches.filter((x) => x.beachName.toLocaleLowerCase().startsWith(event.target.value.toLocaleLowerCase()))
+        masterListOfBeaches.filter((x) => x.beachName.toLocaleLowerCase().startsWith(event.target.value))
       );
     } else {
       setBeaches(masterListOfBeaches);
@@ -32,14 +32,16 @@ const Beaches = () => {
   }, []);
   const renderedResult = (
     <div className="beachContainer">
-      <Row>
-        <img src={logo} width="400" height="300" />
+      <Row className="cityWeatherCards">
+        <img src={logo} />
         {cities.map((cityWeather) => (
           <CityWeatherCard key={cityWeather.id} cityWeather={cityWeather} />
         ))}
       </Row>
       <Row>
+        <div className="searchBar">
         <Search search={searchBeach} />
+        </div>
       </Row>
       <Row>
         {beaches.map((beachTemp) => (
