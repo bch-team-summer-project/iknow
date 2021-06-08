@@ -10,9 +10,9 @@ const AddForm = () => {
     date: "",
     name: "",
     location: "",
+    img: "",
     placeOrigin: "",
     description: "",
-    img: "",
   });
 
   const [imageSelected, setImageSelected] = useState("");
@@ -49,10 +49,7 @@ const AddForm = () => {
 
   const submitData = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:3002/items", form);
-    if (!alert("Form is posted!")) {
-      window.location.reload();
-    }
+    axios.post("https://iknow-backend.herokuapp.com/lost", form);
   };
 
   return (

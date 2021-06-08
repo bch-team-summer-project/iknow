@@ -1,15 +1,7 @@
 /* Override Bootstrap  */
 
-.searchContainer {
-  display: flex;
-}
-
-.search {
-  margin: 120px;
-}
-
 .logoFound {
-  margin-top: 150px;
+  margin-top: 1rem;
   width: 300px;
   height: 300px;
 }
@@ -70,14 +62,6 @@
   padding: 20px 8px 0px 8px;
 }
 
-.makeStyles-margin-1 {
-  padding-top: 200px;
-}
-
-.MuiInputBase-root {
-  width: 1000px;
-}
-
 /********************************/
 @media (max-width: 800px) {
   .logoFound {
@@ -98,25 +82,6 @@
     height: 150px;
   }
 
-  .searchRow {
-    margin-left: 0px;
-    flex-wrap: nowrap;
-  }
-
-  .searchContainer {
-    display: contents;
-  }
-
-  .MuiInputBase-root {
-    width: 150px;
-  }
-  .MuiGrid-root {
-    justify-content: center;
-  }
-
-  .makeStyles-margin-1 {
-    padding-top: 2rem;
-  }
   .foundContainer,
   .lostCountainer {
     padding: 0;

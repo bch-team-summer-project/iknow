@@ -199,6 +199,16 @@
       "description": "test tes test",
       "img": "http://res.cloudinary.com/lostfound/image/upload/v1623006743/mlazwar6iixlhcjtld4c.png",
       "id": 20
+    },
+    {
+      "category": "found",
+      "date": "2021-06-20T15:25",
+      "name": "found",
+      "location": "found",
+      "placeOrigin": "Mäkelänkatu 56, Helsinki, “Löytötavarapalvelu",
+      "description": "hello from found",
+      "img": "http://res.cloudinary.com/lostfound/image/upload/v1623147828/ezcccyh39csc7pbphybu.png",
+      "id": 21
     }
   ]
 }

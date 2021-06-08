@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import FoundList from "./FoundList";
 import LostList from "./LostList";
-import SearchBox from "./SearchBox";
+import Search from "../Search";
 import AddForm from "./AddForm";
 import ReactPaginate from "react-paginate";
 import Row from "react-bootstrap/Row";
@@ -16,7 +16,8 @@ const LostFound = () => {
   const [loading, setLoading] = useState(false);
   const [searchInput, setSearchInput] = useState("");
 
-  const [offset, setOffset] = useState(0);
+  const [offsetLost, setOffsetLost] = useState(0);
+  const [offsetFound, setOffsetFound] = useState(0);
   const [perPage] = useState(3);
 
   const searchValueHandler = (e) => {
@@ -26,7 +27,7 @@ const LostFound = () => {
   useEffect(() => {
     const fetchItems = async () => {
       setLoading(true);
-      const res = await axios.get("http://localhost:3002/items");
+      const res = await axios.get("https://iknow-backend.herokuapp.com/lost");
       setItems(res.data);
       setLoading(false);
     };
@@ -42,14 +43,13 @@ const LostFound = () => {
       found.name.toLowerCase().includes(searchInput.toLowerCase())
     );
   });
-  console.log(itemFoundFilter);
 
-  const sliceFound = itemFoundFilter.slice(offset, offset + perPage);
-  console.log(sliceFound);
+  const sliceFound = itemFoundFilter.slice(offsetFound, offsetFound + perPage);
 
   const handlePageClickFound = (e) => {
-    const selectedPage = e.selected;
-    setOffset(selectedPage + 1);
+    const selectedPageFound = e.selected;
+    setOffsetFound(selectedPageFound + 1);
+    console.log("handlePageClickFound");
   };
 
   // Lost Filter
@@ -61,26 +61,20 @@ const LostFound = () => {
     );
   });
 
-  const sliceLost = itemLostFilter.slice(offset, offset + perPage);
-  console.log(sliceLost);
+  const sliceLost = itemLostFilter.slice(offsetLost, offsetLost + perPage);
 
   const handlePageClickLost = (i) => {
-    const selectedPage = i.selected;
-    setOffset(selectedPage + 1);
+    const selectedPageLost = i.selected;
+    setOffsetLost(selectedPageLost + 1);
+    console.log("handlePageClickLost");
   };
 
   return (
     <div className="containerMain">
       <div className="searchContainer">
         <Row className="searchRow">
-          <img
-            className="logoFound"
-            src={logo}
-            alt="found"
-            width="400"
-            height="300"
-          />
-          <SearchBox search={searchValueHandler} />
+          <img className="logoFound" src={logo} alt="found" />
+          <Search search={searchValueHandler} />
         </Row>
       </div>
       <div className="foundContainer">
