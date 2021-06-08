@@ -11,8 +11,6 @@ import CustomEvent from "./Custom/CustomEvent";
 import CustomSpa from "./Custom/CustomSpa";
 
 import "./Event.css";
-import { useControlled } from "@material-ui/core";
-// import { Link } from "react-router-dom";
 
 function Events() {
   const [events, setEvents] = useState([]);
