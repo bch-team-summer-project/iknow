@@ -22,7 +22,7 @@ const Beaches = () => {
   }
   const fetchData = async () => {
     const beachesResponse = await axios(
-      "http://localhost:8080/beachTemp"
+     "https://iknow-backend.herokuapp.com/beachTemp"
     );
     const citiesResponse = await axios(
       "https://iknow-backend.herokuapp.com/weather/"
