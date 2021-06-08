@@ -1,27 +1,83 @@
-.lost-list {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-gap: 1rem;
-    padding: 1rem;
-  }
-  
-  .lost-card {
-    background: #f4f4f4;
-    border-radius: 5px;
-    box-shadow: 0 0 5px #333;
-    padding: 1rem;
-  }
+/* Override Bootstrap  */
 
-  .found-list {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-gap: 1rem;
-    padding: 1rem;
-  }
+.containerMain {
+  width: 1700px;
+  padding: 1rem 1rem 1rem 2rem;
+}
 
-  .found-card {
-    background: #f4f4f4;
-    border-radius: 5px;
-    box-shadow: 0 0 5px #333;
-    padding: 1rem;
-  }
+.searchContainer {
+  display: inline-flex;
+}
+
+.search {
+  margin: 120px;
+}
+
+.logoFound {
+  width: 200px;
+}
+
+.foundContainer {
+  padding: 5rem 0 6rem 0;
+}
+
+.lostfoundTitle {
+  text-align: center;
+  padding: 20px;
+}
+
+.found-container,
+.lost-container {
+  height: 800px;
+  background-color: #faf6f1;
+  border-color: #faf6f1;
+  border-width: 0.5px;
+  padding: 0;
+  border-radius: 2%;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.foundImg,
+.lostImg {
+  border-radius: 0;
+  object-fit: fill;
+  box-shadow: none;
+  border-radius: 0;
+  top: 0;
+  right: 0;
+  max-width: unset;
+  height: 300px;
+}
+
+.formContainer {
+  padding: 100px 0 150px 0;
+}
+.addItemPost {
+  padding: 50px 200px;
+  border: 1px solid #80d372;
+}
+
+.uploadButton {
+  padding: 0 30px;
+  margin: 30px 0;
+}
+
+.submitButton {
+  margin: auto;
+}
+
+.descriptionLF {
+  display: grid;
+}
+
+.card-title {
+  margin: 0;
+}
+
+.card-text {
+  height: 200px;
+}
+
+.col {
+  padding: 10px;
+}

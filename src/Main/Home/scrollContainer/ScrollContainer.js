@@ -6,7 +6,7 @@ const ScrollContainer = () => {
   return (
     <div className="scroll-container-parent">
       <div className="horizontal-scroll">
-        <div className="horizontal-scroll__block horizontal-scroll__block--one">
+        <div className="horizontal-scroll__block">
           <Link to="/events">
             <div className="background orange">
               <div className="scroller-circle">
@@ -16,7 +16,7 @@ const ScrollContainer = () => {
             <span className="card-text uusima">Uusimaa Events</span>
           </Link>
         </div>
-        <div className="horizontal-scroll__block horizontal-scroll__block--two">
+        <div className="horizontal-scroll__block">
           <Link to="/water">
             <div className="background blue">
               <div className="scroller-circle">
@@ -29,17 +29,17 @@ const ScrollContainer = () => {
             <span className="card-text beach">Beach Water t&#8451;</span>
           </Link>
         </div>
-        <div className="horizontal-scroll__block horizontal-scroll__block--three">
-          <Link to="lost">
+        <div className="horizontal-scroll__block">
+          <Link to="/lost">
             <div className="background green">
               <div className="scroller-circle">
                 <img src="/assets/images/home/lost.png" alt="lost and found" />
               </div>
             </div>
-            <span className="card-text lost">Lost &amp; Found</span>
+            <span className="card-text lostfound">Lost &amp; Found</span>
           </Link>
         </div>
-        <div className="horizontal-scroll__block horizontal-scroll__block--four">
+        {/*     <div className="horizontal-scroll__block horizontal-scroll__block--four">
           <Link to="laundry">
             <div className="background light-blue">
               <div className="scroller-circle">
@@ -51,12 +51,12 @@ const ScrollContainer = () => {
             </div>
             <span className="card-text laundry">Laundry booking</span>
           </Link>
-        </div>
+        </div> */}
         {/* <div className="horizontal-scroll__block horizontal-scroll__block--five">
           <div className="background" style={{backgroundImage: "url(grid_img5.png"}}></div>
           <span className="letter">E</span>
         </div> */}
-        <div className="horizontal-scroll__block horizontal-scroll__block--six">
+        <div className="horizontal-scroll__block ">
           <div
             className="background"
             style={{ backgroundImage: "url()" }}

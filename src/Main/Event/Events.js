@@ -9,6 +9,8 @@ import Search from "../Search";
 import NewEvent from "./NewEvent";
 import CustomEvent from "./CustomEvent";
 
+import "./customEventCss.css";
+
 function Events() {
   const [events, setEvents] = useState([]);
   const [online, setOnline] = useState([]);
@@ -19,6 +21,7 @@ function Events() {
   const [searchTerm, setSearchTerm] = useState("");
   const [page, setPage] = useState(1);
 
+  const [searchTerm, setSearchTerm] = useState(""); //¨¨
   const [isLoading, setIsLoading] = useState(true);
   let { url } = useRouteMatch();
   const loader = useRef();
@@ -164,6 +167,56 @@ function Events() {
 
   return (
     <>
+      <div className="top-graphic-and-cards-container">
+        <div className="top-graphic-and-cards-lady-img">
+          <img src="/assets/images/event/e.png" alt="lady"></img>
+        </div>
+        <div className="events-category-all-cards">
+          <a href="#events-container" alt="click to find online events">
+            <div className="orange-card" onClick={getOnlineEvents}>
+              <p>Online events</p>
+            </div>
+          </a>
+          <a href="#events-container" alt="click to find all events">
+            <div className="orange-card" onClick={getAll}>
+              <p>All events</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <Col>
+        <Dropdown className="BS-dropdown">
+          <Dropdown.Toggle variant="warning" size="lg">
+            Create Event
+          </Dropdown.Toggle>
+          <Dropdown.Menu style={{ width: "35rem" }}>
+            <NewEvent />
+          </Dropdown.Menu>
+        </Dropdown>
+      </Col>
+
+      <div className="BS-search">
+        {/* <Search
+        </Col>
+        <Col className="d-flex align-items-center">
+          <Col>
+            <Button variant="warning" size="lg">
+              something
+            </Button>
+          </Col>
+          <Col>
+            <Button variant="warning" size="lg">
+              something
+            </Button>
+          </Col>
+          <Col>
+            <Button variant="warning" size="lg">
+              something
+            </Button>
+          </Col>
+        </Col>
+      </Row>
       <Switch>
         <Route path={url} exact>
           <Row className="mb-5 eventBanner">
@@ -215,27 +268,35 @@ function Events() {
                 </Col>
               </div>
             </Col>
-          </Row>
+          </Row> */}
 
-          <Search
-            search={(e) => {
-              setSearchTerm(e.target.value);
-            }}
-          />
-          {isLoading && <p>Loading...</p>}
-          <section className="events">
-            {online && <EventList events={onlineSearch} />}
-            {offline && <EventList events={offlineSearch} />}
-            {custom && <CustomEvent custom={customSearch} />}
-            {(events || all) && <EventList events={handleSearch} />}
-          </section>
-          <div ref={loader} />
-        </Route>
+        <Search
+          search={(e) => {
+            setSearchTerm(e.target.value);
+          }}
+        />
+      </div>
 
-        <Route path={`${url}/:id`}>
-          <EventSpa />
-        </Route>
-      </Switch>
+      <div className="events-container" id="events-container">
+        <Switch>
+          <Route path={url} exact>
+            {
+              //isLoading && <p>Loading...</p>
+            }
+            <section className="events">
+              {online && <EventList events={onlineSearch} />}
+              {offline && <EventList events={offlineSearch} />}
+              {custom && <CustomEvent custom={customSearch} />}
+              {(events || all) && <EventList events={handleSearch} />}
+            </section>
+            <div ref={loader} />
+          </Route>
+
+          <Route path={`${url}/:id`}>
+            <EventSpa />
+          </Route>
+        </Switch>
+      </div>
     </>
   );
 }

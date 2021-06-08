@@ -19,7 +19,7 @@ html {
 
 body,
 input {
-  font-family: var(--font);
+  font-family: var(--font) !important;
   color: var(--text-color);
   font-size: 20px;
 }
@@ -31,4 +31,21 @@ input {
 
 main {
   min-height: 30rem;
+  padding-top: 7rem;
+}
+
+.MuiInput-root {
+  width: 40rem !important;
+}
+
+@media (max-width: 900px) {
+  .MuiInput-root {
+    width: 30rem !important;
+  }
+}
+
+@media (max-width: 550px) {
+  .MuiInput-root {
+    width: 15rem !important;
+  }
 }

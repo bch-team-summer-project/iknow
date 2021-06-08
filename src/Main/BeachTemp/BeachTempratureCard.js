@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import "./BeachTemprature.css";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
+import "./BeachTemprature.css";
 
 const BeachTempratureCard = ({ beachTemprature }) => {
   return (
@@ -11,7 +11,6 @@ const BeachTempratureCard = ({ beachTemprature }) => {
         src={beachTemprature.image}
         alt={beachTemprature.name}
       />
-
       <Card.Body>
         <Card.Title>
           <span>
@@ -27,6 +26,7 @@ const BeachTempratureCard = ({ beachTemprature }) => {
           }
         >
           {"Water temprature is " + beachTemprature.waterTemp + "°C "}
+          <br></br>
           {"Air temprature is " + beachTemprature.airTemp + "°C  "}
         </Card.Text>
       </Card.Body>
