@@ -172,38 +172,29 @@ function Events() {
             </Col>
             <Col>
               <div className="d-flex flex-row align-items-center mt-5 mb-5">
-                <Col>
-                  <Button
-                    variant="warning"
-                    size="lg"
-                    className="text-light"
-                    onClick={getOnlineEvents}
-                  >
-                    Online events
-                  </Button>
+                <Col
+                  className="me-2 bg-warning text-light d-flex align-items-center justify-content-center "
+                  style={{ height: "15rem" }}
+                  onClick={getOnlineEvents}
+                >
+                  Online events
                 </Col>
-                <Col>
-                  <Button
-                    variant="warning"
-                    size="lg"
-                    className="text-light"
-                    onClick={getOffline}
-                  >
-                    Offline events
-                  </Button>
+                <Col
+                  className="bg-warning text-light d-flex align-items-center justify-content-center me-2"
+                  style={{ height: "15rem" }}
+                  onClick={getOffline}
+                >
+                  Offline events
                 </Col>
-                <Col>
-                  <Button
-                    variant="warning"
-                    size="lg"
-                    className="text-light"
-                    onClick={() => {
-                      getAll();
-                      getCustom();
-                    }}
-                  >
-                    All events
-                  </Button>
+                <Col
+                  className="bg-warning text-light d-flex align-items-center justify-content-center me-2"
+                  style={{ height: "15rem" }}
+                  onClick={() => {
+                    getAll();
+                    getCustom();
+                  }}
+                >
+                  All events
                 </Col>
               </div>
 
