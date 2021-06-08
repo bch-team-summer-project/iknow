@@ -23,6 +23,10 @@ a:hover {
   padding-right: 0;
   border: none !important;
 }
+.makeStyles-margin-1{
+  margin: 8px;
+  padding-left: 22rem;
+}
 .weatherCard {
   max-width: 200px;
   height: 250px;
@@ -60,6 +64,7 @@ h5 {
   top: 2.5rem !important;
   right: 1rem !important;
   box-shadow: 20px 0 0 20px #f5efef !important;
+  margin: 2rem;
 }
 .weatherIcons {
   height: 60px;
@@ -97,6 +102,10 @@ h5 {
         flex-direction: column;
         align-items: center!important;
       }     
+      .makeStyles-margin-1{
+        margin: 8px;
+        padding-left: 2rem;
+      }
       .weatherCard {
         max-width: 250vh;
         display: flex;

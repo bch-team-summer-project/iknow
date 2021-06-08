@@ -39,7 +39,9 @@ const Beaches = () => {
         ))}
       </Row>
       <Row>
+        <div className="searchBar">
         <Search search={searchBeach} />
+        </div>
       </Row>
       <Row>
         {beaches.map((beachTemp) => (
