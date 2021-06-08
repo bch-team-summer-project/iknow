@@ -8,17 +8,16 @@ const FoundList = ({ items, loading }) => {
   }
   return (
     <CardGroup>
-      {items.map((item) => (
+      {items.map((found) => (
         <FoundCard
-          key={item.id}
-          category={item.category}
-          img={item.img}
-          name={item.name}
-          date={item.date}
-          location={item.location}
-          placeOrigin={item.placeOrigin}
-          description={item.description}
-          id={item.id}
+          key={found.id}
+          img={found.img}
+          name={found.name}
+          date={found.date}
+          location={found.location}
+          placeOrigin={found.placeOrigin}
+          description={found.description}
+          id={found.id}
         />
       ))}
     </CardGroup>

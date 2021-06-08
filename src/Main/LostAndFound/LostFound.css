@@ -72,10 +72,6 @@
 }
 
 @media (max-width: 400px) {
-  header {
-    position: relative;
-    padding: 5px;
-  }
   .logoFound {
     margin-top: 5px;
     width: 100px;

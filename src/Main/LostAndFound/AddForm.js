@@ -12,7 +12,7 @@ const AddForm = () => {
     location: "",
     img: "",
     placeOrigin: "",
-    description: "",
+    description: ""
   });
 
   const [imageSelected, setImageSelected] = useState("");

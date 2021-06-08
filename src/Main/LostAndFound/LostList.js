@@ -8,16 +8,15 @@ const LostList = ({ items, loading }) => {
   }
   return (
     <CardGroup>
-      {items.map((item) => (
+      {items.map((lost) => (
         <LostCard
-          key={item.id}
-          category={item.category}
-          img={item.img}
-          name={item.name}
-          date={item.date}
-          location={item.location}
-          description={item.description}
-          id={item.id}
+          key={lost.id}
+          img={lost.img}
+          name={lost.name}
+          date={lost.date}
+          location={lost.location}
+          description={lost.description}
+          id={lost.id}
         />
       ))}
     </CardGroup>
