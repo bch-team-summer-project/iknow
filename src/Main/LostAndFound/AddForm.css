@@ -23,10 +23,10 @@
   display: grid !important;
 }
 
-.form-row {
+.form-row-lostfound {
   justify-content: space-between;
   margin-right: -300px !important;
 }
-.form-control {
+.form-control-lostfound {
   height: 500px;
 }

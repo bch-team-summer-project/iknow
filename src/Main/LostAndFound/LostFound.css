@@ -1,9 +1,15 @@
 /* Override Bootstrap  */
 
+/* logo and search */
+
 .logoFound {
   margin-top: 1rem;
-  width: 300px;
-  height: 300px;
+  min-width: 400px;
+  height: 400px;
+}
+
+.searchBar {
+  padding: 150px;
 }
 
 .foundContainer {
@@ -12,19 +18,17 @@
 
 .lostfoundTitle {
   text-align: center;
-  padding: 20px;
+  padding: 50px;
 }
 
 .lost-card,
 .found-card {
-  height: 900px;
+  height: 800px;
   background-color: #faf6f1 !important;
-  padding: 0 !important;
-  border-radius: 2% !important;
-  width: 500px !important;
-  display: grid !important;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)) !important;
-  grid-gap: 20px !important;
+  position: relative;
+  display: inline-block;
+  font-size: 25px;
+  margin: 1rem 2rem;
 }
 
 .card-group {
@@ -33,61 +37,191 @@
 
 .foundImg,
 .lostImg {
-  box-shadow: none !important;
-  border-radius: 0 !important;
-  top: 0 !important;
-  right: 0 !important;
-  max-width: unset !important;
-  height: 400px !important;
+  height: 50%;
   object-fit: cover;
-  width: 100%;
 }
 
-.card-title {
-  margin: 0;
+.card-bodyL,
+.card-bodyF {
   text-align: center;
-}
-
-.card-text {
-  height: 200px;
-}
-
-.col {
-  padding: 10px;
 }
 
 .descFound,
 .descLost {
-  color: black;
   padding: 20px 8px 0px 8px;
 }
 
 /********************************/
 @media (max-width: 800px) {
   .logoFound {
+    margin-top: 1rem;
+    min-width: 250px;
+    height: 300px;
+    position: absolute;
   }
-}
-
-@media (max-width: 500px) {
-}
-
-@media (max-width: 400px) {
-  .logoFound {
-    margin-top: 5px;
-    width: 100px;
-    height: 150px;
+  .searchBar {
+    padding: 50px 200px;
   }
 
   .foundContainer,
   .lostCountainer {
-    padding: 0;
+    padding: 150px 0 0 0;
+    text-align: center;
   }
+
   .lost-card,
   .found-card {
-    max-width: 300px;
+    width: 400px;
+    height: 400px;
+  }
+
+  .descFound,
+  .descLost {
+    padding: 0;
+    font-size: 1rem !important;
   }
   .foundImg,
   .lostImg {
-    height: unset !important;
+    height: 40%;
+    object-fit: fill;
+  }
+
+  .foundTitle,
+  .lostTitle,
+  .formTitle {
+    text-align: center;
+  }
+
+  .addItemPost {
+    padding: 20px;
+  }
+  .form-row-lostfound {
+    display: grid;
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .logoFound {
+    min-width: 150px;
+    height: 250px;
+    margin-top: 0;
+    position: absolute;
+  }
+
+  .searchBar {
+    margin: 0;
+    padding: 50px 150px;
+  }
+
+  .foundContainer,
+  .lostCountainer {
+    padding: 100px 0 0 0;
+    text-align: center;
+  }
+
+  .lost-card,
+  .found-card {
+    width: 400px;
+    height: 600px;
+    margin: 0;
+  }
+
+  .foundTitle,
+  .lostTitle {
+    text-align: center;
+  }
+
+  /*Form*/
+
+  .formContainer {
+    padding: 0 0 50px 0;
+  }
+
+  .formTitle {
+    text-align: center;
+  }
+
+  .addItemPost {
+    padding: 40px;
+    width: 414px;
+  }
+
+  .form-row-lostfound {
+    display: grid;
+  }
+  .form-control-lostfound {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 400px) {
+  .foundContainer,
+  .lostCountainer {
+    padding: 0;
+  }
+
+  .logoFound {
+    min-width: 150px;
+    height: 180px;
+    margin-top: 0;
+    position: absolute;
+  }
+
+  .searchContainer {
+    width: auto;
+    height: 150px;
+  }
+
+  .searchBar {
+    margin: 0;
+    padding: 0 120px;
+  }
+
+  .lost-card,
+  .found-card {
+    max-width: 300px;
+    width: 300px;
+    margin: 0.75rem;
+    height: 600px;
+  }
+
+  .foundTitle {
+    padding-top: 40px;
+    text-align: center;
+  }
+  .lostTitle {
+    text-align: center;
+  }
+
+  .descFound,
+  .descLost {
+    padding: 0;
+    font-size: 1.5rem !important;
+  }
+
+  /*Form*/
+
+  .formContainer {
+    padding: 0 0 50px 0;
+  }
+
+  .formTitle {
+    text-align: center;
+  }
+
+  .addItemPost {
+    padding: 50px;
+    width: 320px;
+  }
+
+  .form-row-lostfound {
+    display: grid;
+  }
+  .form-control-lostfound {
+    max-width: 250px;
+  }
+
+  .colName {
   }
 }

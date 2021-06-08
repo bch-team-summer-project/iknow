@@ -1,6 +1,9 @@
 .pag {
   display: flex;
 }
+.pagination-mob {
+  visibility: hidden;
+}
 
 .pagination {
   margin: 15px auto;
@@ -39,4 +42,32 @@
 .pagination > li:last-child > a,
 .pagination > li:last-child > span {
   border-radius: unset;
+}
+
+@media (max-width: 800px) {
+  .pagination-desc {
+    visibility: hidden;
+  }
+  .pagination-mob {
+    visibility: visible;
+  }
+}
+
+@media (max-width: 500px) {
+  .pagination-desc {
+    visibility: hidden;
+  }
+  .pagination-mob {
+    visibility: visible;
+  }
+}
+
+@media (max-width: 400px) {
+  .pagination-desc {
+    visibility: hidden;
+  }
+
+  .pagination-mob {
+    visibility: visible;
+  }
 }

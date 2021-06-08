@@ -12,7 +12,7 @@ const AddForm = () => {
     location: "",
     img: "",
     placeOrigin: "",
-    description: ""
+    description: "",
   });
 
   const [imageSelected, setImageSelected] = useState("");
@@ -50,14 +50,18 @@ const AddForm = () => {
   const submitData = (e) => {
     e.preventDefault();
     axios.post("https://iknow-backend.herokuapp.com/lost", form);
+    if (!alert("Form is posted!")) {
+      window.location.reload();
+    }
   };
 
   return (
     <Form onSubmit={submitData} className="addItemPost">
-      <Form.Row>
+      <Form.Row className="form-row-lostfound">
         <Form.Group as={Col} htmlFor="category">
           <Form.Label>Category: </Form.Label>
           <Form.Control
+            className="form-control-lostfound"
             style={{ width: "200px" }}
             as="select"
             name="category"
@@ -75,6 +79,7 @@ const AddForm = () => {
         <Form.Group className="colDate" as={Col} htmlFor="date">
           <Form.Label>Date and time: </Form.Label>
           <Form.Control
+            className="form-control-lostfound"
             style={{ width: "250px" }}
             type="datetime-local"
             name="date"
@@ -83,10 +88,11 @@ const AddForm = () => {
         </Form.Group>
       </Form.Row>
 
-      <Form.Row>
+      <Form.Row className="form-row-lostfound">
         <Form.Group as={Col} htmlFor="location">
-          <Form.Label>Location: </Form.Label>
+          <Form.Label>Where you lost/found?: </Form.Label>
           <Form.Control
+            className="form-control-lostfound"
             style={{ width: "500px" }}
             type="text"
             name="location"
@@ -95,8 +101,9 @@ const AddForm = () => {
         </Form.Group>
 
         <Form.Group className="colName" as={Col} htmlFor="name">
-          <Form.Label>Item Name: </Form.Label>
+          <Form.Label>What you lost/found? </Form.Label>
           <Form.Control
+            className="form-control-lostfound"
             style={{ width: "400px" }}
             type="text"
             name="name"
@@ -105,7 +112,7 @@ const AddForm = () => {
         </Form.Group>
       </Form.Row>
 
-      <Form.Row>
+      <Form.Row className="form-row-lostfound">
         <Form.Group as={Col} htmlFor="url">
           <Form.Label>Upload Photo: </Form.Label>
           <Form.File
@@ -127,6 +134,7 @@ const AddForm = () => {
         <Form.Group as={Col} htmlFor="placeOrigin" className={state.value}>
           <Form.Label>Place of Origin:</Form.Label>
           <Form.Control
+            className="form-control-lostfound"
             style={{ width: "400px" }}
             as="select"
             name="placeOrigin"
@@ -152,6 +160,7 @@ const AddForm = () => {
         <Form.Group as={Col} htmlFor="description">
           <Form.Label>Description: </Form.Label>
           <Form.Control
+            className="form-control-lostfound"
             as="textarea"
             name="description"
             rows={6}

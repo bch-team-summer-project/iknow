@@ -5,7 +5,7 @@ const FoundCard = ({ name, img, location, date, description, placeOrigin }) => {
   return (
     <Card className="found-card">
       <Card.Img className="foundImg" variant="top" src={img} alt={name} />
-      <Card.Body>
+      <Card.Body className="card-bodyF">
         <Card.Title>
           <strong>{date}</strong>
         </Card.Title>

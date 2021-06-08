@@ -9,7 +9,7 @@ import Row from "react-bootstrap/Row";
 
 import logo from "./images/found.svg";
 import "./LostFound.css";
-import "./LostPag.css";
+import "./Pagination.css";
 
 const LostFound = () => {
   const [items, setItems] = useState([]);
@@ -79,17 +79,36 @@ const LostFound = () => {
   return (
     <div className="containerMain">
       <div className="searchContainer">
-        <Row className="searchRow">
+        <div className="searchRow">
           <img className="logoFound" src={logo} alt="found" />
-          <Search search={searchValueHandler} />
-        </Row>
+          <div className="searchBar">
+            <Search search={searchValueHandler} />
+          </div>
+        </div>
       </div>
       <div className="foundContainer">
-        <h2 className="lostfoundTitle">
+        <h2 className="foundTitle">
           <strong>Found Items</strong>
         </h2>
-        <FoundList items={sliceFound} loading={loading} />
+        <div className="pagination-mob">
+          <ReactPaginate
+            previousLabel={"<<<prev"}
+            nextLabel={"next>>>"}
+            breakLabel={"..."}
+            breakClassName={"break-me"}
+            pageCount={Math.ceil(itemFoundFilter.length / perPage)}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={handlePageClickFound}
+            containerClassName={"pagination"}
+            subContainerClassName={"pages pagination"}
+            activeClassName={"active"}
+          />
+        </div>
         <div>
+          <FoundList items={sliceFound} loading={loading} />
+        </div>
+        <div className="pagination-desc">
           <ReactPaginate
             previousLabel={"<<<prev"}
             nextLabel={"next>>>"}
@@ -106,11 +125,28 @@ const LostFound = () => {
         </div>
       </div>
       <div className="lostContainer">
-        <h2 className="lostfoundTitle">
+        <h2 className="lostTitle">
           <strong>Lost items</strong>
         </h2>
-        <LostList items={sliceLost} loading={loading} />
+        <div className="pagination-mob">
+          <ReactPaginate
+            previousLabel={"<<<prev"}
+            nextLabel={"next>>>"}
+            breakLabel={"..."}
+            breakClassName={"break-me"}
+            pageCount={Math.ceil(itemLostFilter.length / perPage)}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={handlePageClickLost}
+            containerClassName={"pagination"}
+            subContainerClassName={"pages pagination"}
+            activeClassName={"active"}
+          />
+        </div>
         <div>
+          <LostList items={sliceLost} loading={loading} />
+        </div>
+        <div className="pagination-desc">
           <ReactPaginate
             previousLabel={"<<<prev"}
             nextLabel={"next>>>"}
@@ -127,8 +163,8 @@ const LostFound = () => {
         </div>
       </div>
       <div className="formContainer">
-        <h2 className="lostfoundTitle">
-          <strong>Add found/lost item</strong>
+        <h2 className="formTitle">
+          <strong>Add found/lost item </strong>
         </h2>
         <AddForm />
       </div>
