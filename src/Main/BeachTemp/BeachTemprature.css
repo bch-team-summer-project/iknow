@@ -21,10 +21,6 @@ a:hover {
   padding-right: 0;
   border: none !important;
 }
-.makeStyles-margin-1 {
-  margin: 8px;
-  padding-left: 22rem;
-}
 .weatherCard {
   max-width: 200px;
   height: 250px;
@@ -33,16 +29,15 @@ a:hover {
 }
 .city {
   text-decoration: underline;
+  margin: 1rem 0;
 }
 .cityWeatherCards {
   width: 400;
   height: 300;
 }
 
-.card-title,
-h5 {
+.card-title h5 {
   margin-top: 2rem;
-  font-weight: 800;
   font-size: 30px;
   padding: 20px 8px 0px 8px;
 }
@@ -60,7 +55,7 @@ h5 {
   top: 2.5rem !important;
   right: 1rem !important;
   box-shadow: 20px 0 0 20px #f5efef !important;
-  margin: 2rem;
+  margin: 3rem;
 }
 .weatherIcons {
   height: 60px;
@@ -99,7 +94,7 @@ h5 {
   }
   .makeStyles-margin-1 {
     margin: 8px;
-    padding-left: 2rem;
+    padding-left: 4rem;
   }
   .weatherCard {
     max-width: 250vh;
@@ -108,33 +103,6 @@ h5 {
     font-size: 15px;
     color: white;
     padding: 0;
-  }
-
-  .city {
-    text-decoration: underline;
-  }
-  .card-img-top {
-    position: relative !important;
-    border-radius: 50% !important;
-    max-width: 250px !important;
-    height: 250px !important;
-    top: 2.5rem !important;
-    left: 1rem !important;
-    box-shadow: 20px 0 0 20px #f5efef !important;
-  }
-  .card-title,
-  h5 {
-    margin-top: 2rem;
-    font-size: 10px;
-  }
-  .cityWeatherCards {
-    padding: 1rem;
-  }
-  .card-text {
-    color: #f8f0f0;
-    margin-top: 1rem;
-    padding: 1rem;
-    text-align: center;
   }
 
   .input-group {

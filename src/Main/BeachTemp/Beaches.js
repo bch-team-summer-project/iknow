@@ -12,22 +12,27 @@ const Beaches = () => {
   function searchBeach(event) {
     if (event.target.value != "") {
       setBeaches(
-        masterListOfBeaches.filter((x) => x.beachName.toLocaleLowerCase().startsWith(event.target.value))
+        masterListOfBeaches.filter((x) =>
+          x.beachName.toLocaleLowerCase().startsWith(event.target.value)
+        )
       );
     } else {
       setBeaches(masterListOfBeaches);
     }
   }
   const fetchData = async () => {
-    const beachesResponse = await axios("https://iknow-backend.herokuapp.com/beachTemp");
-    const citiesResponse = await axios("https://iknow-backend.herokuapp.com/weather/");
+    const beachesResponse = await axios(
+      "http://localhost:8080/beachTemp"
+    );
+    const citiesResponse = await axios(
+      "https://iknow-backend.herokuapp.com/weather/"
+    );
     console.log(citiesResponse.data);
     masterListOfBeaches = beachesResponse.data;
     setBeaches(beachesResponse.data);
     setCities(citiesResponse.data);
   };
   useEffect(() => {
-   
     fetchData();
   }, []);
   const renderedResult = (
@@ -38,10 +43,8 @@ const Beaches = () => {
           <CityWeatherCard key={cityWeather.id} cityWeather={cityWeather} />
         ))}
       </Row>
-      <Row>
-        <div className="searchBar">
+      <Row className="searchBar">
         <Search search={searchBeach} />
-        </div>
       </Row>
       <Row>
         {beaches.map((beachTemp) => (
