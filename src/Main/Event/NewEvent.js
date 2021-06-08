@@ -50,7 +50,7 @@ function NewEvent() {
   };
 
   return (
-    <Form className="px-4 py-3 eventForm" onSubmit={sendData}>
+    <Form className="px-5 py-4 eventForm" onSubmit={sendData}>
       <Form.Group controlId="eventName">
         <TextField
           name="name"
