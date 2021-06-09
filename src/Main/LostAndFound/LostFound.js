@@ -32,7 +32,6 @@ const LostFound = () => {
       const res = await axios.get("https://iknow-backend.herokuapp.com/lost");
       setItems(res.data);
       setLoading(false);
-      console.log(res.data);
     };
 
     fetchItems();
