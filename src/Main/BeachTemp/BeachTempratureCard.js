@@ -17,11 +17,13 @@ const BeachTempratureCard = ({ beachTemprature }) => {
   const classes = useStyles();
   return (
     <Card key={beachTemprature.id}>
-      <Card.Img
-        variant="top"
-        src={beachTemprature.image}
-        alt={beachTemprature.name}
-      />
+      <div className="card-img-top-beaches">
+        <Card.Img
+          variant="top"
+          src={beachTemprature.image}
+          alt={beachTemprature.name}
+        />
+      </div>
       <Card.Body>
         <Card.Title>
           <span>

@@ -15,6 +15,8 @@ const AddForm = () => {
     description: "",
   });
 
+  const [validated, setValidated] = useState(false);
+
   const [imageSelected, setImageSelected] = useState("");
 
   const uploadImage = () => {
@@ -48,19 +50,33 @@ const AddForm = () => {
   };
 
   const submitData = (e) => {
-    e.preventDefault();
-    axios.post("https://iknow-backend.herokuapp.com/lost", form);
-    if (!alert("Form is posted!")) {
-      window.location.reload();
+    if (e.currentTarget.checkValidity() === true) {
+      e.preventDefault();
+      // axios.post("http://localhost:3002/items", form);
+      axios.post("https://iknow-backend.herokuapp.com/lost", form);
+      alert("Your form is posted");
     }
+    setValidated(false);
+
+    if (e.currentTarget.checkValidity() === false) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    setValidated(true);
   };
 
   return (
-    <Form onSubmit={submitData} className="addItemPost">
+    <Form
+      noValidate
+      validated={validated}
+      onSubmit={submitData}
+      className="addItemPost"
+    >
       <Form.Row className="form-row-lostfound">
-        <Form.Group as={Col} htmlFor="category">
+        <Form.Group as={Col} htmlFor="category" controlId="validationCustom01">
           <Form.Label>Category: </Form.Label>
           <Form.Control
+            required
             className="form-control-lostfound"
             style={{ width: "200px" }}
             as="select"
@@ -70,10 +86,13 @@ const AddForm = () => {
               showSelect(e);
             }}
           >
-            <option value="">Choose category</option>
+            <option value=""></option>
             <option value="found">Found</option>
             <option value="lost">Lost</option>
           </Form.Control>
+          <Form.Control.Feedback type="invalid">
+            Please choose a category.
+          </Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group className="colDate" as={Col} htmlFor="date">

@@ -5,7 +5,6 @@ import LostList from "./LostList";
 import Search from "../Search";
 import AddForm from "./AddForm";
 import ReactPaginate from "react-paginate";
-import Row from "react-bootstrap/Row";
 
 import logo from "./images/found.svg";
 import "./LostFound.css";
@@ -29,6 +28,7 @@ const LostFound = () => {
   useEffect(() => {
     const fetchItems = async () => {
       setLoading(true);
+      // const res = await axios.get("http://localhost:3002/items");
       const res = await axios.get("https://iknow-backend.herokuapp.com/lost");
       setItems(res.data);
       setLoading(false);
@@ -79,16 +79,14 @@ const LostFound = () => {
   return (
     <div className="containerMain">
       <div className="searchContainer">
-        <div className="searchRow">
-          <img className="logoFound" src={logo} alt="found" />
-          <div className="searchBar">
-            <Search search={searchValueHandler} />
-          </div>
+        <img className="logoFound" src={logo} alt="found" />
+        <div className="searchBar">
+          <Search search={searchValueHandler} />
         </div>
       </div>
       <div className="foundContainer">
         <h2 className="foundTitle">
-          <strong>Found Items</strong>
+          <strong>Found properties</strong>
         </h2>
         <div className="pagination-mob">
           <ReactPaginate
@@ -126,7 +124,7 @@ const LostFound = () => {
       </div>
       <div className="lostContainer">
         <h2 className="lostTitle">
-          <strong>Lost items</strong>
+          <strong>Lost properties</strong>
         </h2>
         <div className="pagination-mob">
           <ReactPaginate
@@ -164,7 +162,7 @@ const LostFound = () => {
       </div>
       <div className="formContainer">
         <h2 className="formTitle">
-          <strong>Add found/lost item </strong>
+          <strong>Add found/lost property </strong>
         </h2>
         <AddForm />
       </div>

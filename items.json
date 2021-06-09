@@ -209,6 +209,86 @@
       "description": "hello from found",
       "img": "http://res.cloudinary.com/lostfound/image/upload/v1623147828/ezcccyh39csc7pbphybu.png",
       "id": 21
+    },
+    {
+      "category": "",
+      "date": "",
+      "name": "",
+      "location": "",
+      "img": "",
+      "placeOrigin": "",
+      "description": "",
+      "id": 22
+    },
+    {
+      "category": "found",
+      "date": "",
+      "name": "",
+      "location": "",
+      "img": "",
+      "placeOrigin": "",
+      "description": "",
+      "id": 23
+    },
+    {
+      "category": "found",
+      "date": "",
+      "name": "",
+      "location": "",
+      "img": "",
+      "placeOrigin": "",
+      "description": "",
+      "id": 24
+    },
+    {
+      "category": "",
+      "date": "",
+      "name": "",
+      "location": "",
+      "img": "",
+      "placeOrigin": "",
+      "description": "",
+      "id": 25
+    },
+    {
+      "category": "found",
+      "date": "",
+      "name": "",
+      "location": "",
+      "img": "",
+      "placeOrigin": "",
+      "description": "",
+      "id": 26
+    },
+    {
+      "category": "found",
+      "date": "2021-06-13T02:01",
+      "name": "test",
+      "location": "test",
+      "img": "",
+      "placeOrigin": "",
+      "description": "dfrhydrhujrtj",
+      "id": 27
+    },
+    {
+      "category": "found",
+      "date": "",
+      "name": "jkmjkmkm",
+      "location": "bnjnjnkj",
+      "img": "",
+      "placeOrigin": "Narinkka 3, Kampin keskus, 00100 Helsinki",
+      "description": "kjkjkmkm",
+      "id": 28
+    },
+    {
+      "category": "found",
+      "date": "2021-06-09T02:16",
+      "name": "erdhgerherherh",
+      "location": "eewgwesrdghg",
+      "img": "",
+      "placeOrigin": "Mäkelänkatu 56, Helsinki, “Löytötavarapalvelu",
+      "description": "hdfhdefehedhedrfhed",
+      "id": 29
     }
   ]
 }
