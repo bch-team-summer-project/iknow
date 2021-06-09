@@ -56,15 +56,6 @@ const LostFound = () => {
     setOffsetFound(selectedPageFound + 1);
   };
 
-  const sliceFound = itemFoundFilter.slice(offset, offset + perPage);
-  console.log(sliceFound);
-
-  const handlePageClickFound = (e) => {
-    const selectedfoundPage = e.selected;
-    console.log("found selected", selectedfoundPage);
-    setOffset(selectedfoundPage + 1);
-  };
-
   // Lost Filter
 
   const itemLostFilter = items.filter((lost) => {
@@ -88,7 +79,7 @@ const LostFound = () => {
     <div className="containerMain">
       <div className="searchContainer">
         <img className="logoFound" src={logo} alt="found" />
-        <div className="searchBar">
+        <div className="searchBox">
           <Search search={searchValueHandler} />
         </div>
       </div>

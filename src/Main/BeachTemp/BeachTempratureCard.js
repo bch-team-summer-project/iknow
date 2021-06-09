@@ -2,7 +2,6 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import { makeStyles } from "@material-ui/core/styles";
-import "./BeachTemprature.css";
 
 // location icon //
 const useStyles = makeStyles((theme) => ({
@@ -17,14 +16,13 @@ const useStyles = makeStyles((theme) => ({
 const BeachTempratureCard = ({ beachTemprature }) => {
   const classes = useStyles();
   return (
-    <Card key={beachTemprature.id}>
-      <div className="card-img-top-beaches">
-        <Card.Img
-          variant="top"
-          src={beachTemprature.image}
-          alt={beachTemprature.name}
-        />
-      </div>
+    <Card className="card-water-temp" key={beachTemprature.id}>
+      <Card.Img
+        className="card-img-top-beaches"
+        variant="top"
+        src={beachTemprature.image}
+        alt={beachTemprature.name}
+      />
       <Card.Body>
         <Card.Title>
           <span>
