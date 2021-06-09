@@ -5,7 +5,7 @@ node_modules
 /node_modules
 /.pnp
 .pnp.js
-dir_to_ignore/Main/BeachTemp
+dir_to_ignore/BeachTemp
 
 
 # testing
