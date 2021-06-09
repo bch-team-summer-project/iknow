@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import { Container, Row, Col, Button, Figure } from "react-bootstrap";
 import { GoCalendar } from "react-icons/go";
+import { GrLocationPin } from "react-icons/gr";
 import axios from "axios";
 
 function CustomSpa() {
@@ -10,6 +11,7 @@ function CustomSpa() {
   const [img, setImg] = useState();
   const [desc, setDesc] = useState("");
   const [time, setTime] = useState("");
+  const [place, setPlace] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   let { id } = useParams();
   let history = useHistory();
@@ -27,6 +29,7 @@ function CustomSpa() {
       setImg(data.image);
       setDesc(data.description);
       setTime(data.date);
+      setPlace(data.location);
       setIsLoading(false);
     };
     getDetail();
@@ -53,7 +56,11 @@ function CustomSpa() {
             <h4>
               <GoCalendar /> Date and time
             </h4>
-            {time}
+            <div>{time}</div>
+            <h4>
+              <GrLocationPin /> Location
+            </h4>
+            <div>{place}</div>
           </Col>
           <Col className="event-single">
             <Figure.Image

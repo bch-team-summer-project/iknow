@@ -34,7 +34,7 @@
 .BS-search {
   display: flex;
   justify-content: center;
-  margin-left: 18em;
+  margin-left: 5em;
   margin-bottom: 3em;
 }
 
@@ -61,6 +61,7 @@
   background-color: #f5ede3 !important;
   font-size: 1.2em !important;
   overflow: hidden !important;
+  display: block !important;
 }
 
 .eventListCard img {

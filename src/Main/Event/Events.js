@@ -44,22 +44,22 @@ function Events() {
     if (loader.current) observer.observe(loader.current);
   }, [handleObserver]);
 
-  let cancel;
-  const getEvents = async () => {
-    try {
-      let response = await axios({
-        method: "GET",
-        url: `https://api.hel.fi/linkedevents/v1/event/?page=${page}`,
-        cancelToken: new axios.CancelToken((c) => (cancel = c)),
-      });
-      let result = await response.data;
-      setEvents((prev) => [...prev, ...result.data]);
-      setIsLoading(false);
-    } catch (e) {
-      if (axios.isCancel(e)) return;
-    }
-  };
   useEffect(() => {
+    let cancel;
+    const getEvents = async () => {
+      try {
+        let response = await axios({
+          method: "GET",
+          url: `https://api.hel.fi/linkedevents/v1/event/?page=${page}`,
+          cancelToken: new axios.CancelToken((c) => (cancel = c)),
+        });
+        let result = await response.data;
+        setEvents((prev) => [...prev, ...result.data]);
+        setIsLoading(false);
+      } catch (e) {
+        if (axios.isCancel(e)) return;
+      }
+    };
     getEvents();
     return () => cancel();
   }, [query, page]);
@@ -78,14 +78,14 @@ function Events() {
     return () => clearTimeout(delayDebounce);
   }, [searchTerm]);
   // load more events when reached end of currently displayed events, after going back from EventSpa
-  window.onscroll = () => {
-    if (
-      window.innerHeight + window.pageYOffset >=
-      document.body.offsetHeight - 2
-    ) {
-      getEvents();
-    }
-  };
+  // window.onscroll = () => {
+  //   if (
+  //     window.innerHeight + window.pageYOffset >=
+  //     document.body.offsetHeight - 2
+  //   ) {
+  //     getEvents();
+  //   }
+  // };
 
   const getOnlineEvents = async () => {
     setIsLoading(true);
@@ -93,6 +93,7 @@ function Events() {
     setAll([]);
     setOffline([]);
     setOffHeading("");
+    setPage(1);
     let res = await axios.get(
       `https://api.hel.fi/linkedevents/v1/event/?internet_ongoing&page=${page}`
     );
@@ -101,14 +102,17 @@ function Events() {
     setHeading("Online Events");
     setIsLoading(false);
   };
+  console.log("online ", online);
+
   const getOffline = async () => {
     setIsLoading(true);
     setEvents([]);
     setAll([]);
     setOnline([]);
     setHeading("");
+    setPage(1);
     let res = await axios.get(
-      `https://api.hel.fi/linkedevents/v1/event/?local_ongoing&sort=-start_time&page=${page}`
+      `https://api.hel.fi/linkedevents/v1/event/?local_ongoing&sort=-last_modified_time&page=${page}`
     );
     let result = await res.data;
     setOffline(result.data);
@@ -123,6 +127,7 @@ function Events() {
     setIsLoading(true);
     setOffHeading("");
     setHeading("");
+    setPage(1);
     let res = await axios.get(
       `https://api.hel.fi/linkedevents/v1/event/?all_ongoing&sort=-end_time&page=${page}`
     );
@@ -184,7 +189,6 @@ function Events() {
               <div className="d-flex flex-row align-items-center mt-5 mb-5 event-category">
                 <Col
                   className="orange-card text-light d-flex align-items-center justify-content-center "
-                  // style={{ height: "15rem" }}
                   onClick={getOnlineEvents}
                 >
                   Online events
@@ -192,7 +196,6 @@ function Events() {
 
                 <Col
                   className="orange-card text-light d-flex align-items-center justify-content-center"
-                  // style={{ height: "15rem" }}
                   onClick={getOffline}
                 >
                   Offline events
@@ -200,7 +203,6 @@ function Events() {
 
                 <Col
                   className="orange-card text-light d-flex align-items-center justify-content-center me-2"
-                  // style={{ height: "15rem" }}
                   onClick={() => {
                     getAll();
                     getCustom();
@@ -244,7 +246,6 @@ function Events() {
             {custom && <CustomEvent custom={customSearch} />}
             {(events || all) && <EventList events={handleSearch} />}
           </section>
-          <div ref={loader} />
         </Route>
 
         <Route path={`${url}/newevent/:id`}>
@@ -255,6 +256,7 @@ function Events() {
           <EventSpa />
         </Route>
       </Switch>
+      <div ref={loader} />
     </div>
   );
 }
