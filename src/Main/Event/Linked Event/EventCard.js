@@ -2,7 +2,7 @@ import React from "react";
 import { Card, CardImg, Col, Row } from "react-bootstrap";
 import { Link, useRouteMatch } from "react-router-dom";
 
-function EventCard({ name, image, description, id, start_time}) {
+function EventCard({ name, image, description, id, start_time }) {
   let { url } = useRouteMatch();
 
   return (
@@ -13,9 +13,17 @@ function EventCard({ name, image, description, id, start_time}) {
         </Col>
         <Col md={8}>
           <Card.Body>
-            <Card.Title><b>{name}</b>&nbsp;&nbsp;&nbsp;&nbsp;<i>{start_time}</i></Card.Title>
-            <Card.Text className="mw-100">{description}</Card.Text>
-            <Link to={`${url}/${id}`}>Learn More</Link>
+            <Card.Text className="text-dark event-text">{start_time}</Card.Text>
+            <Card.Title className="title">{name}</Card.Title>
+            <Card.Text className="mw-100 text-dark event-text">
+              {description}
+            </Card.Text>
+            <Link
+              to={`${url}/${id}`}
+              style={{ color: "orange", padding: "1rem" }}
+            >
+              Learn More
+            </Link>
           </Card.Body>
         </Col>
       </Row>
