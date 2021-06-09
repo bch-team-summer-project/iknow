@@ -1,83 +1,231 @@
 /* Override Bootstrap  */
 
-.containerMain {
-  width: 1700px;
-  padding: 1rem 1rem 1rem 2rem;
-}
-
+/* logo and search */
 .searchContainer {
-  display: inline-flex;
-}
-
-.search {
-  margin: 120px;
+  display: flex;
 }
 
 .logoFound {
-  width: 200px;
+  margin-top: 1rem;
+  min-width: 400px;
+  height: 400px;
+}
+
+.searchBox {
+  padding-top: 150px;
 }
 
 .foundContainer {
-  padding: 5rem 0 6rem 0;
+  padding: 3rem 0 6rem 0;
 }
 
-.lostfoundTitle {
+.lostTitle,
+.foundTitle,
+.formTitle {
   text-align: center;
-  padding: 20px;
 }
 
-.found-container,
-.lost-container {
-  height: 800px;
-  background-color: #faf6f1;
-  border-color: #faf6f1;
-  border-width: 0.5px;
-  padding: 0;
-  border-radius: 2%;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+.formTitle {
+  padding-bottom: 50px;
+}
+
+.lost-card,
+.found-card {
+  height: 700px;
+  background-color: #faf6f1 !important;
+  position: relative;
+  display: inline-block;
+  font-size: 25px;
+  margin: 1rem 2rem;
+  max-width: 500px;
 }
 
 .foundImg,
 .lostImg {
-  border-radius: 0;
-  object-fit: fill;
-  box-shadow: none;
-  border-radius: 0;
-  top: 0;
-  right: 0;
-  max-width: unset;
-  height: 300px;
+  height: 50%;
+  object-fit: cover;
+  position: relative;
+  max-width: 600px;
 }
 
-.formContainer {
-  padding: 100px 0 150px 0;
-}
-.addItemPost {
-  padding: 50px 200px;
-  border: 1px solid #80d372;
+.card-bodyL,
+.card-bodyF {
+  text-align: center;
 }
 
-.uploadButton {
-  padding: 0 30px;
-  margin: 30px 0;
+.descFound,
+.descLost {
+  font-size: 1rem;
 }
 
-.submitButton {
-  margin: auto;
+/********************************/
+@media (max-width: 1100px) {
+  .logoFound {
+    margin-top: 1rem;
+    min-width: 250px;
+    height: 300px;
+    position: absolute;
+  }
+  .searchBox {
+    padding: 50px 200px;
+  }
+
+  .foundContainer,
+  .lostCountainer {
+    padding: 150px 0 0 0;
+    text-align: center;
+  }
+
+  .lost-card,
+  .found-card {
+    width: 400px;
+    height: 700px;
+  }
+
+  .descFound,
+  .descLost {
+    padding: 0;
+    font-size: 1rem !important;
+  }
+  .foundImg,
+  .lostImg {
+    height: 40%;
+    object-fit: fill;
+  }
+
+  .foundTitle,
+  .lostTitle,
+  .formTitle {
+    text-align: center;
+  }
+
+  .addItemPost {
+    padding: 20px;
+  }
+  .form-row-lostfound {
+    display: grid;
+    margin-left: 10px;
+  }
 }
 
-.descriptionLF {
-  display: grid;
+@media (max-width: 500px) {
+  .logoFound {
+    min-width: 150px;
+    height: 250px;
+    margin-top: 0;
+    position: absolute;
+  }
+
+  .searchBox {
+    margin: 0;
+    padding: 50px 150px;
+  }
+
+  .foundContainer,
+  .lostCountainer {
+    padding: 100px 0 0 0;
+    text-align: center;
+  }
+
+  .lost-card,
+  .found-card {
+    width: 400px;
+    height: 700px;
+    margin: 0;
+  }
+
+  .foundTitle,
+  .lostTitle {
+    text-align: center;
+  }
+
+  /*Form*/
+
+  .formContainer {
+    padding: 0 0 50px 0;
+  }
+
+  .formTitle {
+    text-align: center;
+  }
+
+  .addItemPost {
+    padding: 40px;
+    width: 414px;
+  }
+
+  .form-row-lostfound {
+    display: grid;
+  }
+  .form-control-lostfound {
+    max-width: 250px;
+  }
 }
 
-.card-title {
-  margin: 0;
-}
+@media (max-width: 400px) {
+  .foundContainer,
+  .lostCountainer {
+    padding: 0;
+  }
 
-.card-text {
-  height: 200px;
-}
+  .logoFound {
+    min-width: 150px;
+    height: 180px;
+    margin-top: 0;
+    position: absolute;
+  }
 
-.col {
-  padding: 10px;
+  .searchContainer {
+    width: auto;
+    height: 150px;
+  }
+
+  .searchBox {
+    margin: 0;
+    padding: 0 120px;
+  }
+
+  .lost-card,
+  .found-card {
+    max-width: 300px;
+    width: 300px;
+    margin: 0.75rem;
+    height: 700px;
+  }
+
+  .foundTitle {
+    padding-top: 40px;
+    text-align: center;
+  }
+  .lostTitle {
+    text-align: center;
+  }
+
+  .descFound,
+  .descLost {
+    padding: 0;
+    font-size: 1.5rem !important;
+  }
+
+  /*Form*/
+
+  .formContainer {
+    padding: 0 0 50px 0;
+  }
+
+  .formTitle {
+    text-align: center;
+  }
+
+  .addItemPost {
+    padding: 50px;
+    width: 320px;
+  }
+
+  .form-row-lostfound {
+    display: grid;
+  }
+  .form-control-lostfound {
+    max-width: 250px;
+  }
 }

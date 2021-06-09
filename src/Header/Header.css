@@ -84,10 +84,6 @@ nav .active {
 }
 
 @media (max-width: 901px) {
-  /* .logo {
-    font-size: 40px;
-  } */
-
   #mobilemenu {
     width: 50%;
   }
@@ -96,10 +92,6 @@ nav .active {
   }
   nav {
     display: none !important;
-  }
-
-  .swiping {
-    padding-top: 6rem;
   }
 }
 

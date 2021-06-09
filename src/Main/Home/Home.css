@@ -1,11 +1,11 @@
 .swiping {
-  height: 29rem;
+  height: 23rem;
 }
 
 .swiperight {
   font-size: 30px;
   position: absolute;
-  top: 430px;
+  top: 450px;
   left: 50%;
 }
 
@@ -130,11 +130,11 @@ h3:nth-child(5) {
     left: 40%;
   }
   .swiperight {
-    top: 320px;
+    top: 350px;
     font-size: 25px;
   }
   .swiping {
-    height: 22rem;
+    height: 17rem;
   }
 }
 
