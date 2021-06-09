@@ -7,11 +7,12 @@ import raining from "./images/rainy.png";
 import partly from "./images/partly.png";
 import fog from "./images/fog.png";
 
-const today = new Date();                         //current date for city weather card
+const today = new Date(); //current date for city weather card
 const date =
   today.getDate() + "." + (today.getMonth() + 1) + "." + today.getFullYear();
 
-const CityWeatherCard = ({ cityWeather }) => {      //weather icons 
+const CityWeatherCard = ({ cityWeather }) => {
+  //weather icons
   let weatherIcon = sunny;
   const weatherDescription = cityWeather.weather.description;
   if (weatherDescription.includes("rain")) {
@@ -30,7 +31,8 @@ const CityWeatherCard = ({ cityWeather }) => {      //weather icons
     weatherIcon = sunny;
   }
 
-  return (                                                     //rendering city weather card 
+  return (
+    //rendering city weather card
     <Card
       className="weatherCard"
       key={cityWeather.id}

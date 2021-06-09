@@ -42,7 +42,7 @@ const Beaches = () => {
   const renderedResult = (
     <div className="beachContainer">
       <Row className="cityWeatherCards">
-        <img src={logo} alt="logo"/>
+        <img src={logo} alt="logo" />
         {cities.map((cityWeather) => (
           <CityWeatherCard key={cityWeather.id} cityWeather={cityWeather} />
         ))}

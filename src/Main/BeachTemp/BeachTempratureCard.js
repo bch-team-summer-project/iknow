@@ -17,8 +17,9 @@ const useStyles = makeStyles((theme) => ({
 const BeachTempratureCard = ({ beachTemprature }) => {
   const classes = useStyles();
   return (
-    <Card  className="card-beaches" key={beachTemprature.id}>
-        <Card.Img className ="card-img-top-beach"
+    <Card className="card-beaches" key={beachTemprature.id}>
+      <Card.Img
+        className="card-img-top-beach"
         variant="top"
         src={beachTemprature.image}
         alt={beachTemprature.name}
@@ -33,7 +34,8 @@ const BeachTempratureCard = ({ beachTemprature }) => {
           </span>
           {beachTemprature.beachName}
         </Card.Title>
-        <Card.Text className="card-text-beach"
+        <Card.Text
+          className="card-text-beach"
           style={
             beachTemprature.waterTemp > 10
               ? { backgroundColor: "orange" }

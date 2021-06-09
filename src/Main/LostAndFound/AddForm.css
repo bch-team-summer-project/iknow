@@ -1,3 +1,32 @@
 .lost {
   display: none;
 }
+
+.formContainer {
+  padding: 100px 0 150px 0;
+}
+.addItemPost {
+  padding: 50px;
+  border: 1px solid #80d372;
+}
+
+.uploadButton {
+  padding: 0 30px;
+  margin: 30px 0;
+}
+
+.submitButton {
+  margin: auto;
+}
+
+.descriptionLF {
+  display: grid !important;
+}
+
+.form-row-lostfound {
+  justify-content: space-between;
+  margin-right: -300px !important;
+}
+.form-control-lostfound {
+  height: 500px;
+}

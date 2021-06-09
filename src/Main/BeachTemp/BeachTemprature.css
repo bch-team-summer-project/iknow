@@ -1,6 +1,6 @@
-.weatherCard{
+.weatherCard {
   flex: 1;
-  background-color: #93ACED;
+  background-color: #93aced;
 }
 a {
   color: #eb892e;
@@ -38,7 +38,7 @@ a:hover {
   width: 400;
   height: 300;
 }
-.weatherCard{
+.weatherCard {
   margin: 2rem;
   margin-left: 3rem;
 }
@@ -49,7 +49,7 @@ a:hover {
   padding: 20px 8px 0px 8px;
   font-weight: 400;
 }
-.card-text-beach{
+.card-text-beach {
   color: #f8f0f0;
   max-width: 500px;
   margin-top: 1rem;
@@ -133,7 +133,7 @@ a:hover {
   .cityWeatherCards {
     padding: 1rem;
   }
-  .card-text-beach{
+  .card-text-beach {
     color: #f8f0f0;
     margin-top: 1rem;
     padding: 1rem;
