@@ -35,17 +35,17 @@ main {
 }
 
 .MuiInput-root {
-  width: 40rem !important;
+  width: 40rem;
 }
 
 @media (max-width: 900px) {
   .MuiInput-root {
-    width: 30rem !important;
+    width: 30rem;
   }
 }
 
 @media (max-width: 550px) {
   .MuiInput-root {
-    width: 15rem !important;
+    width: 15rem;
   }
 }
