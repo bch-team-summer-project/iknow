@@ -6,6 +6,10 @@ node_modules
 /.pnp
 .pnp.js
 src/Main/BeachTemp
+scr/Main/Beaches.js
+scr/Main/BeachTemperature.css
+scr/Main/BeachTemperatureCard.js
+scr/Main/WeatherCard.js
 
 # testing
 /coverage
