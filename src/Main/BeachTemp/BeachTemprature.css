@@ -1,23 +1,6 @@
-.weatherCardsMain {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.weatherCard {
+.weatherCard card {
+  flex: 1;
   background-color: "#93ACED";
-  padding: 0 15px;
-  height: 415px;
-  width: 260px;
-  font-size: 20px;
-  color: white;
-  margin: 25px;
-}
-
-.searchBar {
-  justify-content: center;
-  padding: 40px 0 0 0;
 }
 
 a {
@@ -27,15 +10,7 @@ a:hover {
   color: #f1e3d5;
 }
 
-.card-water-temp {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.card-img-top-beaches {
+.card {
   position: relative;
   display: inline-block;
   max-width: 400px;
@@ -45,8 +20,17 @@ a:hover {
   padding-top: 0;
   padding-right: 0;
   border: none !important;
-}
+} 
 
+.weatherCard {
+  max-width: 200px;
+  height: 250px;
+  font-size: 20px;
+  color: white;
+}
+.searchBar {
+  justify-content: center;
+}
 .city {
   text-decoration: underline;
   margin: 1rem 0;
@@ -56,7 +40,7 @@ a:hover {
   height: 300;
 }
 
-/* .card-title h5 {
+.card-title h5 {
   margin-top: 2rem;
   font-size: 30px;
   padding: 20px 8px 0px 8px;
@@ -66,7 +50,7 @@ a:hover {
   max-width: 500px;
   margin-top: 1rem;
   padding: 1rem;
-} */
+} 
 .card-img-top-beaches {
   position: relative !important;
   border-radius: 50% !important;
@@ -81,9 +65,10 @@ a:hover {
   height: 60px;
   width: 60px;
 }
-/* .input-group {
+ .input-group {
   text-align: center;
-} */
+} 
+
 #search-bar {
   margin-top: 2rem;
   width: 1000px;
@@ -105,18 +90,17 @@ a:hover {
     flex-direction: column;
     margin: 0;
   }
-  /* .card-body {
+  .card-body {
     max-width: 300vh !important;
     height: auto;
     display: flex;
     flex-direction: column;
     align-items: center !important;
-  } */
+  }
   .makeStyles-margin-1 {
     margin: 8px;
     padding-left: 4rem;
   }
-
   .weatherCard {
     max-width: 250vh;
     display: flex;
@@ -129,8 +113,7 @@ a:hover {
   .city {
     text-decoration: underline;
   }
-
-  .card-img-top-beaches {
+  .card-img-top {
     position: relative !important;
     border-radius: 50% !important;
     max-width: 250px !important;
@@ -139,17 +122,15 @@ a:hover {
     left: 1rem !important;
     box-shadow: 20px 0 0 20px #f5efef !important;
   }
-
-  /*  .card-title,
+  .card-title,
   h5 {
     margin-top: 2rem;
     font-size: 10px;
-  } */
-
+  }
   .cityWeatherCards {
     padding: 1rem;
   }
-  /*  .card-text {
+  .card-text {
     color: #f8f0f0;
     margin-top: 1rem;
     padding: 1rem;
@@ -158,7 +139,7 @@ a:hover {
 
   .input-group {
     text-align: center;
-  } */
+  }
   #search-bar {
     margin-top: 2rem;
     width: 1000px;

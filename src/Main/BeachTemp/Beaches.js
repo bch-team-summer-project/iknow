@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "./BeachTemprature.css";
 import axios from "axios";
 import BeachTempratureCard from "./BeachTempratureCard";
 import CityWeatherCard from "./CityWeatherCard";
-import { Row, Col } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import Search from "../Search";
 import logo from "./images/bicker.svg";
 let masterListOfBeaches;
@@ -43,19 +42,15 @@ const Beaches = () => {
   const renderedResult = (
     <div className="beachContainer">
       <Row className="cityWeatherCards">
-        <Col className="logoBeaches">
-          <img src={logo} alt="logo" />
-        </Col>
-        <Col className="weatherCardsMain">
-          {cities.map((cityWeather) => (
-            <CityWeatherCard key={cityWeather.id} cityWeather={cityWeather} />
-          ))}
-        </Col>
+        <img src={logo} alt="logo" />
+        {cities.map((cityWeather) => (
+          <CityWeatherCard key={cityWeather.id} cityWeather={cityWeather} />
+        ))}
       </Row>
       <Row className="searchBar">
         <Search search={searchBeach} />
       </Row>
-      <Row className="card-water-group">
+      <Row>
         {beaches.map((beachTemp) => (
           <BeachTempratureCard key={beachTemp.id} beachTemprature={beachTemp} />
         ))}

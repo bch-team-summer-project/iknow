@@ -5,11 +5,8 @@ node_modules
 /node_modules
 /.pnp
 .pnp.js
-dir_to_ignore/src/Main/BeachTemp
-dir_to_ignore/scr/Main/Beaches.js
-dir_to_ignore/scr/Main/BeachTemperature.css
-dir_to_ignore/scr/Main/BeachTemperatureCard.js
-dir_to_ignore/scr/Main/WeatherCard.js
+dir_to_ignore/Main/BeachTemp
+
 
 # testing
 /coverage
