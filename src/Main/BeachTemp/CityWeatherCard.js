@@ -1,10 +1,12 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import "./BeachTemprature.css";
-
 import sunny from "./images/sunny.png";
 import cloudy from "./images/cloudy.png";
 import raining from "./images/rainy.png";
+import partly from "./images/partly.png";
+import fog from "./images/fog.png";
+
 const today = new Date();
 
 const date =
@@ -19,6 +21,12 @@ const CityWeatherCard = ({ cityWeather }) => {
   if (weatherDescription.includes("clouds")) {
     weatherIcon = cloudy;
   }
+  if (weatherDescription.includes("few clouds")) {
+    weatherIcon = partly;
+  }
+  if (weatherDescription.includes("fog")) {
+    weatherIcon = fog;
+  }
   if (weatherDescription.includes("sunny")) {
     weatherIcon = sunny;
   }
@@ -30,13 +38,18 @@ const CityWeatherCard = ({ cityWeather }) => {
       style={{ flex: 1, backgroundColor: "#93ACED" }}
     >
       <Card.Body>
-        <div className ="subitiles">
-        <Card.Subtitle>{date}</Card.Subtitle>
+        <div className="subitiles">
+          <Card.Subtitle>{date}</Card.Subtitle>
         </div>
-        <div className ="city">
-        <Card.Title>{cityWeather.city}</Card.Title>
+        <div className="city">
+          <Card.Title>{cityWeather.city}</Card.Title>
         </div>
-        <img className ="weatherIcons" src={weatherIcon} width="200" height="100" />
+        <img
+          className="weatherIcons"
+          src={weatherIcon}
+          width="200"
+          height="100"
+        />
         <Card.Text>{cityWeather.weather.temprature + "°C "}</Card.Text>
       </Card.Body>
     </Card>

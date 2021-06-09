@@ -6,6 +6,8 @@ import { Container, Row } from "react-bootstrap";
 import Search from "../Search";
 import logo from "./images/bicker.svg";
 let masterListOfBeaches;
+
+// Beaches component
 const Beaches = () => {
   const [beaches, setBeaches] = useState([]);
   const [cities, setCities] = useState([]);
@@ -20,21 +22,23 @@ const Beaches = () => {
       setBeaches(masterListOfBeaches);
     }
   }
+
   const fetchData = async () => {
     const beachesResponse = await axios(
-     "https://iknow-backend.herokuapp.com/beachTemp"
+      "https://iknow-backend.herokuapp.com/beachTemp"
     );
     const citiesResponse = await axios(
       "https://iknow-backend.herokuapp.com/weather/"
     );
-    console.log(citiesResponse.data);
     masterListOfBeaches = beachesResponse.data;
     setBeaches(beachesResponse.data);
     setCities(citiesResponse.data);
   };
+
   useEffect(() => {
     fetchData();
   }, []);
+
   const renderedResult = (
     <div className="beachContainer">
       <Row className="cityWeatherCards">
