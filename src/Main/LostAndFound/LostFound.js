@@ -56,6 +56,15 @@ const LostFound = () => {
     setOffsetFound(selectedPageFound + 1);
   };
 
+  const sliceFound = itemFoundFilter.slice(offset, offset + perPage);
+  console.log(sliceFound);
+
+  const handlePageClickFound = (e) => {
+    const selectedfoundPage = e.selected;
+    console.log("found selected", selectedfoundPage);
+    setOffset(selectedfoundPage + 1);
+  };
+
   // Lost Filter
 
   const itemLostFilter = items.filter((lost) => {

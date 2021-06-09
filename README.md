@@ -44,6 +44,10 @@ npm install react-router-dom
 npm install axios
 npm install json-server --save-dev
 npm install react-bootstrap bootstrap@4.6.0
+<<<<<<< HEAD
+=======
+npm install --save react-router-hash-link
+>>>>>>> upstream/main
 npm install react-paginate --save
 ```
 
@@ -53,6 +57,22 @@ npm install react-paginate --save
 
 ### Julia Matvi: [GitHub](https://github.com/jualiasha), [LinkedIn](www.linkedin.com/in/jualiasha)
 
+Role: Team-Lead, BackEnd, UI, Home/header/footer/search/app components+CSS in FrontEnd
+
+### Bhatnagar Ankita: [LinkedIn](https://www.linkedin.com/in/ankita-bhatnagar-b9101b21/)
+
+Role: BackEnd (cors api+beachwater temperature), BeachTemp components in FrontEnd+CSS
+
 ### Diana Korotkevica: [GitHub](https://github.com/dariwka), [LinkedIn](www.linkedin.com/in/diana-korotkevica-70b62a207)
+
+Role: FrontEnd - UI, Lost&found+CSS component
+
+### To Anh: [GitHub](https://github.com/tna007)
+
+Role: FrontEnd - Event component in front end+css
+
+### Kirillan: [GitHub](https://github.com/kirilllan)
+
+Role: FrontEnd - Swiping component, Events component helper with bugs, Laundry component
 
 ### all team members please add your contact details here

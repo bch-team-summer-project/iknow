@@ -1,9 +1,10 @@
 import React from "react";
 import EventCard from "./EventCard";
 
-function EventList({ events }) {
+function EventList({ events, heading }) {
   return (
     <div className="eventList">
+      <h1 className="px-5 mb-5">{heading}</h1>
       {events.map((e) => {
         if (e.images.length) {
           // if array.length is truthy(>0) => process array
@@ -13,8 +14,11 @@ function EventList({ events }) {
               key={e.id + Math.random(2) * 1}
               name={e.name.en ? e.name.en : e.name.fi}
               start_time={
-                (e.start_time || "").replace(/[^\d-:]/g, ' ').trim().replace(/:00 *$/, '') // ¨¨ display date & time
-              } 
+                (e.start_time || "")
+                  .replace(/[^\d-:]/g, " ")
+                  .trim()
+                  .replace(/:00 *$/, "") // ¨¨ display date & time
+              }
               description={
                 e.short_description.en
                   ? e.short_description.en
