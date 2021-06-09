@@ -47,7 +47,12 @@ const Home = () => {
               </div>
               <ul>Team:</ul>
               <li>
-                <a href="/"> Bhatnagar Ankita</a>
+                <a
+                  href="https://www.linkedin.com/in/ankita-bhatnagar-b9101b21/"
+                  target="_blanc"
+                >
+                  Bhatnagar Ankita
+                </a>
               </li>
               <li>
                 <a
@@ -58,7 +63,10 @@ const Home = () => {
                 </a>
               </li>
               <li>
-                <a href="https://github.com/kirilllan"> kirilllan</a>
+                <a href="https://github.com/kirilllan" target="_blanc">
+                  {" "}
+                  kirilllan
+                </a>
               </li>
               <li>
                 <a href="https://www.linkedin.com/in/jualiasha" target="_blanc">
@@ -66,7 +74,9 @@ const Home = () => {
                 </a>
               </li>
               <li>
-                <a href="/"> To Anh</a>
+                <a href="https://github.com/tna007" target="_blanc">
+                  To Anh
+                </a>
               </li>
             </div>
             <div>
