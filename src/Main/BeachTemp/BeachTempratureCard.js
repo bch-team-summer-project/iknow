@@ -4,6 +4,7 @@ import LocationOnIcon from "@material-ui/icons/LocationOn";
 import { makeStyles } from "@material-ui/core/styles";
 import "./BeachTemprature.css";
 
+// location icon //
 const useStyles = makeStyles((theme) => ({
   clickableIcon: {
     color: "black",
