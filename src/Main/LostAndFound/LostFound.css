@@ -1,11 +1,6 @@
-.searchContainer {
-  display: flex;
-}
-
-.logoFound {
-  margin-top: 1rem;
-  min-width: 400px;
-  height: 400px;
+.lostfoundBanner {
+  margin-right: 0;
+  margin-left: 0;
 }
 
 .searchBox {
@@ -32,7 +27,6 @@
   background-color: #faf6f1 !important;
   position: relative;
   display: flex;
-  font-size: 25px;
   margin: 1rem 2rem;
   max-width: 500px;
 }
@@ -53,10 +47,9 @@
 /********************************/
 @media (max-width: 1100px) {
   .logoFound {
-    margin-top: 1rem;
-    min-width: 250px;
   }
   .searchBox {
+    padding-top: 1rem;
   }
 
   .foundContainer,
@@ -90,7 +83,7 @@
   /*********Form**********/
 
   .addItemPost {
-    padding: 20px;
+    padding: 2rem;
   }
   .form-row-lostfound {
     display: grid;
@@ -103,9 +96,6 @@
 
 @media (max-width: 500px) {
   .logoFound {
-    height: 6rem;
-    margin-top: 0;
-    position: absolute;
   }
 
   .foundContainer,
@@ -136,7 +126,6 @@
   }
 
   .addItemPost {
-    width: 414px;
   }
   .submitButton {
     margin: auto;
@@ -154,21 +143,6 @@
   .foundContainer,
   .lostCountainer {
     padding: 0;
-  }
-
-  .logoFound {
-    min-width: 7rem;
-    margin-top: 0;
-    position: absolute;
-  }
-
-  .searchContainer {
-    width: auto;
-    height: 150px;
-  }
-
-  .searchBox {
-    padding-top: 6rem;
   }
 
   .lost-card,
