@@ -53,7 +53,7 @@ const AddForm = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  /***Submit Button with validation checking on category Found and Lost! important for filtering and displayinggit a */
+  /***Submit Button with validation checking on category Found and Lost! important for filtering and displaying it on the main "LostFound" page */
 
   const submitData = (e) => {
     if (e.currentTarget.checkValidity() === true) {
@@ -104,7 +104,6 @@ const AddForm = () => {
           <Form.Label>Date and time: </Form.Label>
           <Form.Control
             className="form-control-lostfound"
-            style={{ width: "250px" }}
             type="datetime-local"
             name="date"
             onChange={changeData}
@@ -117,7 +116,6 @@ const AddForm = () => {
           <Form.Label>Where you lost/found?: </Form.Label>
           <Form.Control
             className="form-control-lostfound"
-            style={{ width: "500px" }}
             type="text"
             name="location"
             onChange={changeData}
@@ -128,7 +126,6 @@ const AddForm = () => {
           <Form.Label>What you lost/found? </Form.Label>
           <Form.Control
             className="form-control-lostfound"
-            style={{ width: "400px" }}
             type="text"
             name="name"
             onChange={changeData}
@@ -159,7 +156,6 @@ const AddForm = () => {
           <Form.Label>Place of Origin:</Form.Label>
           <Form.Control
             className="form-control-lostfound"
-            style={{ width: "400px" }}
             as="select"
             name="placeOrigin"
             onChange={changeData}
