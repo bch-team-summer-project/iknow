@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-
+// beach temprature card component which has 
 const BeachTempratureCard = ({ beachTemprature }) => {
   const classes = useStyles();
   return (

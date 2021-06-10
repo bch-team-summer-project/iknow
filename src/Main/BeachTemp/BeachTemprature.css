@@ -12,9 +12,8 @@ a:hover {
 .card-beaches {
   position: relative;
   display: inline-block;
-
   font-size: 25px;
-  margin: 1rem 2rem;
+  margin: 1rem 0;
   padding: 2rem;
   padding-top: 0;
   padding-right: 0;
@@ -130,7 +129,7 @@ a:hover {
   .card-title,
   h5 {
     margin-top: 2rem;
-    font-size: 10px;
+    font-size: 30px;
   }
   .cityWeatherCards {
     padding: 1rem;
