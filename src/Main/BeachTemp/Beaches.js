@@ -15,7 +15,7 @@ const Beaches = () => {
     if (event.target.value !== "") {
       setBeaches(
         masterListOfBeaches.filter((x) =>
-          x.beachName.toLocaleLowerCase().startsWith(event.target.value)
+          x.beachName.toLocaleLowerCase().startsWith(event.target.value.toLocaleLowerCase())
         )
       );
     } else {
