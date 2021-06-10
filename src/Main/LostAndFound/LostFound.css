@@ -55,10 +55,8 @@
   .logoFound {
     margin-top: 1rem;
     min-width: 250px;
-    position: absolute;
   }
   .searchBox {
-    padding-top: 28rem;
   }
 
   .foundContainer,
