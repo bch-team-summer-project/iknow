@@ -14,8 +14,10 @@ const AddForm = () => {
     placeOrigin: "",
     description: "",
   });
-
+  /***********Validation on Select button Found/Lost *************** */
   const [validated, setValidated] = useState(false);
+
+  /***Cloudinary for upload Images*********************** */
 
   const [imageSelected, setImageSelected] = useState("");
 
@@ -35,6 +37,8 @@ const AddForm = () => {
       .catch((err) => console.log(err));
   };
 
+  /***State for displaying "Original Place Selector" after selecting category "Found"**** */
+
   const [state, setState] = useState({
     value: "",
   });
@@ -43,16 +47,17 @@ const AddForm = () => {
     e.preventDefault();
     setState({ ...state, value: e.target.value });
   };
-
+  /*****Changing Data value */
   const changeData = (e) => {
     e.preventDefault();
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  /***Submit Button with validation checking on category Found and Lost! important for filtering and displayinggit a */
+
   const submitData = (e) => {
     if (e.currentTarget.checkValidity() === true) {
       e.preventDefault();
-      // axios.post("http://localhost:3002/items", form);
       axios.post("https://iknow-backend.herokuapp.com/lost", form);
       alert("Your form is posted");
     }

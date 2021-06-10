@@ -28,7 +28,6 @@ const LostFound = () => {
   useEffect(() => {
     const fetchItems = async () => {
       setLoading(true);
-      // const res = await axios.get("http://localhost:3002/items");
       const res = await axios.get("https://iknow-backend.herokuapp.com/lost");
       setItems(res.data);
       setLoading(false);
@@ -36,6 +35,8 @@ const LostFound = () => {
 
     fetchItems();
   }, []);
+
+  /**********Found Cards *******************/
 
   // Found Filter
 
@@ -55,6 +56,8 @@ const LostFound = () => {
     const selectedPageFound = e.selected;
     setOffsetFound(selectedPageFound + 1);
   };
+
+  /**********Lost Cards ********************/
 
   // Lost Filter
 
