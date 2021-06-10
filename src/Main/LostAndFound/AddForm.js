@@ -52,7 +52,6 @@ const AddForm = () => {
   const submitData = (e) => {
     if (e.currentTarget.checkValidity() === true) {
       e.preventDefault();
-      // axios.post("http://localhost:3002/items", form);
       axios.post("https://iknow-backend.herokuapp.com/lost", form);
       alert("Your form is posted");
     }

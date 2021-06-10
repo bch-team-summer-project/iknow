@@ -23,12 +23,9 @@ const LostFound = () => {
     setSearchInput(e.target.value);
   };
 
-  //Data
-
   useEffect(() => {
     const fetchItems = async () => {
       setLoading(true);
-      // const res = await axios.get("http://localhost:3002/items");
       const res = await axios.get("https://iknow-backend.herokuapp.com/lost");
       setItems(res.data);
       setLoading(false);
@@ -37,8 +34,6 @@ const LostFound = () => {
     fetchItems();
   }, []);
 
-  // Found Filter
-
   const itemFoundFilter = items.filter((found) => {
     return (
       found.category === "found" &&
@@ -46,17 +41,12 @@ const LostFound = () => {
     );
   });
 
-  //Found Slice
   const sliceFound = itemFoundFilter.slice(offsetFound, offsetFound + perPage);
-
-  //Pagination Found
 
   const handlePageClickFound = (e) => {
     const selectedPageFound = e.selected;
     setOffsetFound(selectedPageFound + 1);
   };
-
-  // Lost Filter
 
   const itemLostFilter = items.filter((lost) => {
     return (
@@ -65,10 +55,7 @@ const LostFound = () => {
     );
   });
 
-  //Lost Slice
   const sliceLost = itemLostFilter.slice(offsetLost, offsetLost + perPage);
-
-  // Pagination Lost
 
   const handlePageClickLost = (i) => {
     const selectedPageLost = i.selected;

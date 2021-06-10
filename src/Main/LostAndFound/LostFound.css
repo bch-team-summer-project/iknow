@@ -1,6 +1,3 @@
-/* Override Bootstrap  */
-
-/* logo and search */
 .searchContainer {
   display: flex;
 }
@@ -23,6 +20,7 @@
 .foundTitle,
 .formTitle {
   text-align: center;
+  font-size: 3rem;
 }
 
 .formTitle {
@@ -31,10 +29,9 @@
 
 .lost-card,
 .found-card {
-  height: 700px;
   background-color: #faf6f1 !important;
   position: relative;
-  display: inline-block;
+  display: flex;
   font-size: 25px;
   margin: 1rem 2rem;
   max-width: 500px;
@@ -53,33 +50,25 @@
   text-align: center;
 }
 
-.descFound,
-.descLost {
-  font-size: 1rem;
-}
-
 /********************************/
 @media (max-width: 1100px) {
   .logoFound {
     margin-top: 1rem;
     min-width: 250px;
-    height: 300px;
     position: absolute;
   }
   .searchBox {
-    padding: 50px 200px;
+    padding-top: 28rem;
   }
 
   .foundContainer,
   .lostCountainer {
-    padding: 150px 0 0 0;
     text-align: center;
   }
 
   .lost-card,
   .found-card {
-    width: 400px;
-    height: 700px;
+    width: auto;
   }
 
   .descFound,
@@ -90,35 +79,35 @@
   .foundImg,
   .lostImg {
     height: 40%;
-    object-fit: fill;
+    object-fit: cover;
   }
 
   .foundTitle,
   .lostTitle,
   .formTitle {
     text-align: center;
+    font-size: 2rem;
   }
+
+  /*********Form**********/
 
   .addItemPost {
     padding: 20px;
   }
   .form-row-lostfound {
     display: grid;
-    margin-left: 10px;
+  }
+
+  .submitButton {
+    margin: auto;
   }
 }
 
 @media (max-width: 500px) {
   .logoFound {
-    min-width: 150px;
-    height: 250px;
+    height: 6rem;
     margin-top: 0;
     position: absolute;
-  }
-
-  .searchBox {
-    margin: 0;
-    padding: 50px 150px;
   }
 
   .foundContainer,
@@ -130,8 +119,7 @@
   .lost-card,
   .found-card {
     width: 400px;
-    height: 700px;
-    margin: 0;
+    margin: auto;
   }
 
   .foundTitle,
@@ -150,8 +138,10 @@
   }
 
   .addItemPost {
-    padding: 40px;
     width: 414px;
+  }
+  .submitButton {
+    margin: auto;
   }
 
   .form-row-lostfound {
@@ -161,7 +151,7 @@
     max-width: 250px;
   }
 }
-
+/***********************************/
 @media (max-width: 400px) {
   .foundContainer,
   .lostCountainer {
@@ -169,8 +159,7 @@
   }
 
   .logoFound {
-    min-width: 150px;
-    height: 180px;
+    min-width: 7rem;
     margin-top: 0;
     position: absolute;
   }
@@ -181,30 +170,29 @@
   }
 
   .searchBox {
-    margin: 0;
-    padding: 0 120px;
+    padding-top: 6rem;
   }
 
   .lost-card,
   .found-card {
     max-width: 300px;
     width: 300px;
-    margin: 0.75rem;
-    height: 700px;
+    margin: auto;
   }
 
   .foundTitle {
     padding-top: 40px;
     text-align: center;
+    font-size: 2rem;
   }
   .lostTitle {
     text-align: center;
+    font-size: 2rem;
   }
 
   .descFound,
   .descLost {
     padding: 0;
-    font-size: 1.5rem !important;
   }
 
   /*Form*/
@@ -212,14 +200,16 @@
   .formContainer {
     padding: 0 0 50px 0;
   }
-
+  .submitButton {
+    margin: auto;
+  }
   .formTitle {
     text-align: center;
+    font-size: 2rem;
   }
 
   .addItemPost {
-    padding: 50px;
-    width: 320px;
+    width: auto;
   }
 
   .form-row-lostfound {

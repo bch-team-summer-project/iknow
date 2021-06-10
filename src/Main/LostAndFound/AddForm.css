@@ -3,10 +3,12 @@
 }
 
 .formContainer {
-  padding: 100px 0 150px 0;
+  padding-bottom: 10rem;
+  padding-top: 5rem;
 }
+
 .addItemPost {
-  padding: 50px;
+  padding: 50px 200px;
   border: 1px solid #80d372;
 }
 
@@ -16,7 +18,7 @@
 }
 
 .submitButton {
-  margin: auto;
+  margin: 1rem 26rem;
 }
 
 .descriptionLF {
@@ -25,8 +27,4 @@
 
 .form-row-lostfound {
   justify-content: space-between;
-  margin-right: -300px !important;
-}
-.form-control-lostfound {
-  height: 500px;
 }
