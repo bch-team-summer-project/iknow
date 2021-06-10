@@ -46,8 +46,6 @@
 
 /********************************/
 @media (max-width: 1100px) {
-  .logoFound {
-  }
   .searchBox {
     padding-top: 1rem;
   }
@@ -95,9 +93,6 @@
 }
 
 @media (max-width: 500px) {
-  .logoFound {
-  }
-
   .foundContainer,
   .lostCountainer {
     padding: 100px 0 0 0;
@@ -125,8 +120,6 @@
     text-align: center;
   }
 
-  .addItemPost {
-  }
   .submitButton {
     margin: auto;
   }
