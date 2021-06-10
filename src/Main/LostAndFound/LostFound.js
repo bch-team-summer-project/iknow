@@ -11,10 +11,13 @@ import "./LostFound.css";
 import "./Pagination.css";
 
 const LostFound = () => {
+  // our items lists
   const [items, setItems] = useState([]);
+  // loading for cards
   const [loading, setLoading] = useState(false);
+  //search of cards
   const [searchInput, setSearchInput] = useState("");
-
+  // pagination, quantity of pages
   const [offsetLost, setOffsetLost] = useState(0);
   const [offsetFound, setOffsetFound] = useState(0);
   const [perPage] = useState(3);
