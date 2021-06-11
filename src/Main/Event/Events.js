@@ -72,6 +72,12 @@ function Events() {
   }, [page]);
   console.log("events ", events);
 
+  // infinite scroll will only works with get all events since useEffect shouldnt be used with conditional rendering => cant apply to getOnlineEvents or getOffline
+  // TODO: make custom hooks for infinte scroll and import it
+  useEffect(() => {
+    getEvents();
+  }, [page, getEvents]);
+
   // useCallback to get online events only when it got invoked by clicking offline category
   const getOffline = useCallback(async () => {
     setIsLoading(true);
@@ -102,18 +108,12 @@ function Events() {
     setIsLoading(false);
   }, [page]);
 
-  // infinite scroll will only works with get all events since useEffect shouldnt be used with conditional rendering => cant apply to getOnlineEvents or getOffline
-  // TODO: make custom hooks for infinte scroll and import it
-  useEffect(() => {
-    getEvents();
-  }, [page, getEvents]);
-
   // delaying search so user has time to type
   // before searching activates ¨¨
   useEffect(() => {
     const delayDebounce = setTimeout(() => {
       setQuery(searchTerm);
-    }, 3000);
+    }, 1500);
     return () => clearTimeout(delayDebounce);
   }, [searchTerm]);
 
