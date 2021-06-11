@@ -37,7 +37,9 @@ main {
 .MuiInput-root {
   width: 40rem;
 }
-
+.MuiGrid-container {
+  flex-wrap: nowrap;
+}
 @media (max-width: 900px) {
   .MuiInput-root {
     width: 30rem;

@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import { Container, Row, Col, Button, Figure } from "react-bootstrap";
 import { GoCalendar } from "react-icons/go";
+import { GrLocationPin } from "react-icons/gr";
+
 function EventSpa() {
   const [event, setEvent] = useState([]);
   const [title, setTitle] = useState();
   const [img, setImg] = useState();
   const [desc, setDesc] = useState("");
   const [time, setTime] = useState("");
+  const [place, setPlace] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   let { id } = useParams();
   let history = useHistory();
@@ -24,17 +27,25 @@ function EventSpa() {
       data.description.en
         ? setDesc(data.description.en)
         : setDesc(data.description.fi);
-      let start = data.start_time
-        .replace(/[^\d-:]/g, " ")
-        .trim()
-        .replace(/:00 *$/, "");
+      let start;
+      data.start_time !== null
+        ? (start = data.start_time
+            .replace(/[^\d-:]/g, " ")
+            .trim()
+            .replace(/:00 *$/, ""))
+        : (start = "Unknown");
       setTime(start);
       setIsLoading(false);
+      let test = Object.values(data.location);
+      console.log("test", test);
+      fetch(test[0])
+        .then((res) => res.json())
+        .then((result) => setPlace(result.street_address.fi));
     };
     getEventDetail();
   }, [id]);
   console.log("this is spa ", event);
-  console.log("this is name ", title);
+  console.log("this is place ", place);
 
   let eventDetails;
   if (isLoading) {
@@ -43,7 +54,7 @@ function EventSpa() {
     eventDetails = (
       <Container className="mt-5 mb-5">
         <Button
-          className="eventBtn"
+          className="eventBtn mb-5"
           variant="outline-info"
           onClick={() => history.goBack()}
         >
@@ -55,7 +66,11 @@ function EventSpa() {
             <h4>
               <GoCalendar /> Date and time
             </h4>
-            {time}
+            <div className="mb-3">{time}</div>
+            <h4>
+              <GrLocationPin /> Address
+            </h4>
+            <div>{place}</div>
           </Col>
           <Col className="event-single">
             <Figure.Image
