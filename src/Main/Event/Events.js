@@ -113,7 +113,7 @@ function Events() {
   useEffect(() => {
     const delayDebounce = setTimeout(() => {
       setQuery(searchTerm);
-    }, 1500);
+    }, 1000);
     return () => clearTimeout(delayDebounce);
   }, [searchTerm]);
 
