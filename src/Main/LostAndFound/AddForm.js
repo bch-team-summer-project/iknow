@@ -152,12 +152,12 @@ const AddForm = () => {
             Upload
           </Button>
         </Form.Group>
-        <Form.Group as={Col} htmlFor="placeOrigin" className={state.value}>
+        <Form.Group as={Col} htmlFor="placeorigin" className={state.value}>
           <Form.Label>Place of Origin:</Form.Label>
           <Form.Control
             className="form-control-lostfound"
             as="select"
-            name="placeOrigin"
+            name="placeorigin"
             onChange={changeData}
           >
             <option value="Nihtisillankuja 4, Espoo, 02631">
