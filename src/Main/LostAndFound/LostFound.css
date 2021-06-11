@@ -4,50 +4,53 @@
 }
 
 .searchBox {
-  padding-top: 150px;
+  padding-top: 200px;
 }
 
-.foundContainer {
-  padding: 3rem 0 6rem 0;
+.found-cards-group,
+.lost-cards-group {
+  justify-content: center;
 }
 
 .lostTitle,
 .foundTitle,
 .formTitle {
   text-align: center;
-  font-size: 3rem;
+  font-size: 2rem;
+  padding: 1rem;
 }
 
 .formTitle {
-  padding-bottom: 50px;
+  padding-bottom: 1rem;
 }
 
 .lost-card,
 .found-card {
-  background-color: #faf6f1 !important;
-  position: relative;
+  background-color: #faf6f1;
   display: flex;
   margin: 1rem 2rem;
-  max-width: 500px;
+  max-width: 400px;
 }
 
 .foundImg,
 .lostImg {
-  height: 50%;
+  height: 40%;
   object-fit: cover;
-  position: relative;
-  max-width: 600px;
 }
 
 .card-bodyL,
 .card-bodyF {
   text-align: center;
+  font-size: 1rem;
 }
 
 /********************************/
-@media (max-width: 1100px) {
+@media (max-width: 900px) {
+  .logo-found {
+    max-width: 5rem;
+  }
   .searchBox {
-    padding-top: 1rem;
+    padding-top: 0rem;
   }
 
   .foundContainer,
@@ -57,7 +60,7 @@
 
   .lost-card,
   .found-card {
-    width: auto;
+    max-width: auto;
   }
 
   .descFound,
@@ -67,7 +70,7 @@
   }
   .foundImg,
   .lostImg {
-    height: 40%;
+    height: 30%;
     object-fit: cover;
   }
 
@@ -86,7 +89,9 @@
   .form-row-lostfound {
     display: grid;
   }
-
+  .placeorig-text {
+    font-size: 1rem;
+  }
   .submitButton {
     margin: auto;
   }
@@ -95,13 +100,11 @@
 @media (max-width: 500px) {
   .foundContainer,
   .lostCountainer {
-    padding: 100px 0 0 0;
     text-align: center;
   }
 
   .lost-card,
   .found-card {
-    width: 400px;
     margin: auto;
   }
 
@@ -141,18 +144,17 @@
   .lost-card,
   .found-card {
     max-width: 300px;
-    width: 300px;
     margin: auto;
   }
 
   .foundTitle {
-    padding-top: 40px;
+    padding-top: 1rem;
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   .lostTitle {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .descFound,
@@ -170,7 +172,7 @@
   }
   .formTitle {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .addItemPost {

@@ -7,7 +7,7 @@ const LostList = ({ items, loading }) => {
     return <h2>Loading ...</h2>;
   }
   return (
-    <CardGroup>
+    <CardGroup className="lost-cards-group">
       {items.map((lost) => (
         <LostCard
           key={lost.id}

@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 
-const FoundCard = ({ name, img, location, date, description, placeOrigin }) => {
+const FoundCard = ({ name, img, location, date, description, placeorigin }) => {
   return (
     <Card className="found-card">
       <Card.Img className="foundImg" variant="top" src={img} alt={name} />
@@ -14,8 +14,8 @@ const FoundCard = ({ name, img, location, date, description, placeOrigin }) => {
           <strong>{name}</strong>
         </Card.Title>
         <Card.Text className="descFound">{description}</Card.Text>
-        <Card.Title>
-          <strong>{placeOrigin}</strong>
+        <Card.Title className="placeorig-text">
+          <strong>{placeorigin}</strong>
         </Card.Title>
       </Card.Body>
     </Card>

@@ -7,7 +7,7 @@ const FoundList = ({ items, loading }) => {
     return <h2>Loading ...</h2>;
   }
   return (
-    <CardGroup>
+    <CardGroup className="found-cards-group">
       {items.map((found) => (
         <FoundCard
           key={found.id}
@@ -15,7 +15,7 @@ const FoundList = ({ items, loading }) => {
           name={found.name}
           date={found.date}
           location={found.location}
-          placeOrigin={found.placeOrigin}
+          placeorigin={found.placeorigin}
           description={found.description}
           id={found.id}
         />

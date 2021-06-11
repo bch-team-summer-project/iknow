@@ -94,7 +94,7 @@ const LostFound = () => {
     <div className="containerMain">
       <Row className="lostfoundBanner">
         <Col className="logoFound">
-          <img src={logo} alt="found" />
+          <img className="logo-found" src={logo} alt="found" />
         </Col>
         <Col className="searchBox">
           <Search search={searchValueHandler} />
