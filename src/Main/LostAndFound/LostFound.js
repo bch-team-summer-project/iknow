@@ -2,31 +2,45 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import FoundList from "./FoundList";
 import LostList from "./LostList";
-import SearchBox from "./SearchBox";
+import Search from "../Search";
 import AddForm from "./AddForm";
-import PaginationFound from "./PaginationFound";
-import PaginationLost from "./PaginationLost";
-import LostPag from "./LostPag";
-import FoundPag from "./FoundPag";
+import { Col, Row } from "react-bootstrap";
+import ReactPaginate from "react-paginate";
 
 import logo from "./images/found.svg";
 import "./LostFound.css";
+import "./Pagination.css";
 
 const LostFound = () => {
+  // our items lists
   const [items, setItems] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [searchInput, setSearchInput] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(4);
 
+  // loading for cards
+  const [loading, setLoading] = useState(false);
+
+  //search of cards
+  const [searchInput, setSearchInput] = useState("");
+
+  // pagination, quantity of pages for Lost cards
+  const [offsetLost, setOffsetLost] = useState(0);
+
+  // pagination, quantity of pages for Lost cards
+  const [offsetFound, setOffsetFound] = useState(0);
+
+  // numbers of card on the page of each category
+  const [perPage] = useState(3);
+
+  //search
   const searchValueHandler = (e) => {
     setSearchInput(e.target.value);
   };
 
+  //Data
+
   useEffect(() => {
     const fetchItems = async () => {
       setLoading(true);
-      const res = await axios.get("http://localhost:3002/items");
+      const res = await axios.get("https://iknow-backend.herokuapp.com/lost");
       setItems(res.data);
       setLoading(false);
     };
@@ -34,91 +48,140 @@ const LostFound = () => {
     fetchItems();
   }, []);
 
-  // Found Filter
+  /**********Found Cards *******************/
 
-  const itemFoundFilter = items.filter((item) => {
+  // Filtering cards by "found" value
+
+  const itemFoundFilter = items.filter((found) => {
     return (
-      item.category === "found" &&
-      item.name.toLowerCase().includes(searchInput.toLowerCase())
-    );
-  });
-  console.log(itemFoundFilter);
-
-  // Lost Filter
-
-  const itemLostFilter = items.filter((item) => {
-    return (
-      item.category === "lost" &&
-      item.name.toLowerCase().includes(searchInput.toLowerCase())
+      found.category === "found" &&
+      found.name.toLowerCase().includes(searchInput.toLowerCase())
     );
   });
 
-  const indexOfLastPost = currentPage * postsPerPage;
+  //Found cards Slicing
+  const sliceFound = itemFoundFilter.slice(offsetFound, offsetFound + perPage);
 
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  //Pagination Found
 
-  // Pagination
+  const handlePageClickFound = (e) => {
+    const selectedPageFound = e.selected;
+    setOffsetFound(selectedPageFound + 1);
+  };
 
-  const currentPostsFound = itemFoundFilter.slice(
-    indexOfFirstPost,
-    indexOfLastPost
-  );
-  console.log(currentPostsFound);
-  console.log(itemFoundFilter.length);
+  /**********Lost Cards ********************/
 
-  const currentPostsLost = itemLostFilter.slice(
-    indexOfFirstPost,
-    indexOfLastPost
-  );
+  // Filtering cards by "lost" value
 
-  //Change page
-  const paginateFound = (pageNumber) => setCurrentPage(pageNumber);
+  const itemLostFilter = items.filter((lost) => {
+    return (
+      lost.category === "lost" &&
+      lost.name.toLowerCase().includes(searchInput.toLowerCase())
+    );
+  });
 
-  const paginateLost = (pageNumber) => setCurrentPage(pageNumber);
+  //Lost Cards Slicing
+  const sliceLost = itemLostFilter.slice(offsetLost, offsetLost + perPage);
+
+  // Pagination Lost
+
+  const handlePageClickLost = (i) => {
+    const selectedPageLost = i.selected;
+    setOffsetLost(selectedPageLost + 1);
+  };
 
   return (
     <div className="containerMain">
-      <div className="searchContainer">
-        <img
-          className="logoFound"
-          src={logo}
-          alt="found"
-          width="400"
-          height="300"
-        />
-
-        <SearchBox search={searchValueHandler} />
-      </div>
+      <Row className="lostfoundBanner">
+        <Col className="logoFound">
+          <img className="logo-found" src={logo} alt="found" />
+        </Col>
+        <Col className="searchBox">
+          <Search search={searchValueHandler} />
+        </Col>
+      </Row>
       <div className="foundContainer">
-        <h2 className="lostfoundTitle">
-          <strong>Found Items</strong>
+        <h2 className="foundTitle">
+          <strong>Found properties</strong>
         </h2>
-        <FoundList items={currentPostsFound} loading={loading} />
-        <PaginationFound
-          postsPerPage={postsPerPage}
-          totalPosts={itemFoundFilter.length}
-          paginate={paginateFound}
-        />
+        <div className="pagination-mob">
+          <ReactPaginate
+            previousLabel={"<<<prev"}
+            nextLabel={"next>>>"}
+            breakLabel={"..."}
+            breakClassName={"break-me"}
+            pageCount={Math.ceil(itemFoundFilter.length / perPage)}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={handlePageClickFound}
+            containerClassName={"pagination"}
+            subContainerClassName={"pages pagination"}
+            activeClassName={"active"}
+          />
+        </div>
+        <div>
+          <FoundList items={sliceFound} loading={loading} />
+        </div>
+        <div className="pagination-desc">
+          <ReactPaginate
+            previousLabel={"<<<prev"}
+            nextLabel={"next>>>"}
+            breakLabel={"..."}
+            breakClassName={"break-me"}
+            pageCount={Math.ceil(itemFoundFilter.length / perPage)}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={handlePageClickFound}
+            containerClassName={"pagination"}
+            subContainerClassName={"pages pagination"}
+            activeClassName={"active"}
+          />
+        </div>
       </div>
       <div className="lostContainer">
-        <h2 className="lostfoundTitle">
-          <strong>Lost items</strong>
+        <h2 className="lostTitle">
+          <strong>Lost properties</strong>
         </h2>
-        <LostList items={currentPostsLost} loading={loading} />
-        <PaginationLost
-          postsPerPage={postsPerPage}
-          totalPosts={itemLostFilter.length}
-          paginate={paginateLost}
-        />
+        <div className="pagination-mob">
+          <ReactPaginate
+            previousLabel={"<<<prev"}
+            nextLabel={"next>>>"}
+            breakLabel={"..."}
+            breakClassName={"break-me"}
+            pageCount={Math.ceil(itemLostFilter.length / perPage)}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={handlePageClickLost}
+            containerClassName={"pagination"}
+            subContainerClassName={"pages pagination"}
+            activeClassName={"active"}
+          />
+        </div>
+        <div>
+          <LostList items={sliceLost} loading={loading} />
+        </div>
+        <div className="pagination-desc">
+          <ReactPaginate
+            previousLabel={"<<<prev"}
+            nextLabel={"next>>>"}
+            breakLabel={"..."}
+            breakClassName={"break-me"}
+            pageCount={Math.ceil(itemLostFilter.length / perPage)}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={handlePageClickLost}
+            containerClassName={"pagination"}
+            subContainerClassName={"pages pagination"}
+            activeClassName={"active"}
+          />
+        </div>
       </div>
       <div className="formContainer">
-        <h2 className="lostfoundTitle">
-          <strong>Add found/lost item</strong>
+        <h2 className="formTitle">
+          <strong>Add found/lost property </strong>
         </h2>
         <AddForm />
       </div>
-      <LostPag />
-      <FoundPag />
     </div>
   );
 };

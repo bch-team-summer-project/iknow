@@ -6,7 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import SearchIcon from "@material-ui/icons/Search";
 
 const useStyles = makeStyles((theme) => ({
-  margin: {
+  searchmargin: {
     margin: theme.spacing(1),
   },
 }));
@@ -15,7 +15,7 @@ export default function InputWithIcon({ search }) {
   const classes = useStyles();
 
   return (
-    <div className={classes.margin}>
+    <div className={classes.searchmargin}>
       <Grid container spacing={1} alignItems="flex-end">
         <Grid item>
           <SearchIcon />

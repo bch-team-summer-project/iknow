@@ -7,17 +7,17 @@ const FoundList = ({ items, loading }) => {
     return <h2>Loading ...</h2>;
   }
   return (
-    <CardGroup>
-      {items.map((item) => (
+    <CardGroup className="found-cards-group">
+      {items.map((found) => (
         <FoundCard
-          key={item.id}
-          img={item.img}
-          name={item.name}
-          date={item.date}
-          location={item.location}
-          placeOrigin={item.placeOrigin}
-          description={item.description}
-          id={item.id}
+          key={found.id}
+          img={found.img}
+          name={found.name}
+          date={found.date}
+          location={found.location}
+          placeorigin={found.placeorigin}
+          description={found.description}
+          id={found.id}
         />
       ))}
     </CardGroup>

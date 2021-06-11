@@ -13,7 +13,7 @@ const ScrollContainer = () => {
                 <img src="/assets/images/home/uusina.png" alt="uusima events" />
               </div>
             </div>
-            <span className="card-text uusima">Uusimaa Events</span>
+            <span className="textoncard uusima">Uusimaa Events</span>
           </Link>
         </div>
         <div className="horizontal-scroll__block">
@@ -26,7 +26,7 @@ const ScrollContainer = () => {
                 />
               </div>
             </div>
-            <span className="card-text beach">Beach Water t&#8451;</span>
+            <span className="textoncard beach">Beach Water t&#8451;</span>
           </Link>
         </div>
         <div className="horizontal-scroll__block">
@@ -36,7 +36,7 @@ const ScrollContainer = () => {
                 <img src="/assets/images/home/lost.png" alt="lost and found" />
               </div>
             </div>
-            <span className="card-text lostfound">Lost &amp; Found</span>
+            <span className="textoncard lostfound">Lost &amp; Found</span>
           </Link>
         </div>
         {/*     <div className="horizontal-scroll__block horizontal-scroll__block--four">
@@ -49,7 +49,7 @@ const ScrollContainer = () => {
                 />
               </div>
             </div>
-            <span className="card-text laundry">Laundry booking</span>
+            <span className="textoncard laundry">Laundry booking</span>
           </Link>
         </div> */}
         {/* <div className="horizontal-scroll__block horizontal-scroll__block--five">

@@ -1,24 +1,41 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
+import { makeStyles } from "@material-ui/core/styles";
 import "./BeachTemprature.css";
 
+// location icon //
+const useStyles = makeStyles((theme) => ({
+  clickableIcon: {
+    color: "black",
+    "&:hover": {
+      color: "blue",
+    },
+  },
+}));
+// beach temprature card component which has 
 const BeachTempratureCard = ({ beachTemprature }) => {
+  const classes = useStyles();
   return (
-    <Card key={beachTemprature.id}>
+    <Card className="card-beaches " key={beachTemprature.id}>
       <Card.Img
+        className="card-img-top-beach"
         variant="top"
         src={beachTemprature.image}
         alt={beachTemprature.name}
       />
       <Card.Body>
-        <Card.Title>
+        <Card.Title className= {classes.clickableIcon} onClick={() => window.open(beachTemprature.beachLocation)}>
           <span>
-            <LocationOnIcon />
+            <LocationOnIcon
+              onClick={() => window.open(beachTemprature.beachLocation)}
+              className={classes.clickableIcon}
+            />
           </span>
           {beachTemprature.beachName}
         </Card.Title>
         <Card.Text
+          className="card-text-beach"
           style={
             beachTemprature.waterTemp > 10
               ? { backgroundColor: "orange" }
