@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 const BeachTempratureCard = ({ beachTemprature }) => {
   const classes = useStyles();
   return (
-    <Card className="card-beaches" key={beachTemprature.id}>
+    <Card className="card-beaches " key={beachTemprature.id}>
       <Card.Img
         className="card-img-top-beach"
         variant="top"
@@ -25,7 +25,7 @@ const BeachTempratureCard = ({ beachTemprature }) => {
         alt={beachTemprature.name}
       />
       <Card.Body>
-        <Card.Title className="title-beaches">
+        <Card.Title className= {classes.clickableIcon} onClick={() => window.open(beachTemprature.beachLocation)}>
           <span>
             <LocationOnIcon
               onClick={() => window.open(beachTemprature.beachLocation)}
