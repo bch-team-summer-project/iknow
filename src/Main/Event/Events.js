@@ -16,133 +16,115 @@ function Events() {
   const [events, setEvents] = useState([]);
   const [online, setOnline] = useState([]);
   const [offline, setOffline] = useState([]);
-  const [all, setAll] = useState([]);
+
   const [custom, setCustom] = useState([]);
   const [query, setQuery] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [heading, setHeading] = useState("");
-  const [offHeading, setOffHeading] = useState("");
+
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   let { url } = useRouteMatch();
-  const loader = useRef();
+  // loader is empty
+  const loader = useRef(); // useRef to access DOM elements
 
+  // useCallback to only render when target is intersecting, not on everytime render Events functional component
   const handleObserver = useCallback((entries) => {
     const target = entries[0];
     if (target.isIntersecting) {
+      // if target is intersecting, fetch new page
       setPage((prev) => prev + 1);
     }
   }, []);
 
   useEffect(() => {
     const option = {
-      root: null,
-      rootMargin: "20px",
-      threshold: 0,
+      root: null, // the root to use with intersection
+      rootMargin: "20px", // root margin
+      threshold: 0, // use to trigger the callback when the intersection's area changed
     };
-    const observer = new IntersectionObserver(handleObserver, option);
-    if (loader.current) observer.observe(loader.current);
+    const observer = new IntersectionObserver(handleObserver, option); //IntersectionObserver API to asynchronously observe changes in the intersection of a target element
+    if (loader.current) observer.observe(loader.current); // listen changes from the target element
   }, [handleObserver]);
-
-  useEffect(() => {
-    let cancel;
-    const getEvents = async () => {
-      try {
-        let response = await axios({
-          method: "GET",
-          url: `https://api.hel.fi/linkedevents/v1/event/?page=${page}`,
-          cancelToken: new axios.CancelToken((c) => (cancel = c)),
-        });
-        let result = await response.data;
-        setEvents((prev) => [...prev, ...result.data]);
-        setIsLoading(false);
-      } catch (e) {
-        if (axios.isCancel(e)) return;
-      }
-    };
-    getEvents();
-    return () => cancel();
-  }, [query, page]);
 
   useEffect(() => {
     setEvents([]);
   }, [query]);
 
-  // delaying search so user has time to type
-  // before searching activates ¨¨
-  useEffect(() => {
-    const delayDebounce = setTimeout(() => {
-      console.log("search term: ", searchTerm);
-      setQuery(searchTerm);
-    }, 3000);
-    return () => clearTimeout(delayDebounce);
-  }, [searchTerm]);
-  // load more events when reached end of currently displayed events, after going back from EventSpa
-  // window.onscroll = () => {
-  //   if (
-  //     window.innerHeight + window.pageYOffset >=
-  //     document.body.offsetHeight - 2
-  //   ) {
-  //     getEvents();
-  //   }
-  // };
+  // get all events
+  const getEvents = useCallback(async () => {
+    try {
+      let response = await axios.get(
+        `https://api.hel.fi/linkedevents/v1/event/?all_ongoing&page=${page}`
+      );
+      let result = await response.data;
+      setEvents((prev) => {
+        return [...new Set([...prev, ...result.data])]; // Set return unique values only & combine new data to the same array
+      });
+      setIsLoading(false);
+    } catch (e) {
+      // catch error
+      if (e) return;
+    }
+    setHeading((prev) => (prev = "All Events"));
+    setOffline([]); // remove offline events
+    setOnline([]); // remove online events
+  }, [page]);
+  console.log("events ", events);
 
-  const getOnlineEvents = async () => {
+  // useCallback to get online events only when it got invoked by clicking offline category
+  const getOffline = useCallback(async () => {
     setIsLoading(true);
-    setEvents([]);
-    setAll([]);
-    setOffline([]);
-    setOffHeading("");
-    setPage(1);
+    setEvents([]); // remove all events
+    setOnline([]); // remove online events
+    // setPage(1);
+    let res = await axios.get(
+      `https://api.hel.fi/linkedevents/v1/event/?local_ongoing&page=${page}`
+    );
+    let result = await res.data;
+    setOffline((prev) => [...prev, ...result.data]);
+    setHeading((prev) => (prev = "Offline Events"));
+    setIsLoading(false);
+  }, [page]);
+
+  // useCallback to get online events only when it got invoked by clicking online category
+  const getOnlineEvents = useCallback(async () => {
+    setIsLoading(true);
+    setEvents([]); // remove all events
+    setOffline([]); // remove offline events
+    // setPage(1);
     let res = await axios.get(
       `https://api.hel.fi/linkedevents/v1/event/?internet_ongoing&page=${page}`
     );
     let result = await res.data;
-    setOnline(result.data);
-    setHeading("Online Events");
+    setOnline((prev) => [...prev, ...result.data]);
+    setHeading((prev) => (prev = "Online Events"));
     setIsLoading(false);
-  };
-  console.log("online ", online);
+  }, [page]);
 
-  const getOffline = async () => {
-    setIsLoading(true);
-    setEvents([]);
-    setAll([]);
-    setOnline([]);
-    setHeading("");
-    setPage(1);
-    let res = await axios.get(
-      `https://api.hel.fi/linkedevents/v1/event/?local_ongoing&sort=-last_modified_time&page=${page}`
-    );
-    let result = await res.data;
-    setOffline(result.data);
-    setOffHeading("Offline Events");
-    setIsLoading(false);
-  };
-  console.log("offline ", offline);
+  // infinite scroll will only works with get all events since useEffect shouldnt be used with conditional rendering => cant apply to getOnlineEvents or getOffline
+  // TODO: make custom hooks for infinte scroll and import it
+  useEffect(() => {
+    getEvents();
+  }, [page, getEvents]);
 
-  const getAll = async () => {
-    setOnline([]);
-    setOffline([]);
-    setIsLoading(true);
-    setOffHeading("");
-    setHeading("");
-    setPage(1);
-    let res = await axios.get(
-      `https://api.hel.fi/linkedevents/v1/event/?all_ongoing&sort=-end_time&page=${page}`
-    );
-    let result = res.data;
-    setAll(result);
-    setIsLoading(false);
-  };
+  // delaying search so user has time to type
+  // before searching activates ¨¨
+  useEffect(() => {
+    const delayDebounce = setTimeout(() => {
+      setQuery(searchTerm);
+    }, 3000);
+    return () => clearTimeout(delayDebounce);
+  }, [searchTerm]);
 
+  // get events created from new event form
   const getCustom = async () => {
     let res = await axios.get("https://iknow-backend.herokuapp.com/newevent");
     let result = res.data;
     setCustom(result);
   };
-  console.log("custom", custom);
 
+  // search all events on query
   const handleSearch = events.filter((e) => {
     if (e.name.en) {
       return e.name.en.toLowerCase().includes(query.toLowerCase());
@@ -153,6 +135,7 @@ function Events() {
     }
   });
 
+  // search online events on query
   const onlineSearch = online.filter((e) => {
     if (e.name.en) {
       return e.name.en.toLowerCase().includes(query.toLowerCase());
@@ -163,6 +146,7 @@ function Events() {
     }
   });
 
+  // search offline events on query
   const offlineSearch = offline.filter((e) => {
     if (e.name.en) {
       return e.name.en.toLowerCase().includes(query.toLowerCase());
@@ -173,10 +157,27 @@ function Events() {
     }
   });
 
+  // search events created from new event form on query
   const customSearch = custom.filter((e) => {
     return e.name.toLowerCase().includes(query.toLowerCase());
   });
 
+  // window.onscroll = () => {
+  //   if (
+  //     window.innerHeight + window.pageYOffset >=
+  //     document.body.offsetHeight - 2
+  //   ) {
+  //     if (online.length) {
+  //       getOnlineEvents();
+  //       // } else if (online) {
+  //       //   getOnlineEvents();
+  //     } else if (offline.length) {
+  //       getOffline();
+  //     } else {
+  //       getEvents();
+  //     }
+  //   }
+  // };
   return (
     <div className="events-container" id="events-container">
       <Switch>
@@ -204,7 +205,7 @@ function Events() {
                 <Col
                   className="orange-card text-light d-flex align-items-center justify-content-center me-2"
                   onClick={() => {
-                    getAll();
+                    getEvents();
                     getCustom();
                   }}
                 >
@@ -239,12 +240,20 @@ function Events() {
           </div>
           {isLoading && <p>Loading...</p>}
           <section className="events">
-            {online && <EventList events={onlineSearch} heading={heading} />}
+            <h1>{heading}</h1>
+            {online && (
+              <>
+                <EventList events={onlineSearch} />
+              </>
+            )}
+
             {offline && (
-              <EventList events={offlineSearch} heading={offHeading} />
+              <>
+                <EventList events={offlineSearch} />
+              </>
             )}
             {custom && <CustomEvent custom={customSearch} />}
-            {(events || all) && <EventList events={handleSearch} />}
+            {events && <EventList events={handleSearch} />}
           </section>
         </Route>
 
@@ -256,7 +265,9 @@ function Events() {
           <EventSpa />
         </Route>
       </Switch>
+      {/* target */}
       <div ref={loader} />
+      {/* target */}
     </div>
   );
 }

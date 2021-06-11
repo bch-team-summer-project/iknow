@@ -1,10 +1,9 @@
 import React from "react";
 import EventCard from "./EventCard";
 
-function EventList({ events, heading }) {
+function EventList({ events }) {
   return (
     <div className="eventList">
-      <h1 className="px-5 mb-5">{heading}</h1>
       {events.map((e) => {
         if (e.images.length) {
           // if array.length is truthy(>0) => process array
